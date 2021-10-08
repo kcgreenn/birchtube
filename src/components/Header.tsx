@@ -21,7 +21,7 @@ import AppsIcon from '@material-ui/icons/Apps';
 import PersonPinIcon from '@material-ui/icons/PersonPin';
 import ImportContactsIcon from '@material-ui/icons/ImportContacts';
 import MailIcon from '@material-ui/icons/Mail';
-import GitHubIcon from '@material-ui/icons/Github';
+import GitHubIcon from '@material-ui/icons/GitHub';
 import LinkedInIcon from '@material-ui/icons/LinkedIn';
 import { Link } from 'gatsby-theme-material-ui';
 import { graphql, useStaticQuery } from 'gatsby';
