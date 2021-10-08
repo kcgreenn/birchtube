@@ -43,64 +43,65 @@ export default function IntroSection(): JSX.Element {
             position: 'relative'
           }}
         >
-          {matches && (
-            <Grid
-              item
-              xs={12}
-              md={6}
+          <Grid
+            item
+            xs={12}
+            md={6}
+            style={{
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'space-evenly',
+              height: '50vh',
+              minHeight: '256px'
+            }}
+          >
+            <div
               style={{
-                display: 'flex',
-                flexDirection: 'column',
-                justifyContent: 'space-evenly',
-                height: '50vh',
-                minHeight: '256px'
+                backgroundImage: `url(https://res.cloudinary.com/df5cy5c76/image/upload/c_thumb,w_200,g_face/v1633645925/IMG_0022_djdmlm.jpg) !important`,
+                minHeight: '200px',
+                width: '187px',
+                borderRadius: '10px',
+                border: '5px solid #37474f',
+                backgroundRepeat: 'no-repeat',
+                backgroundSize: 'cover'
+                // backgroundPosition: '15% '
               }}
-            >
-              <div
-                style={{
-                  backgroundImage: `url(https://res.cloudinary.com/df5cy5c76/image/upload/c_thumb,w_200,g_face/v1633645925/IMG_0022_djdmlm.jpg) !important`,
-                  minHeight: '200px',
-                  width: '187px',
-                  borderRadius: '10px',
-                  border: '5px solid #37474f',
-                  backgroundRepeat: 'no-repeat',
-                  backgroundSize: 'cover'
-                }}
-              />
-
-              <Typography
-                variant="h5"
-                component="h3"
-                style={{ color: '#6288d5' }}
-              >
-                Residence:{' '}
-                <Typography color="textPrimary" component="span" variant="h5">
-                  Beautiful Chester County, PA!
+            />
+            {matches && (
+              <React.Fragment>
+                <Typography
+                  variant="h5"
+                  component="h3"
+                  style={{ color: '#6288d5' }}
+                >
+                  Residence:{' '}
+                  <Typography color="textPrimary" component="span" variant="h5">
+                    Beautiful Chester County, PA!
+                  </Typography>
                 </Typography>
-              </Typography>
-              <Typography
-                variant="h5"
-                component="h3"
-                style={{ color: '#6288d5' }}
-              >
-                Email:{' '}
-                <Typography component="span" color="textPrimary" variant="h5">
-                  kyle@kcgreen.dev
+                <Typography
+                  variant="h5"
+                  component="h3"
+                  style={{ color: '#6288d5' }}
+                >
+                  Email:{' '}
+                  <Typography component="span" color="textPrimary" variant="h5">
+                    kyle@kcgreen.dev
+                  </Typography>
                 </Typography>
-              </Typography>
-              <Typography
-                variant="h5"
-                component="h3"
-                style={{ color: '#6288d5' }}
-              >
-                Freelance:{' '}
-                <Typography component="span" color="textPrimary" variant="h5">
-                  Available
+                <Typography
+                  variant="h5"
+                  component="h3"
+                  style={{ color: '#6288d5' }}
+                >
+                  Freelance:{' '}
+                  <Typography component="span" color="textPrimary" variant="h5">
+                    Available
+                  </Typography>
                 </Typography>
-              </Typography>
-            </Grid>
-          )}
-
+              </React.Fragment>
+            )}
+          </Grid>
           <Grid
             item
             xs={12}
@@ -122,20 +123,6 @@ export default function IntroSection(): JSX.Element {
             >
               Software Developer
             </Typography>
-            {!matches && (
-              <div
-                style={{
-                  backgroundImage: `url(https://res.cloudinary.com/df5cy5c76/image/upload/c_thumb,w_200,g_face/v1633645925/IMG_0022_djdmlm.jpg) !important`,
-                  minHeight: '200px',
-                  width: '187px',
-                  borderRadius: '10px',
-                  border: '5px solid #37474f',
-                  backgroundRepeat: 'no-repeat',
-                  backgroundSize: 'cover'
-                  // backgroundPosition: '15% '
-                }}
-              />
-            )}
             <Typography
               component="p"
               variant="body1"

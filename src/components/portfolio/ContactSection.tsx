@@ -49,10 +49,11 @@ export default function ContactSection({ ref }: any): JSX.Element {
             <form
               name="Contact Form"
               method="POST"
+              content-type="application/x-www-form-urlencoded"
               data-netlify="true"
-              action="/#contact"
+              action="javascript:void(0);"
             >
-              <input type="hidden" name="Contact Form" value="Contact Form" />
+              {/* <input type="hidden" name="Contact Form" value="Contact Form" /> */}
               <TextField
                 label="Name"
                 fullWidth
@@ -83,6 +84,7 @@ export default function ContactSection({ ref }: any): JSX.Element {
                 rows={6}
               ></TextField>
               <Button
+                name="Submit Button"
                 className={classes.contactField}
                 type="submit"
                 variant="contained"
