@@ -11,6 +11,7 @@ import {
 import React from 'react';
 import { useMobileStyles, useStyles } from '../../styles/indexStyles';
 import mockupImg from '../../images/mockup.png';
+import * as portfolioStyles from './PortfolioStyles.module.css';
 
 export default function ContactSection({ ref }: any): JSX.Element {
   const matches = useMediaQuery('(min-width:800px');
@@ -26,7 +27,7 @@ export default function ContactSection({ ref }: any): JSX.Element {
       >
         Contact
       </Typography>
-      <Paper className={classes.portSection}>
+      <Paper className={portfolioStyles.portSection}>
         <Grid
           id="contact"
           ref={ref}
@@ -53,7 +54,7 @@ export default function ContactSection({ ref }: any): JSX.Element {
               data-netlify="true"
               action="javascript:void(0);"
             >
-              {/* <input type="hidden" name="Contact Form" value="Contact Form" /> */}
+              <input type="hidden" name="Contact Form" value="Contact Form" />
               <TextField
                 label="Name"
                 fullWidth
@@ -61,7 +62,7 @@ export default function ContactSection({ ref }: any): JSX.Element {
                 required
                 id="name"
                 name="name"
-                className={classes.contactField}
+                className={portfolioStyles.contactField}
               ></TextField>
               <TextField
                 label="Email"
@@ -70,7 +71,7 @@ export default function ContactSection({ ref }: any): JSX.Element {
                 required
                 id="email"
                 name="email"
-                className={classes.contactField}
+                className={portfolioStyles.contactField}
               ></TextField>
               <TextField
                 label="Message"
@@ -79,13 +80,13 @@ export default function ContactSection({ ref }: any): JSX.Element {
                 fullWidth
                 id="message"
                 name="message"
-                className={classes.contactField}
+                className={portfolioStyles.contactField}
                 multiline
                 rows={6}
               ></TextField>
               <Button
                 name="Submit Button"
-                className={classes.contactField}
+                className={portfolioStyles.contactField}
                 type="submit"
                 variant="contained"
                 fullWidth

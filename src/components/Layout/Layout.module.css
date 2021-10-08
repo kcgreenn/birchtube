@@ -1,0 +1,17 @@
+.main {
+  overflow: hidden;
+  background-color: #3e3e3e;
+  padding-bottom: 1rem;
+}
+.bgImg {
+  min-width: 200;
+  min-height: 200;
+}
+.imgOverlay {
+  background: linear-gradient(
+    180deg,
+    rgba(74, 74, 74, 0.6) 0%,
+    rgba(74, 74, 74, 0.7562359943977591) 20%,
+    rgba(74, 74, 74, 1) 49%
+  );
+}

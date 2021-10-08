@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Link } from 'gatsby';
 import { Grid, Typography } from '@material-ui/core';
-import Layout from '../components/Layout';
+import Layout from '../components/Layout/Layout';
 
 const NotFoundPage = (): JSX.Element => {
   return (

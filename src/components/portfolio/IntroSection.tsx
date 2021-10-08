@@ -8,15 +8,14 @@ import {
 } from '@material-ui/core';
 import React from 'react';
 import { useMobileStyles, useStyles } from '../../styles/indexStyles';
-import ArrowDownwardIcon from '@material-ui/icons/ArrowDownward';
-import { GatsbyImage } from 'gatsby-plugin-image';
+import * as portfolioStyles from './PortfolioStyles.module.css';
 
 type AppProps = {
   profileImage: any;
 };
 
 export default function IntroSection(): JSX.Element {
-  const matches = useMediaQuery('(min-width:950px');
+  const matches = useMediaQuery('(min-width:600px');
   const classes = matches ? useStyles() : useMobileStyles();
 
   return (
@@ -35,7 +34,7 @@ export default function IntroSection(): JSX.Element {
         }}
       >
         <Grid
-          className={classes.portSection}
+          className={portfolioStyles.portSection}
           container
           justifyContent={matches ? 'flex-end' : 'flex-start'}
           alignItems="center"
@@ -46,7 +45,7 @@ export default function IntroSection(): JSX.Element {
           <Grid
             item
             xs={12}
-            md={6}
+            sm={6}
             style={{
               display: 'flex',
               flexDirection: 'column',
@@ -59,53 +58,48 @@ export default function IntroSection(): JSX.Element {
               style={{
                 backgroundImage: `url(https://res.cloudinary.com/df5cy5c76/image/upload/c_thumb,w_200,g_face/v1633645925/IMG_0022_djdmlm.jpg) !important`,
                 minHeight: '200px',
-                width: '187px',
+                width: '254px',
                 borderRadius: '10px',
                 border: '5px solid #37474f',
                 backgroundRepeat: 'no-repeat',
                 backgroundSize: 'cover'
-                // backgroundPosition: '15% '
               }}
             />
-            {matches && (
-              <React.Fragment>
-                <Typography
-                  variant="h5"
-                  component="h3"
-                  style={{ color: '#6288d5' }}
-                >
-                  Residence:{' '}
-                  <Typography color="textPrimary" component="span" variant="h5">
-                    Beautiful Chester County, PA!
-                  </Typography>
-                </Typography>
-                <Typography
-                  variant="h5"
-                  component="h3"
-                  style={{ color: '#6288d5' }}
-                >
-                  Email:{' '}
-                  <Typography component="span" color="textPrimary" variant="h5">
-                    kyle@kcgreen.dev
-                  </Typography>
-                </Typography>
-                <Typography
-                  variant="h5"
-                  component="h3"
-                  style={{ color: '#6288d5' }}
-                >
-                  Freelance:{' '}
-                  <Typography component="span" color="textPrimary" variant="h5">
-                    Available
-                  </Typography>
-                </Typography>
-              </React.Fragment>
-            )}
+            <Typography
+              variant="h5"
+              component="h3"
+              style={{ color: '#6288d5' }}
+            >
+              Residence:{' '}
+              <Typography color="textPrimary" component="span" variant="h5">
+                Beautiful Chester County, PA!
+              </Typography>
+            </Typography>
+            <Typography
+              variant="h5"
+              component="h3"
+              style={{ color: '#6288d5' }}
+            >
+              Email:{' '}
+              <Typography component="span" color="textPrimary" variant="h5">
+                kyle@kcgreen.dev
+              </Typography>
+            </Typography>
+            <Typography
+              variant="h5"
+              component="h3"
+              style={{ color: '#6288d5' }}
+            >
+              Freelance:{' '}
+              <Typography component="span" color="textPrimary" variant="h5">
+                Available
+              </Typography>
+            </Typography>
           </Grid>
           <Grid
             item
             xs={12}
-            md={6}
+            sm={6}
             style={{
               display: 'flex',
               flexDirection: 'column',
@@ -133,40 +127,6 @@ export default function IntroSection(): JSX.Element {
               quibusdam facilis nesciunt ex. Ipsum saepe reprehenderit fugit
               veritatis provident tempore, libero recusandae quaerat.
             </Typography>
-            {!matches && (
-              <div style={{ margin: '0.5rem 0' }}>
-                <Typography
-                  variant="h5"
-                  component="h3"
-                  style={{ color: '#6288d5', margin: '0.5rem 0' }}
-                >
-                  Residence:{' '}
-                  <Typography color="textPrimary" component="span" variant="h5">
-                    Beautiful Chester County PA!
-                  </Typography>
-                </Typography>
-                <Typography
-                  variant="h5"
-                  component="h3"
-                  style={{ color: '#6288d5', margin: '0.5rem 0' }}
-                >
-                  Email:{' '}
-                  <Typography component="span" color="textPrimary" variant="h5">
-                    kyle@kcgreen.dev
-                  </Typography>
-                </Typography>
-                <Typography
-                  variant="h5"
-                  component="h3"
-                  style={{ color: '#6288d5', margin: '0.5rem 0' }}
-                >
-                  Freelance:{' '}
-                  <Typography component="span" color="textPrimary" variant="h5">
-                    Available
-                  </Typography>
-                </Typography>
-              </div>
-            )}
             <Button
               variant="contained"
               color="secondary"

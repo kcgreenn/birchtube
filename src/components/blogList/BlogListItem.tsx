@@ -3,47 +3,13 @@ import {
   CardActionArea,
   CardContent,
   CardMedia,
-  Grid,
   Button,
-  ListItem,
-  ListItemText,
   Paper,
-  Typography,
-  useMediaQuery
+  Typography
 } from '@material-ui/core';
-import { makeStyles } from '@material-ui/styles';
 import React from 'react';
-import { Link } from 'gatsby-theme-material-ui';
-import codeImg from '../../images/codeScreen.jpg';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
-
-const useStyles = makeStyles({
-  blogPostItem: {
-    borderTop: '1px solid #cecece',
-    marginTop: '2rem'
-  },
-  blogDateSpan: {
-    color: '#aeaeae'
-  },
-  blogListTitle: {
-    color: '#6288d5',
-    fontWeight: 600
-  }
-});
-
-const useMobileStyles = makeStyles({
-  blogPostItem: {
-    borderTop: '1px solid #cecece',
-    margin: '4rem 0'
-  },
-  blogDateSpan: {
-    color: '#aeaeae'
-  },
-  blogListTitle: {
-    color: '#6288d5',
-    fontWeight: 600
-  }
-});
+import * as ItemStyles from './BlogListItem.module.css';
 
 type AppProps = {
   title: string;
@@ -62,12 +28,10 @@ export default function BlogListItem({
   publishDate,
   summary
 }: AppProps): JSX.Element {
-  const matches = useMediaQuery('min-width: 800px');
-  const classes = matches ? useStyles() : useMobileStyles();
   const postImg = getImage(image);
 
   return (
-    <Paper key={id}>
+    <Paper key={id} className={ItemStyles.blogPostItem}>
       <Button component="a" href={`/posts${slug}`}>
         <Card style={{ padding: '0rem 0' }}>
           <CardActionArea>
@@ -89,7 +53,7 @@ export default function BlogListItem({
                 gutterBottom
                 variant="h4"
                 align="left"
-                style={{ fontWeight: 600 }}
+                className={ItemStyles.blogPostTitle}
               >
                 {title}
               </Typography>

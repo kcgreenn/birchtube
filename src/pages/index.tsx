@@ -1,6 +1,6 @@
 import { Container, Fab, useMediaQuery } from '@material-ui/core';
 import React, { useRef } from 'react';
-import Layout from '../components/Layout';
+import Layout from '../components/Layout/Layout';
 import { Link } from 'gatsby-theme-material-ui';
 import LinkedInIcon from '@material-ui/icons/LinkedIn';
 import GitHubIcon from '@material-ui/icons/GitHub';

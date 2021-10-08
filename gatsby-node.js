@@ -1,8 +1,10 @@
 const { createFilePath } = require('gatsby-source-filesystem');
 const path = require('path');
 
-const PostTemplate = path.resolve('./src/templates/BlogPost.tsx');
-const BlogListTemplate = path.resolve('./src/templates/BlogListTemplate.tsx');
+const PostTemplate = path.resolve('./src/templates/BlogPost/BlogPost.tsx');
+const BlogListTemplate = path.resolve(
+  './src/templates/BlogList/BlogListTemplate.tsx'
+);
 
 // Called whenever a new node is created, i.e. a blog post
 //  Was used to listen for node creation locally

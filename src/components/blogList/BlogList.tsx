@@ -1,11 +1,4 @@
-import {
-  Button,
-  Grid,
-  List,
-  ListItem,
-  Typography,
-  useMediaQuery
-} from '@material-ui/core';
+import { Grid, Typography } from '@material-ui/core';
 import React from 'react';
 import BlogListItem from './BlogListItem';
 

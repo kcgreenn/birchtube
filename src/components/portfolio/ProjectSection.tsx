@@ -7,20 +7,15 @@ import {
   Grid,
   IconButton,
   Paper,
-  Typography,
-  useMediaQuery
+  Typography
 } from '@material-ui/core';
-import { GatsbyImage, getImage, StaticImage } from 'gatsby-plugin-image';
+import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import React from 'react';
 import GitHubIcon from '@material-ui/icons/GitHub';
 import WebIcon from '@material-ui/icons/Web';
-import { useMobileStyles, useStyles } from '../../styles/indexStyles';
-import codeImg from '../../images/codeScreen.jpg';
+import * as portfolioStyles from './PortfolioStyles.module.css';
 
 export default function ProjectSection({ projects }: any): JSX.Element {
-  const matches = useMediaQuery('(min-width:800px');
-  const classes = matches ? useStyles() : useMobileStyles();
-
   const projectGroup = projects.map(({ node }: any) => {
     const projImg = getImage(node.image.gatsbyImageData);
     return (
@@ -66,17 +61,20 @@ export default function ProjectSection({ projects }: any): JSX.Element {
   });
   return (
     <>
-      <Typography variant="h2" component="h2" style={{ color: 'white' }}>
+      <Typography
+        variant="h2"
+        component="h2"
+        className={portfolioStyles.sectionTitle}
+      >
         Recent Projects
       </Typography>
-      <Paper className={classes.portSection}>
+      <Paper className={portfolioStyles.portSection}>
         <Grid
           container
           spacing={3}
           id="project"
           justifyContent="flex-start"
           alignItems="stretch"
-          className={classes.portSection}
         >
           {projectGroup}
         </Grid>

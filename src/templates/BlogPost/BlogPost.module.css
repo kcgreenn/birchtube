@@ -1,0 +1,43 @@
+.postBody {
+  padding: 2rem 8rem 2rem 1rem;
+  z-index: 99 !important;
+}
+.postBody p {
+  font-size: 1.25rem;
+}
+.postBody h2 {
+  font-size: 1.5rem;
+  border-bottom: 1px solid #cecece;
+}
+.postBody code {
+  background: #f4f4f4;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  border-left: 3px solid #f36d33;
+  color: #666;
+  page-break-inside: avoid;
+  font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
+    Bitstream Vera Sans Mono, Courier New, monospace;
+  font-size: 15px;
+  line-height: 1.6;
+  margin-bottom: 1.6em;
+  max-width: 100%;
+  overflow: auto;
+  padding: 1em 1.5em;
+  display: block;
+  word-wrap: break-word;
+}
+.sideLists {
+  margin-right: 64px;
+}
+@media only screen and (max-width: 600px) {
+  .postBody {
+    padding: 1rem;
+    font-size: 1rem;
+  }
+  .sideLists {
+    margin: 2rem 0;
+    padding-top: 0;
+    padding-left: 2rem;
+  }
+}

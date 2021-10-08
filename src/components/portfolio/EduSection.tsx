@@ -1,18 +1,9 @@
-import {
-  Card,
-  CardMedia,
-  Grid,
-  Paper,
-  Typography,
-  useMediaQuery
-} from '@material-ui/core';
+import { Grid, Paper, Typography, useMediaQuery } from '@material-ui/core';
 import React from 'react';
-import { useMobileStyles, useStyles } from '../../styles/indexStyles';
-import eduImg from '../../images/WGU_Graduation_Anaheim_2019.jpg';
+import * as portfolioStyles from './PortfolioStyles.module.css';
 
 export default function EduSection() {
   const matches = useMediaQuery('(min-width:800px');
-  const classes = matches ? useStyles() : useMobileStyles();
 
   const educationItems = [
     {
@@ -47,7 +38,7 @@ export default function EduSection() {
         <Typography
           variant="h4"
           component="p"
-          className={classes.subtitle}
+          className={portfolioStyles.subtitle}
           style={{
             writingMode: matches ? 'vertical-rl' : ''
           }}
@@ -91,7 +82,7 @@ export default function EduSection() {
             <Typography
               variant="h5"
               component="h2"
-              className={classes.subtitle}
+              className={portfolioStyles.subtitle}
             >
               Awards Attained:
             </Typography>
@@ -111,17 +102,16 @@ export default function EduSection() {
       <Typography
         variant="h2"
         component="h2"
-        style={{ color: 'white' }}
+        className={portfolioStyles.sectionTitle}
         align="right"
       >
         Education
       </Typography>
       <Paper
         style={{
-          paddingBottom: '1rem',
-          minHeight: '40vh'
+          paddingBottom: '1rem'
         }}
-        className={classes.portSection}
+        className={portfolioStyles.portSection}
       >
         <Grid container justifyContent="center" alignItems="center">
           {educationGroup}

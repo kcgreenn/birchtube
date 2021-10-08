@@ -1,0 +1,29 @@
+.brand {
+  text-decoration: none;
+}
+.navLinks {
+  display: flex;
+  text-decoration: none;
+}
+.navLink {
+  color: #ccc;
+  margin-left: 16px;
+  text-decoration: none;
+}
+.navLink * {
+  color: #ccc;
+  margin-left: 16px;
+  text-decoration: none;
+}
+.navLink:hover {
+  text-decoration: underlined;
+}
+.active {
+  color: #ff9800;
+  margin-left: 16;
+}
+.active:hover {
+  text-decoration: underlined;
+}
+@media only screen and (max-width: 600px) {
+}

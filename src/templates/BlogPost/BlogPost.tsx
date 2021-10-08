@@ -1,0 +1,128 @@
+import {
+  Typography,
+  Grid,
+  Container,
+  useMediaQuery,
+  Paper
+} from '@material-ui/core';
+// import { makeStyles } from '@material-ui/styles';
+import { graphql } from 'gatsby';
+import { getImage } from 'gatsby-plugin-image';
+import React from 'react';
+import Layout from '../../components/Layout/Layout';
+import TableOfContents from '../../components/tableOfContents/TableOfContents';
+import LocalOfferIcon from '@material-ui/icons/LocalOffer';
+import TimelapseIcon from '@material-ui/icons/Timelapse';
+import { Disqus } from 'gatsby-plugin-disqus';
+import * as PostStyles from './BlogPost.module.css';
+
+type AppProps = {
+  data: any;
+};
+
+export default function BlogPost({ data: post }: AppProps): JSX.Element {
+  const matches = useMediaQuery('(min-width:600px');
+
+  const postImg = getImage(
+    post.contentfulBlogPost.jumbotronImage.gatsbyImageData
+  );
+  return (
+    <Layout bgImg={postImg}>
+      <Container maxWidth="lg">
+        <Grid
+          container
+          justifyContent="flex-start"
+          style={{ paddingTop: '96px' }}
+        >
+          <Grid item xs={12}>
+            <Typography
+              variant="body1"
+              component="p"
+              style={{ color: 'white' }}
+            >
+              <LocalOfferIcon style={{ marginRight: '8px' }} />
+              {post.contentfulBlogPost.tags.join(', ')}
+            </Typography>
+          </Grid>
+          <Grid item xs={12}>
+            <Typography variant="h2" component="h1" style={{ color: 'white' }}>
+              {post.contentfulBlogPost.title}
+            </Typography>
+          </Grid>
+          <Grid item xs={12} md={6} style={{ marginBottom: '1rem' }}>
+            <Typography
+              variant="body1"
+              component="h2"
+              align="left"
+              style={{ color: 'white' }}
+            >
+              {`Published on: ${post.contentfulBlogPost.publishedDate}`}
+            </Typography>
+          </Grid>
+          <Grid item xs={12} md={6} style={{ marginBottom: '1rem' }}>
+            <Typography
+              variant="body1"
+              component="h2"
+              align={matches ? 'right' : 'left'}
+              style={{ color: 'white' }}
+            >
+              <TimelapseIcon style={{ marginRight: '8px' }} />
+              {`${post.contentfulBlogPost.fullPost.childMarkdownRemark.timeToRead} Min Read`}
+            </Typography>
+          </Grid>
+          <Grid item xs={12} md={3}>
+            <div className={PostStyles.sideLists}>
+              <TableOfContents toc={post.contentfulBlogPost.tableOfContents} />
+            </div>
+          </Grid>
+          <Grid item xs={12} md={9} style={{ borderTop: '1px solid #cecece' }}>
+            <Paper
+              className={PostStyles.postBody}
+              dangerouslySetInnerHTML={{
+                __html:
+                  post.contentfulBlogPost.fullPost.childMarkdownRemark.html
+              }}
+            ></Paper>
+          </Grid>
+          <Grid item xs={12} md={9} style={{ marginTop: '2rem' }}>
+            <Paper style={{ padding: '2rem' }}>
+              <Disqus
+                config={{
+                  url: `https://kcgreen.dev/posts${post.slug}`,
+                  identifier: post.title,
+                  title: post.title
+                }}
+              ></Disqus>
+            </Paper>
+          </Grid>
+        </Grid>
+      </Container>
+    </Layout>
+  );
+}
+
+// slug variable provided bby context from gatsby-node.js
+export const query = graphql`
+  query fullPostQuery($slug: String!) {
+    contentfulBlogPost(node_locale: { eq: "en-US" }, slug: { eq: $slug }) {
+      id
+      title
+      slug
+      publishedDate(formatString: "MMM DD, YY")
+      author
+      tableOfContents
+      tags
+      jumbotronImage {
+        gatsbyImageData(width: 1000, placeholder: BLURRED)
+      }
+      fullPost {
+        childMarkdownRemark {
+          timeToRead
+          html
+          htmlAst
+          rawMarkdownBody
+        }
+      }
+    }
+  }
+`;

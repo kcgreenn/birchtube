@@ -1,0 +1,16 @@
+.blogPostItem {
+  border-top: 1px solid #cecece;
+  margin: 4rem 0;
+}
+.blogDateSpan {
+  color: #aeaeae;
+}
+.blogPostTitle {
+  font-weight: 600;
+}
+@media only screen and (min-width: 601px) {
+  .blogPostItem {
+    border-top: 1px solid #cecece;
+    margin-top: 2rem;
+  }
+}
