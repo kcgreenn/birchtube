@@ -1,13 +1,74 @@
 import { createTheme, responsiveFontSizes } from '@material-ui/core/styles';
 
+// let darkTheme = createTheme({
+//   palette: {
+//     type: 'dark',
+//     primary: {
+//       light: '#00363a',
+//       main: '#345f69',
+//       dark: '#00363a',
+//       contrastText: '#fff'
+//     },
+//     secondary: {
+//       light: '#00363a',
+//       main: '#00363a',
+//       dark: '#00363a',
+//       contrastText: '#000'
+//     }
+//   },
+//   typography: {
+//     fontFamily: [
+//       '-apple-system',
+//       'BlinkMacSystemFont',
+//       '"Segoe UI"',
+//       'Roboto',
+//       '"Helvetica Neue"',
+//       'Arial',
+//       'sans-serif',
+//       '"Apple Color Emoji"',
+//       '"Segoe UI Emoji"',
+//       '"Segoe UI Symbol"'
+//     ].join(','),
+//     h1: {
+//       fontSize: '5rem'
+//     },
+//     h2: {
+//       fontSize: '4rem'
+//     },
+//     h3: {
+//       fontSize: '3rem'
+//     },
+//     h4: {
+//       fontSize: '2rem'
+//     },
+//     h5: {
+//       fontSize: '1.5rem'
+//     },
+//     h6: {
+//       fontSize: '0.5rem'
+//     },
+//     body1: {
+//       fontSize: '1rem'
+//     },
+//     body2: {
+//       fontSize: '0.75rem'
+//     }
+//   }
+// });
 let theme = createTheme({
   palette: {
     type: 'light',
     primary: {
-      main: '#6288d5'
+      light: '#62727b',
+      main: '#37474f',
+      dark: '#102027',
+      contrastText: '#fff'
     },
     secondary: {
-      main: '#ff9100'
+      light: '#ffc947',
+      main: '#ff9800',
+      dark: '#c66900',
+      contrastText: '#000'
     }
   },
   typography: {
@@ -24,22 +85,28 @@ let theme = createTheme({
       '"Segoe UI Symbol"'
     ].join(','),
     h1: {
-      fontSize: '3rem'
+      fontSize: '5rem'
     },
     h2: {
-      fontSize: '2rem'
+      fontSize: '4rem'
     },
     h3: {
-      fontSize: '1.5rem'
+      fontSize: '3rem'
     },
     h4: {
-      fontSize: '1.25rem'
+      fontSize: '2rem'
     },
     h5: {
-      fontSize: '1rem'
+      fontSize: '1.5rem'
     },
     h6: {
       fontSize: '0.5rem'
+    },
+    body1: {
+      fontSize: '1rem'
+    },
+    body2: {
+      fontSize: '0.75rem'
     }
   }
 });

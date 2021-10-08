@@ -10,34 +10,36 @@ import React from 'react';
 import BlogListItem from './BlogListItem';
 
 type AppProps = {
-  title: String;
-  posts: { title: String; publishDate: String; summary: String }[];
+  title: string;
+  posts: any;
 };
 
 export default function BlogList({ title, posts }: AppProps): JSX.Element {
   return (
-    <Grid container justifyContent="center">
-      <Grid item xs={12} md={7}>
-        <Typography variant="h3" component="h2" align={'center'}>
-          {title}
-        </Typography>
-      </Grid>
-      <Grid item xs={12} md={7}>
-        <List>
-          {posts.map((post) => (
+    <React.Fragment>
+      <Typography
+        variant="h4"
+        component="h2"
+        align={'center'}
+        style={{ color: 'white' }}
+      >
+        {title}
+      </Typography>
+      <Grid container spacing={3}>
+        {posts.map(({ node }: any) => (
+          <Grid item xs={12} md={4}>
             <BlogListItem
-              title={post.title}
-              publishDate={post.publishDate}
-              summary={post.summary}
+              key={node.id}
+              id={node.id}
+              slug={node.slug}
+              image={node.jumbotronImage}
+              title={node.title}
+              publishDate={node.publishedDate}
+              summary={node.fullPost.childMarkdownRemark.excerpt}
             />
-          ))}
-          <ListItem style={{ marginTop: '4rem' }}>
-            <Button variant="outlined" fullWidth color="primary">
-              View More
-            </Button>
-          </ListItem>
-        </List>
+          </Grid>
+        ))}
       </Grid>
-    </Grid>
+    </React.Fragment>
   );
 }
