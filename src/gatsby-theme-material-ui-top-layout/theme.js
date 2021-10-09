@@ -1,60 +1,4 @@
 import { createTheme, responsiveFontSizes } from '@material-ui/core/styles';
-
-// let darkTheme = createTheme({
-//   palette: {
-//     type: 'dark',
-//     primary: {
-//       light: '#00363a',
-//       main: '#345f69',
-//       dark: '#00363a',
-//       contrastText: '#fff'
-//     },
-//     secondary: {
-//       light: '#00363a',
-//       main: '#00363a',
-//       dark: '#00363a',
-//       contrastText: '#000'
-//     }
-//   },
-//   typography: {
-//     fontFamily: [
-//       '-apple-system',
-//       'BlinkMacSystemFont',
-//       '"Segoe UI"',
-//       'Roboto',
-//       '"Helvetica Neue"',
-//       'Arial',
-//       'sans-serif',
-//       '"Apple Color Emoji"',
-//       '"Segoe UI Emoji"',
-//       '"Segoe UI Symbol"'
-//     ].join(','),
-//     h1: {
-//       fontSize: '5rem'
-//     },
-//     h2: {
-//       fontSize: '4rem'
-//     },
-//     h3: {
-//       fontSize: '3rem'
-//     },
-//     h4: {
-//       fontSize: '2rem'
-//     },
-//     h5: {
-//       fontSize: '1.5rem'
-//     },
-//     h6: {
-//       fontSize: '0.5rem'
-//     },
-//     body1: {
-//       fontSize: '1rem'
-//     },
-//     body2: {
-//       fontSize: '0.75rem'
-//     }
-//   }
-// });
 let theme = createTheme({
   palette: {
     type: 'light',
@@ -73,9 +17,6 @@ let theme = createTheme({
   },
   typography: {
     fontFamily: [
-      '-apple-system',
-      'BlinkMacSystemFont',
-      '"Segoe UI"',
       'Roboto',
       '"Helvetica Neue"',
       'Arial',

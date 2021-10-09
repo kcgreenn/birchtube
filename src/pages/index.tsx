@@ -15,6 +15,7 @@ import ContactSection from '../components/portfolio/ContactSection';
 import Jumbotron from '../components/Jumbotron';
 import { graphql, useStaticQuery } from 'gatsby';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
+import Seo from '../components/seo';
 
 type AppProps = {
   location: any;
@@ -49,6 +50,11 @@ export default function Index({ location, data }: AppProps): JSX.Element {
 
   return (
     <Layout>
+      <Seo
+        description="A brief introduction to myself and my professional activities."
+        lang="en-US"
+        title="About Me"
+      />
       <Fab
         component="a"
         href="https://www.linkedin.com/in/kyle-green-81b3b71a1/"

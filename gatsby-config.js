@@ -7,7 +7,8 @@ module.exports = {
     siteUrl: 'https://www.kcgreen.dev',
     title: 'kcgreen.dev',
     author: 'KC Green',
-    description: 'A Developer Blog/Portfolio website. ',
+    description:
+      'My Own Developer Blog/Portfolio Website Built With Gatsby JS. ',
     publishedYear: 2021
   },
   plugins: [

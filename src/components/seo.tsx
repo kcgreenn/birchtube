@@ -11,13 +11,13 @@ import { Helmet } from 'react-helmet';
 import { useStaticQuery, graphql } from 'gatsby';
 
 type AppProps = {
-  description: any;
+  description: string;
   lang: any;
   meta: any;
-  title: any;
+  title: string;
 };
 
-function Seo({ description, lang, meta, title }: AppProps) {
+function Seo({ children, description, lang, meta, title }: AppProps) {
   const { site } = useStaticQuery(
     graphql`
       query {
@@ -74,12 +74,28 @@ function Seo({ description, lang, meta, title }: AppProps) {
         {
           name: `twitter:description`,
           content: metaDescription
+        },
+        {
+          name: 'viewport',
+          content:
+            'minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no'
         }
       ].concat(meta)}
-    />
+    >
+      <link rel="preconnect" href="https://fonts.googleapis.com" />
+      <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossOrigin="true"
+      />
+      <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap"
+        rel="stylesheet"
+      />
+    </Helmet>
   );
 }
-
+<meta />;
 Seo.defaultProps = {
   lang: `en`,
   meta: [],

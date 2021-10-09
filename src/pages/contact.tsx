@@ -15,20 +15,58 @@ import mockupImg from '../images/mockup.png';
 import * as portfolioStyles from '../components//portfolio/PortfolioStyles.module.css';
 import { BgImage, convertToBgImage } from 'gbimage-bridge';
 import Layout from '../components/Layout/Layout';
+import { ExpandLessSharp } from '@material-ui/icons';
+import Seo from '../components/seo';
 
 export default function ContactSection({ ref }: any): JSX.Element {
   const matches = useMediaQuery('(min-width:600px');
   const convertedBgImg = convertToBgImage(mockupImg);
 
   const [success, setSuccess] = useState(false);
+  const [inputState, setinputState] = useState({
+    name: '',
+    email: '',
+    message: ''
+  });
 
-  const handleSubmit = (e) => {
+  const encode = (data) => {
+    return Object.keys(data)
+      .map(
+        (key) => encodeURIComponent(key) + '=' + encodeURIComponent(data[key])
+      )
+      .join('&');
+  };
+
+  const handleChange = (e) => {
+    setinputState({ ...inputState, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setSuccess(true);
+    if (inputState.name && inputState.email && inputState.message) {
+      try {
+        await fetch('/', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+          body: encode({ 'form-name': 'contact', ...inputState })
+        });
+        setSuccess(true);
+      } catch {
+        alert('Error');
+      }
+    } else {
+      setSuccess(false);
+      alert('All fields are required.');
+    }
   };
 
   return (
     <Layout>
+      <Seo
+        description="If you would like to get in touch with me, you can use this form."
+        lang="en-US"
+        title="Contact Me"
+      />
       <Container maxWidth="md">
         <Typography
           variant="h2"
@@ -74,17 +112,22 @@ export default function ContactSection({ ref }: any): JSX.Element {
               <form
                 name="contact"
                 method="post"
-                action="/thanks/"
                 data-netlify="true"
                 data-netlify-honeypot="bot-field"
                 onSubmit={(e) => handleSubmit(e)}
               >
                 <input type="hidden" name="form-name" value="contact" />
+                <p hidden>
+                  <label>
+                    Don’t fill this out: <input name="bot-field" />
+                  </label>
+                </p>
                 <TextField
                   label="Name"
                   fullWidth
                   variant="outlined"
                   required
+                  onChange={handleChange}
                   id="name"
                   name="name"
                   className={portfolioStyles.contactField}
@@ -92,9 +135,10 @@ export default function ContactSection({ ref }: any): JSX.Element {
                 <TextField
                   label="Email"
                   variant="outlined"
+                  id="email"
                   fullWidth
                   required
-                  id="email"
+                  onChange={handleChange}
                   name="email"
                   className={portfolioStyles.contactField}
                 ></TextField>
@@ -102,8 +146,9 @@ export default function ContactSection({ ref }: any): JSX.Element {
                   label="Message"
                   variant="outlined"
                   required
-                  fullWidth
+                  onChange={handleChange}
                   id="message"
+                  fullWidth
                   name="message"
                   className={portfolioStyles.contactField}
                   multiline

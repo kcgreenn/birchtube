@@ -15,6 +15,7 @@ import LocalOfferIcon from '@material-ui/icons/LocalOffer';
 import TimelapseIcon from '@material-ui/icons/Timelapse';
 import { Disqus } from 'gatsby-plugin-disqus';
 import * as PostStyles from './BlogPost.module.css';
+import Seo from '../../components/seo';
 
 type AppProps = {
   data: any;
@@ -28,6 +29,11 @@ export default function BlogPost({ data: post }: AppProps): JSX.Element {
   );
   return (
     <Layout bgImg={postImg}>
+      <Seo
+        description={post.contentfulBlogPost.title}
+        lang="en-US"
+        title={post.contentfulBlogPost.title}
+      />
       <Container maxWidth="lg">
         <Grid
           container

@@ -17,6 +17,7 @@ import KeyboardArrowLeftIcon from '@material-ui/icons/KeyboardArrowLeft';
 import LocalOfferIcon from '@material-ui/icons/LocalOffer';
 import BlogListItem from '../../components/blogList/BlogListItem';
 import * as ListStyles from './BlogList.module.css';
+import Seo from '../../components/seo';
 
 type AppProps = {
   data: any;
@@ -34,6 +35,11 @@ export default function BlogListTemplate({
     currentPage - 1 === 1 ? '/blog' : `/blog/${String(currentPage - 1)}`;
   return (
     <Layout>
+      <Seo
+        description="A Blog containing my thoughts on software development, health and gaming."
+        lang="en-US"
+        title="Dev Blog"
+      />
       <Container>
         {matches ? (
           <Paper style={{ marginTop: '96px' }}>

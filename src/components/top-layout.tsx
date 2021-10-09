@@ -14,20 +14,16 @@ type AppProps = {
 export default function TopLayout({ children, theme }: AppProps): JSX.Element {
   return (
     <React.Fragment>
-      <Seo />
-      {/* <Viewport>
-        <title>My Title</title>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link
-          rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossOrigin="true"
-        />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap"
-          rel="stylesheet"
-        />
-      </Viewport> */}
+      <Seo
+        meta={[
+          { name: 'viewport' },
+          {
+            content:
+              'minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no'
+          }
+        ]}
+      />
+
       <ThemeProvider theme={theme}>
         {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
         <CssBaseline />

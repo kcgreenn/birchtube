@@ -79,7 +79,7 @@ export default function IntroSection({ profileImage }: any): JSX.Element {
             style={{ marginTop: '2rem', float: 'right' }}
             component="a"
             fullWidth={matches ? false : true}
-            href="/#contact"
+            href="/contact"
             color="secondary"
             variant="contained"
           >

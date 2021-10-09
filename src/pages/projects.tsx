@@ -18,6 +18,7 @@ import WebIcon from '@material-ui/icons/Web';
 import * as portfolioStyles from '../components/portfolio/PortfolioStyles.module.css';
 import { graphql, useStaticQuery } from 'gatsby';
 import Layout from '../components/Layout/Layout';
+import Seo from '../components/seo';
 
 export default function ProjectSection(): JSX.Element {
   const data = useStaticQuery(graphql`
@@ -45,38 +46,40 @@ export default function ProjectSection(): JSX.Element {
       return (
         <Grid item xs={10} md={4} key={node.id}>
           <Card key={node.id}>
-            <CardActionArea component="a" href={node.livelink}>
-              <CardMedia style={{ border: '2px solid #bbb' }}>
-                <GatsbyImage
-                  image={projImg}
-                  title={node.title}
-                  style={{ height: 180 }}
-                />
-              </CardMedia>
-              <CardContent>
-                <Typography variant="h4" component="h4">
-                  {node.title}
-                </Typography>
-                <Typography variant="body1" color="textSecondary" component="p">
-                  {node.description}
-                </Typography>
-              </CardContent>
-            </CardActionArea>
+            <CardMedia style={{ border: '2px solid #bbb' }}>
+              <GatsbyImage
+                image={projImg}
+                title={node.title}
+                style={{ height: 180 }}
+              />
+            </CardMedia>
+            <CardContent>
+              <Typography variant="h4" component="h4">
+                {node.title}
+              </Typography>
+              <Typography variant="body1" color="textSecondary" component="p">
+                {node.description}
+              </Typography>
+            </CardContent>
             <CardActions
               style={{
                 display: 'flex',
                 justifyContent: 'space-evenly'
               }}
             >
-              <IconButton aria-label="Live Project Link">
-                <a href={node.liveLink} title="Live Deployment">
-                  <WebIcon color="secondary" />
-                </a>
+              <IconButton
+                component="a"
+                href={node.livelink}
+                aria-label="Live Project Link"
+              >
+                <WebIcon color="secondary" />
               </IconButton>
-              <IconButton aria-label="Github Link">
-                <a href={node.githubLink} title="Github Repository">
-                  <GitHubIcon color="secondary" />
-                </a>
+              <IconButton
+                component="a"
+                href={node.githubLink}
+                aria-label="Github Link"
+              >
+                <GitHubIcon color="secondary" />
               </IconButton>
             </CardActions>
           </Card>
@@ -86,6 +89,11 @@ export default function ProjectSection(): JSX.Element {
   );
   return (
     <Layout>
+      <Seo
+        description="A selection of development projects that I have worked on in the past."
+        lang="en-US"
+        title="My Projects"
+      />
       <Container>
         <Typography
           variant="h2"
