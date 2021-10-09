@@ -159,7 +159,7 @@ export default function BlogListTemplate({
               <Fab
                 color="secondary"
                 component="a"
-                href={`${prevPage}#list`}
+                href={`${prevPage}`}
                 size="small"
               >
                 <KeyboardArrowLeftIcon />
@@ -169,7 +169,7 @@ export default function BlogListTemplate({
               <Fab
                 component="a"
                 color="secondary"
-                href={`/blog/${index === 0 ? '' : index + 1}#list`}
+                href={`/blog/${index === 0 ? '' : index + 1}`}
                 size="small"
                 key={index}
               >
@@ -180,7 +180,7 @@ export default function BlogListTemplate({
               // <Link to={`${nextPage}#list`} rel="next">
               <Fab
                 component="a"
-                href={`${nextPage}#list`}
+                href={`${nextPage}`}
                 color="secondary"
                 size="small"
               >

@@ -76,7 +76,7 @@ export default function ProjectSection(): JSX.Element {
               </IconButton>
               <IconButton
                 component="a"
-                href={node.githubLink}
+                href={node.githublink}
                 aria-label="Github Link"
               >
                 <GitHubIcon color="secondary" />

@@ -48,12 +48,12 @@ export default function ProjectSection({ projects }: any): JSX.Element {
               }}
             >
               <IconButton aria-label="Live Project Link">
-                <a href={node.liveLink} title="Live Deployment">
+                <a href={node.livelink} title="Live Deployment">
                   <WebIcon color="secondary" />
                 </a>
               </IconButton>
               <IconButton aria-label="Github Link">
-                <a href={node.githubLink} title="Github Repository">
+                <a href={node.githublink} title="Github Repository">
                   <GitHubIcon color="secondary" />
                 </a>
               </IconButton>
