@@ -121,7 +121,6 @@ export default function Header() {
               <React.Fragment>
                 <ListItem
                   button
-                  fullWidth
                   key={item.text}
                   style={{
                     minWidth: '240px'
