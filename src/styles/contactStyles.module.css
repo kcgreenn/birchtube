@@ -1,0 +1,31 @@
+.articleHeader {
+  display: grid;
+  grid-template-columns: 64px 512px;
+  grid-template-rows: 10vh;
+  gap: 1.5rem;
+  max-width: 100%;
+  max-height: 30vh;
+  color: #cecece;
+}
+.articleInfo {
+  display: block;
+}
+.articleTags {
+}
+.articleTitle {
+  font-size: clamp(1.2rem, calc(1rem + 3.5vh, 4rem));
+  text-shadow: 0 2px 2px rgb(0, 0, 0 / 50%);
+  font-family: Roboto, Tahoma, sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  color: #ccc;
+}
+.authorNouns {
+  font-size: 1.2rem;
+}
+.inputField {
+  display: block;
+  border-radius: 4px;
+  max-width: 80%;
+  width: 248px;
+}

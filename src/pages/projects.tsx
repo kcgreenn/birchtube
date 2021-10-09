@@ -5,6 +5,7 @@ import {
   CardActions,
   CardContent,
   CardMedia,
+  Container,
   Grid,
   IconButton,
   Paper,
@@ -14,12 +15,32 @@ import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import React from 'react';
 import GitHubIcon from '@material-ui/icons/GitHub';
 import WebIcon from '@material-ui/icons/Web';
-import * as portfolioStyles from './PortfolioStyles.module.css';
+import * as portfolioStyles from '../components/portfolio/PortfolioStyles.module.css';
+import { graphql, useStaticQuery } from 'gatsby';
+import Layout from '../components/Layout/Layout';
 
-export default function ProjectSection({ projects }: any): JSX.Element {
-  const projectGroup = projects
-    .slice(0, 3)
-    .map(({ node }: any, index: number) => {
+export default function ProjectSection(): JSX.Element {
+  const data = useStaticQuery(graphql`
+    query {
+      allContentfulProject(filter: { node_locale: { eq: "en-US" } }) {
+        totalCount
+        edges {
+          node {
+            id
+            title
+            description
+            githublink
+            livelink
+            image {
+              gatsbyImageData(placeholder: BLURRED)
+            }
+          }
+        }
+      }
+    }
+  `);
+  const projectGroup = data.allContentfulProject.edges.map(
+    ({ node }: any, index: number) => {
       const projImg = getImage(node.image.gatsbyImageData);
       return (
         <Grid item xs={10} md={4} key={node.id}>
@@ -61,38 +82,42 @@ export default function ProjectSection({ projects }: any): JSX.Element {
           </Card>
         </Grid>
       );
-    });
+    }
+  );
   return (
-    <React.Fragment>
-      <Typography
-        variant="h2"
-        component="h2"
-        className={portfolioStyles.sectionTitle}
-      >
-        Recent Projects
-      </Typography>
-      <Paper className={portfolioStyles.portSection}>
-        <Grid
-          container
-          spacing={3}
-          id="project"
-          justifyContent="flex-start"
-          alignItems="stretch"
+    <Layout>
+      <Container>
+        <Typography
+          variant="h2"
+          component="h2"
+          className={portfolioStyles.sectionTitle}
         >
-          {projectGroup}
+          Some of My Projects
+        </Typography>
+        <Paper className={portfolioStyles.portSection}>
+          <Grid
+            container
+            spacing={3}
+            id="project"
+            justifyContent="flex-start"
+            alignItems="stretch"
+          >
+            {projectGroup}
+          </Grid>
           <Grid item xs={12}>
             <Button
-              component="a"
-              href="/projects"
               variant="contained"
               color="secondary"
+              component="a"
+              href="https://github.com/kcgreenn"
               fullWidth
+              style={{ margin: '2rem 0' }}
             >
-              View More
+              View My Github
             </Button>
           </Grid>
-        </Grid>
-      </Paper>
-    </React.Fragment>
+        </Paper>
+      </Container>
+    </Layout>
   );
 }

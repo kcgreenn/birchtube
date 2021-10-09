@@ -19,11 +19,11 @@ const NotFoundPage = (): JSX.Element => {
             we couldn’t find what you were looking for.
             <br />
             {process.env.NODE_ENV === 'development' ? (
-              <>
+              <React.Fragment>
                 <br />
                 Try creating a page in <code>src/pages/</code>.
                 <br />
-              </>
+              </React.Fragment>
             ) : null}
             <br />
           </Typography>

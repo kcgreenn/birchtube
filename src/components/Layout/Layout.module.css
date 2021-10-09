@@ -1,13 +1,16 @@
 .main {
   overflow: hidden;
   background-color: #3e3e3e;
-  padding-bottom: 1rem;
+  min-height: 88vh;
+  padding-top: 72px;
 }
 .bgImg {
   min-width: 200;
   min-height: 200;
 }
 .imgOverlay {
+  height: 100%;
+  min-height: 88vh;
   background: linear-gradient(
     180deg,
     rgba(74, 74, 74, 0.6) 0%,

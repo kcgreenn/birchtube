@@ -12,13 +12,13 @@ import React from 'react';
 import { useMobileStyles, useStyles } from '../../styles/indexStyles';
 import mockupImg from '../../images/mockup.png';
 import * as portfolioStyles from './PortfolioStyles.module.css';
+import { BgImage, convertToBgImage } from 'gbimage-bridge';
 
 export default function ContactSection({ ref }: any): JSX.Element {
   const matches = useMediaQuery('(min-width:800px');
-  const classes = matches ? useStyles() : useMobileStyles();
-
+  const convertedBgImg = convertToBgImage(mockupImg);
   return (
-    <>
+    <React.Fragment>
       <Typography
         variant="h2"
         component="h2"
@@ -40,11 +40,9 @@ export default function ContactSection({ ref }: any): JSX.Element {
           <Grid
             item
             xs={12}
-            md={7}
             style={{
-              display: 'flex',
-              flexDirection: 'column',
-              justifyContent: 'space-evenly'
+              backgroundImage: 'url(../../images/mockup.png)',
+              backgroundSize: 'cover'
             }}
           >
             <form
@@ -96,22 +94,8 @@ export default function ContactSection({ ref }: any): JSX.Element {
               </Button>
             </form>
           </Grid>
-          <Grid item xs={12} md={5} style={{ minHeight: '30vh' }}>
-            <Card style={{ height: '100%', width: '100%', boxShadow: 'none' }}>
-              <CardMedia
-                image={mockupImg}
-                title="Email Mockup"
-                style={{
-                  height: '40%',
-                  width: '90%',
-                  marginTop: '30%',
-                  transform: 'rotate(30deg)'
-                }}
-              />
-            </Card>
-          </Grid>
         </Grid>
       </Paper>
-    </>
+    </React.Fragment>
   );
 }

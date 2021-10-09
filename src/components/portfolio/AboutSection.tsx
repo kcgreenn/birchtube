@@ -7,7 +7,7 @@ export default function AboutSection() {
   const matches = useMediaQuery('(min-width:800px');
   const classes = matches ? useStyles() : useMobileStyles();
   return (
-    <>
+    <React.Fragment>
       <Typography variant="h2" component="h2" style={{ color: 'white' }}>
         About Me
       </Typography>
@@ -187,6 +187,6 @@ export default function AboutSection() {
           )}
         </Grid>
       </Paper>
-    </>
+    </React.Fragment>
   );
 }

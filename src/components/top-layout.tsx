@@ -3,6 +3,7 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import { ThemeProvider } from '@material-ui/styles';
 
 import Viewport from './viewport';
+import Seo from './seo';
 import { Theme } from '@material-ui/core';
 
 type AppProps = {
@@ -12,8 +13,9 @@ type AppProps = {
 
 export default function TopLayout({ children, theme }: AppProps): JSX.Element {
   return (
-    <>
-      <Viewport>
+    <React.Fragment>
+      <Seo />
+      {/* <Viewport>
         <title>My Title</title>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
@@ -25,12 +27,12 @@ export default function TopLayout({ children, theme }: AppProps): JSX.Element {
           href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap"
           rel="stylesheet"
         />
-      </Viewport>
+      </Viewport> */}
       <ThemeProvider theme={theme}>
         {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
         <CssBaseline />
         {children}
       </ThemeProvider>
-    </>
+    </React.Fragment>
   );
 }

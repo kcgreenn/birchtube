@@ -45,31 +45,7 @@ export default function Index({ location, data }: AppProps): JSX.Element {
     }
   `);
 
-  const hash = location.hash;
-
-  const projectRef = useRef();
-  const contactRef = useRef();
-  const aboutRef = useRef();
-
   const classes = matches ? useStyles() : useMobileStyles();
-
-  if (hash === '#portfolio') {
-    if (projectRef && projectRef.current) {
-      projectRef.current.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start',
-        inline: 'nearest'
-      });
-    }
-  } else if (hash === '#about') {
-    if (aboutRef && aboutRef.current) {
-      aboutRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
-  } else if (hash === '#contact') {
-    if (contactRef && contactRef.current) {
-      contactRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
-  }
 
   return (
     <Layout>
@@ -93,11 +69,10 @@ export default function Index({ location, data }: AppProps): JSX.Element {
       >
         <GitHubIcon />
       </Fab>
-      <Container className={classes.main}>
+      <Container maxWidth="md" className={classes.main}>
         <IntroSection />
         <EduSection />
         <ProjectSection projects={projectData.allContentfulProject.edges} />
-        <ContactSection id="contact" />
       </Container>
     </Layout>
   );

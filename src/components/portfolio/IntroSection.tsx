@@ -4,140 +4,89 @@ import {
   Typography,
   useMediaQuery,
   Fab,
-  Paper
+  Paper,
+  Card,
+  CardActionArea,
+  CardMedia,
+  CardContent
 } from '@material-ui/core';
+import { GatsbyImage } from 'gatsby-plugin-image';
 import React from 'react';
 import { useMobileStyles, useStyles } from '../../styles/indexStyles';
 import * as portfolioStyles from './PortfolioStyles.module.css';
+import ProfileImage from '../../images/profileImg.jpeg';
 
 type AppProps = {
   profileImage: any;
 };
 
-export default function IntroSection(): JSX.Element {
+export default function IntroSection({ profileImage }: any): JSX.Element {
   const matches = useMediaQuery('(min-width:600px');
-  const classes = matches ? useStyles() : useMobileStyles();
 
   return (
-    <>
+    <React.Fragment>
+      <Typography variant="body2" style={{ color: 'white' }}>
+        Site By
+      </Typography>
       <Typography
         variant="h2"
         component="h2"
-        style={{ color: 'white' }}
+        style={{ color: 'white', margin: '0 0 1rem 0' }}
         align="left"
       >
         KC Green
       </Typography>
-      <Paper
-        style={{
-          position: 'relative'
-        }}
-      >
-        <Grid
-          className={portfolioStyles.portSection}
-          container
-          justifyContent={matches ? 'flex-end' : 'flex-start'}
-          alignItems="center"
-          style={{
-            position: 'relative'
-          }}
+      <Typography variant="h5" style={{ color: 'white', margin: '1rem 0' }}>
+        Developer, Designer, Writer
+      </Typography>
+      <a href="https://twitter.com/KCGreen90088864" alt="My Twitter">
+        <Typography
+          variant="body2"
+          component="span"
+          style={{ color: 'white', margin: '1rem 0' }}
         >
-          <Grid
-            item
-            xs={12}
-            sm={6}
-            style={{
-              display: 'flex',
-              flexDirection: 'column',
-              justifyContent: 'space-evenly',
-              height: '50vh',
-              minHeight: '256px'
-            }}
+          @KCGreen
+        </Typography>
+      </a>
+      <a href="https://github.com/kcgreenn" alt="My Github">
+        <Typography
+          variant="body2"
+          component="span"
+          style={{ color: 'white', margin: '1rem' }}
+        >
+          github.com/kcgreenn
+        </Typography>
+      </a>
+      <Card className={portfolioStyles.introCard}>
+        <CardMedia
+          title="Profile Image"
+          image={ProfileImage}
+          style={{
+            height: 280,
+            width: '100%',
+            maxWidth: '340px',
+            overflow: 'hidden',
+            borderRadius: '5px'
+          }}
+        ></CardMedia>
+        <CardContent>
+          <Typography variant="h5" align="right">
+            Hi, I'm KC. I design and build websites and applications. I have a
+            focus on the React ecosystem, including Nextjs, Gatsby and React
+            Native.
+          </Typography>
+          <Button
+            style={{ marginTop: '2rem', float: 'right' }}
+            component="a"
+            fullWidth={matches ? false : true}
+            href="/#contact"
+            color="secondary"
+            variant="contained"
           >
-            <div
-              style={{
-                backgroundImage: `url(https://res.cloudinary.com/df5cy5c76/image/upload/c_thumb,w_200,g_face/v1633645925/IMG_0022_djdmlm.jpg) !important`,
-                minHeight: '200px',
-                width: '254px',
-                borderRadius: '10px',
-                border: '5px solid #37474f',
-                backgroundRepeat: 'no-repeat',
-                backgroundSize: 'cover'
-              }}
-            />
-            <Typography
-              variant="h5"
-              component="h3"
-              style={{ color: '#6288d5' }}
-            >
-              Residence:{' '}
-              <Typography color="textPrimary" component="span" variant="h5">
-                Beautiful Chester County, PA!
-              </Typography>
-            </Typography>
-            <Typography
-              variant="h5"
-              component="h3"
-              style={{ color: '#6288d5' }}
-            >
-              Email:{' '}
-              <Typography component="span" color="textPrimary" variant="h5">
-                kyle@kcgreen.dev
-              </Typography>
-            </Typography>
-            <Typography
-              variant="h5"
-              component="h3"
-              style={{ color: '#6288d5' }}
-            >
-              Freelance:{' '}
-              <Typography component="span" color="textPrimary" variant="h5">
-                Available
-              </Typography>
-            </Typography>
-          </Grid>
-          <Grid
-            item
-            xs={12}
-            sm={6}
-            style={{
-              display: 'flex',
-              flexDirection: 'column',
-              justifyContent: 'space-evenly',
-              alignItems: 'center',
-              minHeight: '512px'
-            }}
-          >
-            <Typography
-              variant="h5"
-              component="h2"
-              // align={matches ? 'right' : 'left'}
-              align="right"
-              style={{ color: '#6288d5', margin: matches ? '0' : '1rem 0' }}
-            >
-              Software Developer
-            </Typography>
-            <Typography
-              component="p"
-              variant="body1"
-              align={matches ? 'right' : 'justify'}
-            >
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-              Exercitationem aperiam earum ipsa deserunt! Ipsum dolorum ducimus
-              quibusdam facilis nesciunt ex. Ipsum saepe reprehenderit fugit
-              veritatis provident tempore, libero recusandae quaerat.
-            </Typography>
-            <Button
-              variant="contained"
-              color="secondary"
-              component="a"
-              href="/#contact"
-            >
-              Contact Me
-            </Button>
-          </Grid>
-        </Grid>
-      </Paper>
-    </>
+            Contact Me
+          </Button>
+        </CardContent>
+      </Card>
+    </React.Fragment>
   );
 }

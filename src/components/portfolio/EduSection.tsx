@@ -23,7 +23,7 @@ export default function EduSection() {
   ];
 
   const educationGroup = educationItems.map((item, index) => (
-    <>
+    <React.Fragment>
       <Grid
         item
         xs={12}
@@ -78,7 +78,7 @@ export default function EduSection() {
           {item.description}
         </Typography>
         {item.awards.length > 0 && (
-          <>
+          <React.Fragment>
             <Typography
               variant="h5"
               component="h2"
@@ -91,14 +91,14 @@ export default function EduSection() {
                 {award}
               </Typography>
             ))}
-          </>
+          </React.Fragment>
         )}
       </Grid>
-    </>
+    </React.Fragment>
   ));
 
   return (
-    <>
+    <React.Fragment>
       <Typography
         variant="h2"
         component="h2"
@@ -117,6 +117,6 @@ export default function EduSection() {
           {educationGroup}
         </Grid>
       </Paper>
-    </>
+    </React.Fragment>
   );
 }

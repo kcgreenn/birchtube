@@ -18,6 +18,13 @@
 .hideOnSM {
   display: none;
 }
+.introCard {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px;
+  margin-top: 1rem;
+}
 @media only screen and (max-width: 600px) {
   .portSection {
     min-height: 512px;
@@ -35,5 +42,8 @@
   }
   .hideOnXS {
     display: none;
+  }
+  .introCard {
+    flex-direction: column;
   }
 }

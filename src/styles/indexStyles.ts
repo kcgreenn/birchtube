@@ -3,14 +3,9 @@ import { makeStyles } from "@material-ui/core";
 // styles
 const useStyles = makeStyles({
     main: {
-      paddingTop: '96px',
-      // marginLeft: '15vw',
-      // paddingLeft: '10vw',
-      maxWidth: '80vw',
       overflowX: 'hidden',
     },
     subtitle: {
-      // minWidth: '70vw',
       color:'#6288d5',
       margin:'4rem 0'
     },
@@ -103,8 +98,6 @@ const useStyles = makeStyles({
   // mobile styles
   const useMobileStyles = makeStyles({
     main: {
-      maxWidth: '100vw',
-      paddingTop:'96px',
       overflowX: 'hidden',
     },
     subtitle: {

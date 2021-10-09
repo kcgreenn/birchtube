@@ -55,15 +55,15 @@ export default function Header() {
       <NavLink className={HeaderStyles.navLink} to="/blog" key="blog">
         <Typography>Blog</Typography>
       </NavLink>
-      <Link className={HeaderStyles.navLink} to="/" key="about">
-        <Typography>About</Typography>
-      </Link>
-      <Link className={HeaderStyles.navLink} to="/#project" key="project">
-        <Typography>Portfolio</Typography>
-      </Link>
-      <Link className={HeaderStyles.navLink} to="/#contact" key="contact">
+      <NavLink className={HeaderStyles.navLink} to="/" key="about">
+        <Typography>About Me</Typography>
+      </NavLink>
+      <NavLink className={HeaderStyles.navLink} to="/projects" key="project">
+        <Typography>My Portfolio</Typography>
+      </NavLink>
+      <NavLink className={HeaderStyles.navLink} to="/contact" key="contact">
         <Typography>Contact</Typography>
-      </Link>
+      </NavLink>
     </div>
   ) : (
     <IconButton
@@ -93,18 +93,18 @@ export default function Header() {
             {[
               { text: 'Blog', link: '/blog', icon: <ImportContactsIcon /> },
               {
-                text: 'About',
-                link: '/#about',
+                text: 'About Me',
+                link: '/',
                 icon: <PersonPinIcon />
               },
               {
-                text: 'Portfolio',
-                link: '/#project',
+                text: 'My Portfolio',
+                link: '/projects',
                 icon: <AppsIcon />
               },
               {
                 text: 'Contact',
-                link: '/#contact',
+                link: '/contact',
                 icon: <MailIcon />
               },
               {
@@ -118,7 +118,7 @@ export default function Header() {
                 icon: <LinkedInIcon />
               }
             ].map((item, index) => (
-              <>
+              <React.Fragment>
                 <ListItem
                   button
                   fullWidth
@@ -134,22 +134,20 @@ export default function Header() {
                   ></ListItemText>
                 </ListItem>
                 <Divider />
-              </>
+              </React.Fragment>
             ))}
           </List>
         </div>
       </Drawer>
       <Container>
         <Toolbar style={{ display: 'flex', justifyContent: 'space-between' }}>
-          <NavLink to="/">
-            <Typography
-              variant="h4"
-              component="h3"
-              className={HeaderStyles.brand}
-            >
-              {data.site.siteMetadata.title}
-            </Typography>
-          </NavLink>
+          <Typography
+            variant="h4"
+            component="h3"
+            className={HeaderStyles.brand}
+          >
+            {data.site.siteMetadata.title}
+          </Typography>
           {navMenu}
         </Toolbar>
       </Container>
