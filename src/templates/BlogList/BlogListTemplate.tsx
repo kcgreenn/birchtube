@@ -132,7 +132,7 @@ export default function BlogListTemplate({
                 data.allContentfulBlogPost.edges[0].node.publishedDate
               }
               summary={
-                data.allContentfulBlogPost.edges[1].node.fullPost
+                data.allContentfulBlogPost.edges[0].node.fullPost
                   .childMarkdownRemark.excerpt
               }
             />
