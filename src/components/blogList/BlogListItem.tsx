@@ -32,7 +32,7 @@ export default function BlogListItem({
 
   return (
     <Paper key={id} className={ItemStyles.blogPostItem}>
-      <Button component="a" href={`/posts${slug}`}>
+      <Button component="a" href={`/posts/${slug}`}>
         <Card style={{ padding: '0rem 0' }}>
           <CardActionArea>
             <CardMedia

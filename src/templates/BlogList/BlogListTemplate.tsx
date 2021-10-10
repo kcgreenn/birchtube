@@ -46,7 +46,7 @@ export default function BlogListTemplate({
             <Button
               style={{ margin: 0, padding: 0 }}
               component="a"
-              href={`/posts${data.allContentfulBlogPost.edges[0].node.slug}`}
+              href={`/posts/${data.allContentfulBlogPost.edges[0].node.slug}`}
             >
               <Grid
                 container
@@ -109,7 +109,7 @@ export default function BlogListTemplate({
                 >
                   <Typography variant="h5" align="left">
                     {
-                      data.allContentfulBlogPost.edges[1].node.fullPost
+                      data.allContentfulBlogPost.edges[0].node.fullPost
                         .childMarkdownRemark.excerpt
                     }
                   </Typography>

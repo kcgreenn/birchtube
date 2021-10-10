@@ -119,7 +119,7 @@ export const query = graphql`
       tableOfContents
       tags
       jumbotronImage {
-        gatsbyImageData(width: 1000, placeholder: BLURRED)
+        gatsbyImageData(width: 700, placeholder: BLURRED)
       }
       fullPost {
         childMarkdownRemark {

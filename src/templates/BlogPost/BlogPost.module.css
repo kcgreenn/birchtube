@@ -8,6 +8,7 @@
 .postBody h2 {
   font-size: 1.5rem;
   border-bottom: 1px solid #cecece;
+  padding-left: 1rem;
 }
 .postBody code {
   background: #f4f4f4;

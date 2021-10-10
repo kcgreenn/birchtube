@@ -15,7 +15,7 @@ export default function TableOfContents({ toc }: AppProps): JSX.Element {
         }}
       >
         {toc.map((item: string, index: number) => (
-          <Button component="a" href={`#${item}`} fullWidth>
+          <Button component="a" href={`#C${index + 1}`} alt={item} fullWidth>
             <ListItem style={{ fontSize: '1rem' }} divider>
               {`${index + 1}. ${item}`}
             </ListItem>
