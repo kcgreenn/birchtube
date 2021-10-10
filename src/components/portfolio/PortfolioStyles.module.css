@@ -1,7 +1,6 @@
 .portSection {
   min-height: 40vh;
-  padding: 0vh 5vh;
-  margin: 5vh 0;
+  margin: 0 0 5vh 0;
 }
 .contactField {
   min-width: 512;
@@ -10,6 +9,7 @@
 }
 .sectionTitle {
   color: white;
+  margin: '1rem 0';
 }
 .subtitle {
   color: #6288d5;
@@ -29,8 +29,7 @@
   .portSection {
     min-height: 512px;
     width: 100%;
-    margin: 1rem 0;
-    padding: 1rem;
+    margin: 0 0 5vh 0;
   }
   .contactField {
     min-width: 302;

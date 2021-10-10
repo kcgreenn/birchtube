@@ -27,6 +27,7 @@ export default function BlogPost({ data: post }: AppProps): JSX.Element {
   const postImg = getImage(
     post.contentfulBlogPost.jumbotronImage.gatsbyImageData
   );
+  console.log(post.contentfulBlogPost.fullPost.childMarkdownRemark.htmlAst);
   return (
     <Layout bgImg={postImg}>
       <Seo
@@ -35,11 +36,7 @@ export default function BlogPost({ data: post }: AppProps): JSX.Element {
         title={post.contentfulBlogPost.title}
       />
       <Container maxWidth="lg">
-        <Grid
-          container
-          justifyContent="flex-start"
-          style={{ paddingTop: '96px' }}
-        >
+        <Grid container justifyContent="flex-start">
           <Grid item xs={12}>
             <Typography
               variant="body1"

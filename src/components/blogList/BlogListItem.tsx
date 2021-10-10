@@ -9,12 +9,14 @@ import {
 } from '@material-ui/core';
 import React from 'react';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
+import LocalOfferIcon from '@material-ui/icons/LocalOffer';
 import * as ItemStyles from './BlogListItem.module.css';
 
 type AppProps = {
   title: string;
   slug: string;
   id: string;
+  tags: string[];
   image: any;
   publishDate: string;
   summary: string;
@@ -23,6 +25,7 @@ type AppProps = {
 export default function BlogListItem({
   title,
   slug,
+  tags,
   id,
   image,
   publishDate,
@@ -33,22 +36,37 @@ export default function BlogListItem({
   return (
     <Paper key={id} className={ItemStyles.blogPostItem}>
       <Button component="a" href={`/posts/${slug}`}>
-        <Card style={{ padding: '0rem 0' }}>
+        <Card>
           <CardActionArea>
             <CardMedia
               title="Post Image"
-              style={{ height: 220, maxHeight: 220, overflow: 'hidden' }}
+              style={{ height: 200, maxHeight: 220, overflow: 'hidden' }}
             >
               <GatsbyImage image={postImg} title={title} />
             </CardMedia>
             <CardContent>
-              <Typography
-                component="span"
-                color="secondary"
-                style={{ fontSize: '1rem', float: 'right' }}
+              <div
+                style={{
+                  display: 'flex',
+                  justifyContent: 'space-between',
+                  borderBottom: '1px solid #cecece',
+                  paddingBottom: 8,
+                  marginBottom: 8
+                }}
               >
-                {publishDate}
-              </Typography>
+                <Typography
+                  variant="body2"
+                  color="primary"
+                  component="span"
+                  style={{ maxWidth: '80%' }}
+                >
+                  <LocalOfferIcon />
+                  {tags.join(', ')}
+                </Typography>
+                <Typography component="span" variant="body2" color="secondary">
+                  {publishDate}
+                </Typography>
+              </div>
               <Typography
                 gutterBottom
                 variant="h4"

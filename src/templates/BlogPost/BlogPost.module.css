@@ -11,11 +11,11 @@
   padding-left: 1rem;
 }
 .postBody code {
-  background: #f4f4f4;
+  background: #3e3e3e;
   border: 1px solid #ddd;
   border-radius: 5px;
   border-left: 3px solid #f36d33;
-  color: #666;
+  color: #cecece;
   page-break-inside: avoid;
   font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
     Bitstream Vera Sans Mono, Courier New, monospace;
@@ -23,7 +23,7 @@
   line-height: 1.6;
   margin-bottom: 1.6em;
   max-width: 100%;
-  overflow: auto;
+  overflow-x: scroll;
   padding: 1em 1.5em;
   display: block;
   word-wrap: break-word;
@@ -35,6 +35,9 @@
   .postBody {
     padding: 1rem;
     font-size: 1rem;
+  }
+  .postBody p {
+    font-size: 0.8rem;
   }
   .sideLists {
     margin: 2rem 0;

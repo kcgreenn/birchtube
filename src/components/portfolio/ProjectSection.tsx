@@ -22,7 +22,7 @@ export default function ProjectSection({ projects }: any): JSX.Element {
     .map(({ node }: any, index: number) => {
       const projImg = getImage(node.image.gatsbyImageData);
       return (
-        <Grid item xs={10} md={4} key={node.id}>
+        <Grid item xs={12} md={4} key={node.id} style={{ marginTop: '12px' }}>
           <Card key={node.id}>
             <CardActionArea component="a" href={node.livelink}>
               <CardMedia style={{ border: '2px solid #bbb' }}>
@@ -47,11 +47,17 @@ export default function ProjectSection({ projects }: any): JSX.Element {
                 justifyContent: 'space-evenly'
               }}
             >
-              <IconButton aria-label="Live Project Link">
-                <a href={node.livelink} title="Live Deployment">
-                  <WebIcon color="secondary" />
-                </a>
-              </IconButton>
+              {node.livelink && (
+                <IconButton
+                  component="a"
+                  href={node.livelink}
+                  color="secondary"
+                  aria-label="Live Project Link"
+                >
+                  Live
+                </IconButton>
+              )}
+
               <IconButton aria-label="Github Link">
                 <a href={node.githublink} title="Github Repository">
                   <GitHubIcon color="secondary" />
@@ -71,28 +77,29 @@ export default function ProjectSection({ projects }: any): JSX.Element {
       >
         Recent Projects
       </Typography>
-      <Paper className={portfolioStyles.portSection}>
-        <Grid
-          container
-          spacing={3}
-          id="project"
-          justifyContent="flex-start"
-          alignItems="stretch"
-        >
-          {projectGroup}
-          <Grid item xs={12}>
-            <Button
-              component="a"
-              href="/projects"
-              variant="contained"
-              color="secondary"
-              fullWidth
-            >
-              View More
-            </Button>
-          </Grid>
+      {/* <Paper className={portfolioStyles.portSection}> */}
+      <Grid
+        container
+        className={portfolioStyles.portSection}
+        spacing={3}
+        id="project"
+        justifyContent="flex-start"
+        alignItems="stretch"
+      >
+        {projectGroup}
+        <Grid item xs={12}>
+          <Button
+            component="a"
+            href="/projects"
+            variant="contained"
+            color="secondary"
+            fullWidth
+          >
+            View More
+          </Button>
         </Grid>
-      </Paper>
+      </Grid>
+      {/* </Paper> */}
     </React.Fragment>
   );
 }

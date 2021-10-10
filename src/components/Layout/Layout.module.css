@@ -2,7 +2,7 @@
   overflow: hidden;
   background-color: #3e3e3e;
   min-height: 88vh;
-  padding-top: 72px;
+  padding-top: 64px;
 }
 .bgImg {
   min-width: 200;
@@ -17,4 +17,9 @@
     rgba(74, 74, 74, 0.7562359943977591) 20%,
     rgba(74, 74, 74, 1) 49%
   );
+}
+@media only screen and (max-width: 601px) {
+  .main {
+    padding-top: 54px;
+  }
 }

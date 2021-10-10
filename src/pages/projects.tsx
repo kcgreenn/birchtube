@@ -44,7 +44,7 @@ export default function ProjectSection(): JSX.Element {
     ({ node }: any, index: number) => {
       const projImg = getImage(node.image.gatsbyImageData);
       return (
-        <Grid item xs={10} md={4} key={node.id}>
+        <Grid item xs={12} md={4} key={node.id}>
           <Card key={node.id}>
             <CardMedia style={{ border: '2px solid #bbb' }}>
               <GatsbyImage
@@ -67,13 +67,17 @@ export default function ProjectSection(): JSX.Element {
                 justifyContent: 'space-evenly'
               }}
             >
-              <IconButton
-                component="a"
-                href={node.livelink}
-                aria-label="Live Project Link"
-              >
-                <WebIcon color="secondary" />
-              </IconButton>
+              {node.livelink && (
+                <IconButton
+                  component="a"
+                  href={node.livelink}
+                  color="secondary"
+                  aria-label="Live Project Link"
+                >
+                  Live
+                </IconButton>
+              )}
+
               <IconButton
                 component="a"
                 href={node.githublink}
@@ -102,29 +106,30 @@ export default function ProjectSection(): JSX.Element {
         >
           Some of My Projects
         </Typography>
-        <Paper className={portfolioStyles.portSection}>
-          <Grid
-            container
-            spacing={3}
-            id="project"
-            justifyContent="flex-start"
-            alignItems="stretch"
+        {/* <Paper className={portfolioStyles.portSection}> */}
+        <Grid
+          container
+          spacing={3}
+          className={portfolioStyles.portSection}
+          id="project"
+          justifyContent="flex-start"
+          alignItems="stretch"
+        >
+          {projectGroup}
+        </Grid>
+        <Grid item xs={12}>
+          <Button
+            variant="contained"
+            color="secondary"
+            component="a"
+            href="https://github.com/kcgreenn"
+            fullWidth
+            style={{ margin: '2rem 0' }}
           >
-            {projectGroup}
-          </Grid>
-          <Grid item xs={12}>
-            <Button
-              variant="contained"
-              color="secondary"
-              component="a"
-              href="https://github.com/kcgreenn"
-              fullWidth
-              style={{ margin: '2rem 0' }}
-            >
-              View My Github
-            </Button>
-          </Grid>
-        </Paper>
+            View My Github
+          </Button>
+        </Grid>
+        {/* </Paper> */}
       </Container>
     </Layout>
   );

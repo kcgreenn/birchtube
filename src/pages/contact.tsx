@@ -91,7 +91,10 @@ export default function ContactSection({ ref }: any): JSX.Element {
             possible.
           </Typography>
         )}
-        <Paper className={portfolioStyles.portSection}>
+        <Paper
+          className={portfolioStyles.portSection}
+          style={{ padding: '0 5vw' }}
+        >
           <Grid
             id="contact"
             ref={ref}

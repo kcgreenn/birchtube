@@ -40,9 +40,9 @@ export default function BlogListTemplate({
         lang="en-US"
         title="Dev Blog"
       />
-      <Container>
+      <Container style={{ paddingTop: '8px' }}>
         {matches ? (
-          <Paper style={{ marginTop: '96px' }}>
+          <Paper>
             <Button
               style={{ margin: 0, padding: 0 }}
               component="a"
@@ -118,10 +118,11 @@ export default function BlogListTemplate({
             </Button>
           </Paper>
         ) : (
-          <div style={{ marginTop: '96px' }}>
+          <div style={{ marginTop: '0px', paddingTop: '0px' }}>
             <BlogListItem
               title={data.allContentfulBlogPost.edges[0].node.title}
               slug={data.allContentfulBlogPost.edges[0].node.slug}
+              tags={data.allContentfulBlogPost.edges[0].node.tags}
               id={data.allContentfulBlogPost.edges[0].node.id}
               image={
                 data.allContentfulBlogPost.edges[0].node.jumbotronImage
@@ -138,7 +139,7 @@ export default function BlogListTemplate({
           </div>
         )}
 
-        <Grid container style={{ marginTop: '5vh' }}>
+        <Grid container style={{ marginTop: '64px' }}>
           <Grid item xs={12} id="list">
             <BlogList
               title="Recent Posts"

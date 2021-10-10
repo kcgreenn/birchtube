@@ -25,6 +25,7 @@ export default function BlogList({ title, posts }: AppProps): JSX.Element {
               key={node.id}
               id={node.id}
               slug={node.slug}
+              tags={node.tags}
               image={node.jumbotronImage}
               title={node.title}
               publishDate={node.publishedDate}

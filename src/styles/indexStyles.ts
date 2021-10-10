@@ -3,7 +3,7 @@ import { makeStyles } from "@material-ui/core";
 // styles
 const useStyles = makeStyles({
     main: {
-      overflowX: 'hidden',
+      overflow: 'hidden',
     },
     subtitle: {
       color:'#6288d5',
@@ -22,7 +22,7 @@ const useStyles = makeStyles({
     portSection: {
       minHeight: '40vh',
       padding: '0vh 5vh',
-      margin:'5vh 0',
+      marginBottom: '5vh',
     },
     sectionItem: {
       minWidth: '30vw',
@@ -98,7 +98,7 @@ const useStyles = makeStyles({
   // mobile styles
   const useMobileStyles = makeStyles({
     main: {
-      overflowX: 'hidden',
+      overflow: 'hidden',
     },
     subtitle: {
       padding:'24px 0',

@@ -107,16 +107,22 @@ export default function EduSection() {
       >
         Education
       </Typography>
-      <Paper
+      {/* <Paper
         style={{
           paddingBottom: '1rem'
         }}
         className={portfolioStyles.portSection}
+      > */}
+      <Grid
+        container
+        className={portfolioStyles.portSection}
+        justifyContent="center"
+        alignItems="flex-start"
+        style={{ color: 'white' }}
       >
-        <Grid container justifyContent="center" alignItems="center">
-          {educationGroup}
-        </Grid>
-      </Paper>
+        {educationGroup}
+      </Grid>
+      {/* </Paper> */}
     </React.Fragment>
   );
 }

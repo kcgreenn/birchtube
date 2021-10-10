@@ -25,7 +25,7 @@ export default function IntroSection({ profileImage }: any): JSX.Element {
 
   return (
     <React.Fragment>
-      <Typography variant="body2" style={{ color: 'white' }}>
+      <Typography variant="body2" style={{ color: 'white', marginTop: '8px' }}>
         Site By
       </Typography>
       <Typography
@@ -57,7 +57,33 @@ export default function IntroSection({ profileImage }: any): JSX.Element {
           github.com/kcgreenn
         </Typography>
       </a>
-      <Card className={portfolioStyles.introCard}>
+      <Grid container style={{ color: 'white', padding: '4rem 0' }}>
+        <Grid item xs={12} md={4}>
+          <img
+            src={ProfileImage}
+            alt="Profile Image"
+            style={{ height: '280', width: '100%', borderRadius: '160px' }}
+          />
+        </Grid>
+        <Grid item xs={12} md={8}>
+          <Typography variant="h5" align="right">
+            Hi, I'm KC. I design and build websites and applications. I have a
+            focus on the React ecosystem, including Nextjs, Gatsby and React
+            Native.
+          </Typography>
+          <Button
+            style={{ marginTop: '2rem', float: 'right' }}
+            component="a"
+            fullWidth={matches ? false : true}
+            href="/contact"
+            color="secondary"
+            variant="contained"
+          >
+            Contact Me
+          </Button>
+        </Grid>
+      </Grid>
+      {/* <Card className={portfolioStyles.introCard}>
         <CardMedia
           title="Profile Image"
           image={ProfileImage}
@@ -86,7 +112,7 @@ export default function IntroSection({ profileImage }: any): JSX.Element {
             Contact Me
           </Button>
         </CardContent>
-      </Card>
+      </Card> */}
     </React.Fragment>
   );
 }

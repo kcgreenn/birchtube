@@ -10,7 +10,8 @@ import {
   ListItem,
   ListItemText,
   ListItemIcon,
-  Divider
+  Divider,
+  Button
 } from '@material-ui/core';
 import React, { useState } from 'react';
 import MenuIcon from '@material-ui/icons/Menu';
@@ -22,6 +23,7 @@ import GitHubIcon from '@material-ui/icons/GitHub';
 import LinkedInIcon from '@material-ui/icons/LinkedIn';
 import { Link } from 'gatsby-theme-material-ui';
 import { graphql, useStaticQuery } from 'gatsby';
+import brandIcon from '../../images/gatsby-icon.png';
 import * as HeaderStyles from './Header.module.css';
 
 export default function Header() {
@@ -119,19 +121,20 @@ export default function Header() {
               }
             ].map((item, index) => (
               <React.Fragment>
-                <ListItem
-                  button
-                  key={item.text}
-                  style={{
-                    minWidth: '240px'
-                  }}
-                >
-                  <ListItemIcon>{item.icon}</ListItemIcon>
-                  <ListItemText
-                    color="textSecondary"
-                    primary={<Link to={item.link}>{item.text}</Link>}
-                  ></ListItemText>
-                </ListItem>
+                <Button component="a" href={`${item.link}`} alt={item.text}>
+                  <ListItem
+                    key={item.text}
+                    style={{
+                      minWidth: '240px'
+                    }}
+                  >
+                    <ListItemIcon>{item.icon}</ListItemIcon>
+                    <ListItemText
+                      color="textSecondary"
+                      primary={item.text}
+                    ></ListItemText>
+                  </ListItem>
+                </Button>
                 <Divider />
               </React.Fragment>
             ))}
@@ -140,13 +143,20 @@ export default function Header() {
       </Drawer>
       <Container>
         <Toolbar style={{ display: 'flex', justifyContent: 'space-between' }}>
-          <Typography
+          <div style={{ maxHeight: '24px' }}>
+            <img
+              src={brandIcon}
+              alt={data.site.siteMetadata.title}
+              style={{ height: '24px' }}
+            />
+          </div>
+          {/* <Typography
             variant="h4"
             component="h3"
             className={HeaderStyles.brand}
           >
             {data.site.siteMetadata.title}
-          </Typography>
+          </Typography> */}
           {navMenu}
         </Toolbar>
       </Container>
