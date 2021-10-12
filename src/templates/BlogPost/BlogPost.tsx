@@ -27,7 +27,7 @@ export default function BlogPost({ data: post }: AppProps): JSX.Element {
   const postImg = getImage(
     post.contentfulBlogPost.jumbotronImage.gatsbyImageData
   );
-  console.log(post.contentfulBlogPost.fullPost.childMarkdownRemark.htmlAst);
+
   return (
     <Layout bgImg={postImg}>
       <Seo
@@ -79,6 +79,13 @@ export default function BlogPost({ data: post }: AppProps): JSX.Element {
             </div>
           </Grid>
           <Grid item xs={12} md={9} style={{ borderTop: '1px solid #cecece' }}>
+            {/* <ReactMarkdown
+              children={
+                post.contentfulBlogPost.fullPost.childMarkdownRemark
+                  .rawMarkdownBody
+              }
+              components={CodeBlock}
+            /> */}
             <Paper
               className={PostStyles.postBody}
               dangerouslySetInnerHTML={{

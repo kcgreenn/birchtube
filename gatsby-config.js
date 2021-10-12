@@ -48,6 +48,13 @@ module.exports = {
         plugins: [
           {
             resolve: 'gatsby-remark-images'
+          },
+          {
+            resolve: 'gatsby-remark-highlight-code',
+            options: {
+              terminal: 'ubuntu',
+              theme: 'dracula'
+            }
           }
         ]
       }

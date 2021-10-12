@@ -4,6 +4,9 @@ import Footer from '../Footer/Footer';
 import Header from '../Header/Header';
 import { BgImage, convertToBgImage } from 'gbimage-bridge';
 import * as layoutStyles from './Layout.module.css';
+import { defineCustomElements as deckDeckGoHighlightElement } from '@deckdeckgo/highlight-code/dist/loader';
+
+deckDeckGoHighlightElement();
 
 type AppProps = {
   children: React.ReactNode;
