@@ -62,7 +62,12 @@ export default function IntroSection({ profileImage }: any): JSX.Element {
           <img
             src={ProfileImage}
             alt="Profile Image"
-            style={{ height: '280', width: '100%', borderRadius: '160px' }}
+            style={{
+              height: '280',
+              width: '100%',
+              borderRadius: '160px',
+              backgroundColor: '#333'
+            }}
           />
         </Grid>
         <Grid item xs={12} md={8}>
@@ -83,36 +88,6 @@ export default function IntroSection({ profileImage }: any): JSX.Element {
           </Button>
         </Grid>
       </Grid>
-      {/* <Card className={portfolioStyles.introCard}>
-        <CardMedia
-          title="Profile Image"
-          image={ProfileImage}
-          style={{
-            height: 280,
-            width: '100%',
-            maxWidth: '340px',
-            overflow: 'hidden',
-            borderRadius: '5px'
-          }}
-        ></CardMedia>
-        <CardContent>
-          <Typography variant="h5" align="right">
-            Hi, I'm KC. I design and build websites and applications. I have a
-            focus on the React ecosystem, including Nextjs, Gatsby and React
-            Native.
-          </Typography>
-          <Button
-            style={{ marginTop: '2rem', float: 'right' }}
-            component="a"
-            fullWidth={matches ? false : true}
-            href="/contact"
-            color="secondary"
-            variant="contained"
-          >
-            Contact Me
-          </Button>
-        </CardContent>
-      </Card> */}
     </React.Fragment>
   );
 }

@@ -1,5 +1,6 @@
 .postBody {
   padding: 2rem 8rem 2rem 1rem;
+  color: #cecece;
   z-index: 99 !important;
 }
 .postBody p {
@@ -13,6 +14,7 @@
 .postBody img {
   width: 90%;
   /* width: 600px; */
+  color: #cecece;
   margin: 0 5%;
   height: auto;
 }
@@ -42,6 +44,7 @@
   .postBody {
     padding: 1rem;
     font-size: 1rem;
+    color: #cecece;
   }
   .postBody p {
     font-size: 0.8rem;
@@ -50,6 +53,7 @@
     max-width: 90%;
     width: 300px;
     margin: 0;
+    color: #cecece;
     height: auto;
   }
   .deckgo-highlight-code-ubuntu {

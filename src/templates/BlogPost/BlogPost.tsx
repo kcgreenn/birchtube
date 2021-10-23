@@ -86,13 +86,13 @@ export default function BlogPost({ data: post }: AppProps): JSX.Element {
               }
               components={CodeBlock}
             /> */}
-            <Paper
+            <div
               className={PostStyles.postBody}
               dangerouslySetInnerHTML={{
                 __html:
                   post.contentfulBlogPost.fullPost.childMarkdownRemark.html
               }}
-            ></Paper>
+            ></div>
           </Grid>
           <Grid item xs={12} md={9} style={{ marginTop: '2rem' }}>
             <Paper style={{ padding: '2rem' }}>

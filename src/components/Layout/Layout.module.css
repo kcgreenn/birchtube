@@ -13,8 +13,8 @@
   min-height: 88vh;
   background: linear-gradient(
     180deg,
-    rgba(74, 74, 74, 0.6) 0%,
-    rgba(74, 74, 74, 0.7562359943977591) 20%,
+    rgba(74, 74, 74, 0.8) 0%,
+    rgba(74, 74, 74, 0.9) 20%,
     rgba(74, 74, 74, 1) 49%
   );
 }

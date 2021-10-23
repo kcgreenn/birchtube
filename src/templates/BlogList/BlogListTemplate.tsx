@@ -42,9 +42,14 @@ export default function BlogListTemplate({
       />
       <Container style={{ paddingTop: '8px' }}>
         {matches ? (
-          <Paper>
+          <React.Fragment>
+            {/* <Paper> */}
             <Button
-              style={{ margin: 0, padding: 0 }}
+              style={{
+                margin: 0,
+                padding: 0,
+                boxShadow: '1px 1px 3px #black'
+              }}
               component="a"
               href={`/posts/${data.allContentfulBlogPost.edges[0].node.slug}`}
             >
@@ -76,6 +81,7 @@ export default function BlogListTemplate({
                     marginTop: '1rem',
                     display: 'flex',
                     flexDirection: 'column',
+                    color: '#fefefe',
                     justifyContent: 'space-evenly'
                   }}
                 >
@@ -105,9 +111,13 @@ export default function BlogListTemplate({
                 <Grid
                   item
                   xs={12}
-                  style={{ marginTop: 24, borderTop: '1px solid #cecece' }}
+                  style={{
+                    marginTop: 24,
+                    borderTop: '1px solid #cecece',
+                    color: '#cecece'
+                  }}
                 >
-                  <Typography variant="h5" align="left">
+                  <Typography variant="body1" align="left">
                     {
                       data.allContentfulBlogPost.edges[0].node.fullPost
                         .childMarkdownRemark.excerpt
@@ -116,7 +126,8 @@ export default function BlogListTemplate({
                 </Grid>
               </Grid>
             </Button>
-          </Paper>
+            {/* </Paper> */}
+          </React.Fragment>
         ) : (
           <div style={{ marginTop: '0px', paddingTop: '0px' }}>
             <BlogListItem

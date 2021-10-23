@@ -34,54 +34,57 @@ export default function BlogListItem({
   const postImg = getImage(image);
 
   return (
-    <Paper key={id} className={ItemStyles.blogPostItem}>
-      <Button component="a" href={`/posts/${slug}`}>
-        <Card>
-          <CardActionArea>
-            <CardMedia
-              title="Post Image"
-              style={{ height: 200, maxHeight: 220, overflow: 'hidden' }}
+    // <Paper key={id} className={ItemStyles.blogPostItem}>
+    <Button component="a" href={`/posts/${slug}`}>
+      <Card
+        raised
+        style={{ backgroundColor: 'rgba(0,0,0,0)', color: '#cecece' }}
+      >
+        <CardActionArea>
+          <CardMedia
+            title="Post Image"
+            style={{ height: 200, maxHeight: 220, overflow: 'hidden' }}
+          >
+            <GatsbyImage image={postImg} title={title} />
+          </CardMedia>
+          <CardContent>
+            <div
+              style={{
+                display: 'flex',
+                justifyContent: 'space-between',
+                borderBottom: '1px solid #cecece',
+                paddingBottom: 8,
+                marginBottom: 8
+              }}
             >
-              <GatsbyImage image={postImg} title={title} />
-            </CardMedia>
-            <CardContent>
-              <div
-                style={{
-                  display: 'flex',
-                  justifyContent: 'space-between',
-                  borderBottom: '1px solid #cecece',
-                  paddingBottom: 8,
-                  marginBottom: 8
-                }}
-              >
-                <Typography
-                  variant="body2"
-                  color="primary"
-                  component="span"
-                  style={{ maxWidth: '80%' }}
-                >
-                  <LocalOfferIcon />
-                  {tags.join(', ')}
-                </Typography>
-                <Typography component="span" variant="body2" color="secondary">
-                  {publishDate}
-                </Typography>
-              </div>
               <Typography
-                gutterBottom
-                variant="h4"
-                align="left"
-                className={ItemStyles.blogPostTitle}
+                variant="body2"
+                color="primary"
+                component="span"
+                style={{ maxWidth: '80%', color: '#cecece' }}
               >
-                {title}
+                <LocalOfferIcon />
+                {tags.join(', ')}
               </Typography>
-              <Typography variant="body1" align="left">
-                {summary}
+              <Typography component="span" variant="body2" color="secondary">
+                {publishDate}
               </Typography>
-            </CardContent>
-          </CardActionArea>
-        </Card>
-      </Button>
-    </Paper>
+            </div>
+            <Typography
+              gutterBottom
+              variant="h4"
+              align="left"
+              className={ItemStyles.blogPostTitle}
+            >
+              {title}
+            </Typography>
+            <Typography variant="body1" align="left">
+              {summary}
+            </Typography>
+          </CardContent>
+        </CardActionArea>
+      </Card>
+    </Button>
+    // </Paper>
   );
 }
