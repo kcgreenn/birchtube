@@ -1,16 +1,17 @@
 import { Grid, Paper, Typography, useMediaQuery } from '@material-ui/core';
 import React from 'react';
+import { useMobileStyles, useStyles } from '../../styles/indexStyles';
 import * as portfolioStyles from './PortfolioStyles.module.css';
 
 export default function EduSection() {
-  const matches = useMediaQuery('(min-width:800px');
+  const matches = useMediaQuery('(min-width:821px');
+  const classes = matches ? useStyles() : useMobileStyles();
 
   const educationItems = [
     {
       school: 'Western Governors University',
       years: '2020 - 2021',
-      description:
-        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos quidem architecto magni modi laborum repudiandae suscipit impedit, vero a nam veritatis voluptatem error vitae. Eum.',
+      description: 'Attained a Bachelors in Compunter Science',
       awards: ['Inducted into the NSLS Honor Society']
     },
     {
@@ -23,106 +24,58 @@ export default function EduSection() {
   ];
 
   const educationGroup = educationItems.map((item, index) => (
-    <React.Fragment>
-      <Grid
-        item
-        xs={12}
-        md={1}
-        style={{
-          borderLeft: matches ? '1px solid #6288d5' : '',
-          borderTop: !matches && index % 2 !== 0 ? '3px solid #6288d5' : '',
-          paddingTop: !matches && index % 2 !== 0 ? '2rem' : '',
-          marginTop: !matches && index % 2 !== 0 ? '2rem' : ''
-        }}
-      >
-        <Typography
-          variant="h4"
-          component="p"
-          className={portfolioStyles.subtitle}
+    <div
+      id="eduCard"
+      style={{ width: '40%', minWidth: '312px', marginRight: '5%' }}
+    >
+      <div id="header">
+        <span
           style={{
-            writingMode: matches ? 'vertical-rl' : ''
+            writingMode: 'vertical-rl',
+            textOrientation: 'mixed',
+            color: '#0080ff',
+            float: 'left',
+            fontFamily: 'Poppins',
+            fontSize: '.75rem'
           }}
         >
           {item.years}
-        </Typography>
-      </Grid>
-      <Grid
-        item
-        xs={11}
-        md={5}
-        style={{
-          display: 'flex',
-          flexDirection: 'column',
-          justifyContent: 'flex-start',
-          alignItems: 'flex-start',
-          paddingTop: '2rem'
-        }}
-      >
-        <Typography
-          variant="h4"
-          component="h4"
-          align="left"
+        </span>
+        <h3
           style={{
-            height: '48px',
-            marginBottom: '24px',
-            fontWeight: 'bold'
+            textAlign: 'right',
+            fontSize: '1.5rem',
+            fontFamily: 'Poppins'
           }}
         >
           {item.school}
-        </Typography>
-        <Typography
-          component="p"
-          variant="body1"
-          style={{ padding: '24px 12px 0 0' }}
-        >
-          {item.description}
-        </Typography>
-        {item.awards.length > 0 && (
-          <React.Fragment>
-            <Typography
-              variant="h5"
-              component="h2"
-              className={portfolioStyles.subtitle}
-            >
-              Awards Attained:
-            </Typography>
-            {item.awards.map((award) => (
-              <Typography component="li" variant="body1">
-                {award}
-              </Typography>
-            ))}
-          </React.Fragment>
-        )}
-      </Grid>
-    </React.Fragment>
+        </h3>
+      </div>
+      <p style={{ textAlign: 'left', fontFamily: 'Poppins', fontSize: '1rem' }}>
+        {item.description}
+      </p>
+      {item.awards.length > 0 && (
+        <React.Fragment>
+          <h4 style={{ textDecoration: 'underline', fontFamily: 'Poppins' }}>
+            Awards Attained / Achievements
+          </h4>
+          <ul style={{ fontFamily: 'Poppins', fontSize: '1rem' }}>
+            <li>{item.awards[0]}</li>
+          </ul>
+        </React.Fragment>
+      )}
+    </div>
   ));
 
   return (
-    <React.Fragment>
-      <Typography
-        variant="h2"
-        component="h2"
-        className={portfolioStyles.sectionTitle}
-        align="right"
-      >
-        Education
-      </Typography>
-      {/* <Paper
-        style={{
-          paddingBottom: '1rem'
-        }}
-        className={portfolioStyles.portSection}
-      > */}
-      <Grid
-        container
-        className={portfolioStyles.portSection}
-        justifyContent="center"
-        alignItems="flex-start"
-        style={{ color: 'white' }}
-      >
-        {educationGroup}
-      </Grid>
-      {/* </Paper> */}
-    </React.Fragment>
+    <section id="eduSection" className={classes.indexSection}>
+      <div>
+        <h2 className={classes.sectionTitle}>
+          <span>Education</span>
+        </h2>
+        <h3 className={classes.sectionSubtitle}>Studied At</h3>
+      </div>
+      <div style={{ display: 'flex', flexWrap: 'wrap' }}>{educationGroup}</div>
+    </section>
   );
 }

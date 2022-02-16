@@ -34,57 +34,18 @@ export default function BlogListItem({
   const postImg = getImage(image);
 
   return (
-    // <Paper key={id} className={ItemStyles.blogPostItem}>
-    <Button component="a" href={`/posts/${slug}`}>
-      <Card
-        raised
-        style={{ backgroundColor: 'rgba(0,0,0,0)', color: '#cecece' }}
-      >
-        <CardActionArea>
-          <CardMedia
-            title="Post Image"
-            style={{ height: 200, maxHeight: 220, overflow: 'hidden' }}
-          >
-            <GatsbyImage image={postImg} title={title} />
-          </CardMedia>
-          <CardContent>
-            <div
-              style={{
-                display: 'flex',
-                justifyContent: 'space-between',
-                borderBottom: '1px solid #cecece',
-                paddingBottom: 8,
-                marginBottom: 8
-              }}
-            >
-              <Typography
-                variant="body2"
-                color="primary"
-                component="span"
-                style={{ maxWidth: '80%', color: '#cecece' }}
-              >
-                <LocalOfferIcon />
-                {tags.join(', ')}
-              </Typography>
-              <Typography component="span" variant="body2" color="secondary">
-                {publishDate}
-              </Typography>
-            </div>
-            <Typography
-              gutterBottom
-              variant="h4"
-              align="left"
-              className={ItemStyles.blogPostTitle}
-            >
-              {title}
-            </Typography>
-            <Typography variant="body1" align="left">
-              {summary}
-            </Typography>
-          </CardContent>
-        </CardActionArea>
-      </Card>
-    </Button>
-    // </Paper>
+    <div className={ItemStyles.blogPostItem} id={id}>
+      <a href={`/posts/${slug}`}>
+        <GatsbyImage image={postImg} title={title} />
+      </a>
+      <p className={ItemStyles.blogDateSpan}>{publishDate}</p>
+      <a style={{ textDecoration: 'none' }} href={`/posts/${slug}`}>
+        <h2 className={ItemStyles.blogPostTitle}>{title}</h2>
+      </a>
+      <p className={ItemStyles.blogPostExcerpt}>{summary}</p>
+      <a className={ItemStyles.readMoreBtn} href={`/posts/${slug}`}>
+        Read More
+      </a>
+    </div>
   );
 }

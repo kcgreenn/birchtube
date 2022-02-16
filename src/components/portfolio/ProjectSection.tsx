@@ -8,98 +8,119 @@ import {
   Grid,
   IconButton,
   Paper,
-  Typography
+  Typography,
+  useMediaQuery
 } from '@material-ui/core';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import React from 'react';
 import GitHubIcon from '@material-ui/icons/GitHub';
 import WebIcon from '@material-ui/icons/Web';
 import * as portfolioStyles from './PortfolioStyles.module.css';
+import { useMobileStyles, useStyles } from '../../styles/indexStyles';
 
 export default function ProjectSection({ projects }: any): JSX.Element {
-  const projectGroup = projects
-    .slice(0, 3)
-    .map(({ node }: any, index: number) => {
-      const projImg = getImage(node.image.gatsbyImageData);
-      return (
-        <Grid item xs={12} md={4} key={node.id} style={{ marginTop: '12px' }}>
-          <Card key={node.id}>
-            <CardActionArea component="a" href={node.livelink}>
-              <CardMedia style={{ border: '2px solid #bbb' }}>
-                <GatsbyImage
-                  image={projImg}
-                  title={node.title}
-                  style={{ height: 180 }}
-                />
-              </CardMedia>
-              <CardContent>
-                <Typography variant="h4" component="h4">
-                  {node.title}
-                </Typography>
-                <Typography variant="body1" color="textSecondary" component="p">
-                  {node.description}
-                </Typography>
-              </CardContent>
-            </CardActionArea>
-            <CardActions
-              style={{
-                display: 'flex',
-                justifyContent: 'space-evenly'
-              }}
-            >
-              {node.livelink && (
-                <IconButton
-                  component="a"
-                  href={node.livelink}
-                  color="secondary"
-                  aria-label="Live Project Link"
-                >
-                  Live
-                </IconButton>
-              )}
-
-              <IconButton aria-label="Github Link">
-                <a href={node.githublink} title="Github Repository">
-                  <GitHubIcon color="secondary" />
-                </a>
-              </IconButton>
-            </CardActions>
-          </Card>
-        </Grid>
-      );
-    });
-  return (
-    <React.Fragment>
-      <Typography
-        variant="h2"
-        component="h2"
-        className={portfolioStyles.sectionTitle}
+  const matches = useMediaQuery('(min-width:821px');
+  const classes = matches ? useStyles() : useMobileStyles();
+  const projectGroup = projects.map(({ node }: any, index: number) => {
+    const projImg = getImage(node.image.gatsbyImageData);
+    return (
+      <div
+        style={{
+          width: '40%',
+          minWidth: '264px',
+          marginRight: '24px',
+          marginBottom: '36px',
+          border: '1px solid #dedede',
+          borderRadius: 10,
+          overflow: 'hidden'
+        }}
       >
-        Recent Projects
-      </Typography>
-      {/* <Paper className={portfolioStyles.portSection}> */}
-      <Grid
-        container
-        className={portfolioStyles.portSection}
-        spacing={3}
-        id="project"
-        justifyContent="flex-start"
-        alignItems="stretch"
+        <a
+          href={node.livelink ? node.livelink : node.githublink}
+          style={{ borderBottom: '1px solid black' }}
+        >
+          <GatsbyImage
+            image={projImg}
+            title={node.description}
+            style={{ maxHeight: 180 }}
+          />
+        </a>
+        <div
+          style={{
+            display: 'flex',
+            justifyContent: 'space-evenly',
+            margin: '12px 0 12px 0'
+          }}
+        >
+          {node.livelink && (
+            <a
+              style={{
+                textDecoration: 'none',
+                fontFamily: 'Poppins',
+                fontSize: '1rem',
+                color: 'black',
+                textAlign: 'center',
+                padding: '4px 0 4px 0',
+                flexGrow: 1,
+                borderBottom: '1px solid black',
+                borderRight: '1px solid black'
+              }}
+              target="_blank"
+              href={node.livelink}
+            >
+              Live
+            </a>
+          )}
+          <a
+            style={{
+              textDecoration: 'none',
+              fontFamily: 'Poppins',
+              padding: '4px 0 4px 0',
+              fontSize: '1rem',
+              color: 'black',
+              flexGrow: 1,
+              textAlign: 'center',
+              borderBottom: '1px solid black'
+            }}
+            href={node.githublink}
+            target="_blank"
+          >
+            Github
+          </a>
+        </div>
+        <h3
+          style={{
+            fontFamily: 'Poppins',
+            textAlign: 'center',
+            fontWeight: 700,
+            fontSize: '1rem'
+          }}
+        >
+          {node.title}
+        </h3>
+      </div>
+    );
+  });
+  return (
+    <section id="projectSection" className={classes.indexSection}>
+      <div>
+        <h2 className={classes.sectionTitle}>
+          <span>My</span>
+          <br />
+          <span>Projects</span>
+        </h2>
+        <h3 className={classes.sectionSubtitle}>Latest Works</h3>
+      </div>
+      <div
+        style={{
+          display: 'flex',
+          flexDirection: 'row',
+          flexWrap: 'wrap',
+          justifyContent: 'center'
+        }}
       >
         {projectGroup}
-        <Grid item xs={12}>
-          <Button
-            component="a"
-            href="/projects"
-            variant="contained"
-            color="secondary"
-            fullWidth
-          >
-            View More
-          </Button>
-        </Grid>
-      </Grid>
-      {/* </Paper> */}
-    </React.Fragment>
+      </div>
+    </section>
   );
 }

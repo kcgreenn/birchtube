@@ -1,3 +1,63 @@
+* {
+  font-family: Poppins;
+}
+html {
+  scroll-behavior: smooth;
+}
+.background {
+  background-color: #0080ff;
+  padding-left: 10vw;
+  width: 100vw;
+  min-height: 95vh;
+}
+.main {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  background-color: white;
+  min-height: 95vh;
+  width: 100%;
+}
+.mainContent {
+  width: 70vw;
+  padding-top: 10vh;
+}
+.sidePanel {
+  width: 10vw;
+  padding-top: 20vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  height: 100%;
+}
+.titleWrapper {
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  align-items: center;
+}
+.title {
+  font-size: 5.5rem;
+  font-weight: 700;
+}
+.subtitle {
+  font-size: 1rem;
+  color: '#0080ff';
+}
+.paginationBtn {
+  text-decoration: none;
+  color: #0080ff;
+  /* border: 1px solid #0080ff; */
+  box-shadow: 1px 1px 3px #0080ff;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 3rem;
+  height: 3rem;
+  width: 3rem;
+  font-size: 1rem;
+}
 .blogPostItem {
   border-top: 1px solid #cecece;
 }
@@ -21,10 +81,74 @@
   height: 100%;
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 821px) {
+  .background {
+    background-color: #0080ff;
+    padding-left: 20vw;
+    width: 100vw;
+    max-width: 100vw;
+    overflow: hidden;
+    min-height: 95vh;
+  }
+  .main {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    background-color: white;
+    min-height: 95vh;
+    overflow: hidden;
+    width: 100%;
+  }
+  .mainContent {
+    width: 100%;
+    padding-top: 10vh;
+  }
+  .sidePanel {
+    visibility: hidden;
+  }
+  .titleWrapper {
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: center;
+  }
+  .title {
+    font-size: 5.5rem;
+    font-weight: 700;
+  }
+  .subtitle {
+    font-size: 1rem;
+    text-align: center;
+    color: '#0080ff';
+  }
+  .paginationBtn {
+    text-decoration: none;
+    color: #0080ff;
+    margin-top: 15vh;
+    margin-bottom: 0;
+    box-shadow: 1px 1px 3px #0080ff;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 3rem;
+    height: 3rem;
+    width: 3rem;
+    font-size: 1rem;
+  }
+  .blogPostItem {
+  }
+  .sideLists {
+    display: none;
+  }
+  .blogDateSpan {
+    color: #aeaeae;
+  }
+  .blogListTitle {
+    color: #6288d5;
+    font-weight: 600;
+  }
   .focusImg {
-    width: 900%;
-    max-width: 400px;
+    width: 100%;
     height: 100%;
   }
 }

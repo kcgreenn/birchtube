@@ -22,7 +22,7 @@ type AppProps = {
 };
 
 export default function BlogPost({ data: post }: AppProps): JSX.Element {
-  const matches = useMediaQuery('(min-width:600px');
+  const matches = useMediaQuery('(min-width:821px');
 
   const postImg = getImage(
     post.contentfulBlogPost.jumbotronImage.gatsbyImageData
@@ -37,28 +37,19 @@ export default function BlogPost({ data: post }: AppProps): JSX.Element {
       />
       <Container maxWidth="lg">
         <Grid container justifyContent="flex-start">
-          <Grid item xs={12}>
-            <Typography
-              variant="body1"
-              component="p"
-              style={{ color: 'white' }}
-            >
+          <Grid item xs={12} style={{ marginTop: '128px' }}>
+            <Typography variant="body1" component="p">
               <LocalOfferIcon style={{ marginRight: '8px' }} />
               {post.contentfulBlogPost.tags.join(', ')}
             </Typography>
           </Grid>
           <Grid item xs={12}>
-            <Typography variant="h2" component="h1" style={{ color: 'white' }}>
+            <Typography variant="h2" component="h1">
               {post.contentfulBlogPost.title}
             </Typography>
           </Grid>
           <Grid item xs={12} md={6} style={{ marginBottom: '1rem' }}>
-            <Typography
-              variant="body1"
-              component="h2"
-              align="left"
-              style={{ color: 'white' }}
-            >
+            <Typography variant="body1" component="h2" align="left">
               {`Published on: ${post.contentfulBlogPost.publishedDate}`}
             </Typography>
           </Grid>
@@ -67,7 +58,6 @@ export default function BlogPost({ data: post }: AppProps): JSX.Element {
               variant="body1"
               component="h2"
               align={matches ? 'right' : 'left'}
-              style={{ color: 'white' }}
             >
               <TimelapseIcon style={{ marginRight: '8px' }} />
               {`${post.contentfulBlogPost.fullPost.childMarkdownRemark.timeToRead} Min Read`}

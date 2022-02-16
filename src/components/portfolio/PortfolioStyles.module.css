@@ -1,14 +1,46 @@
+html,
+body {
+  scroll-behavior: smooth;
+}
 .portSection {
   min-height: 40vh;
   margin: 0 0 5vh 0;
 }
 .contactField {
-  min-width: 512;
-  max-width: 60vw;
-  margin: 2rem 0;
+  max-width: 50%;
+  min-width: 424px;
+  height: 4rem;
+  border-radius: 30px;
+  margin-bottom: 16px;
+  font-size: 1rem;
+  font-family: Poppins;
+  padding-left: 18px;
+  border: 1px solid #cecece;
+}
+.contactFieldLabel {
+  background-color: white;
+  font-family: Poppins;
+  font-size: 1.25rem;
+  font-weight: 700;
+  width: 104px;
+  text-align: center;
+  transform: translate(24px, 12px);
+}
+.contactBtn {
+  width: 25%;
+  height: 4rem;
+  border-radius: 30px;
+  margin-bottom: 16px;
+  border: 1px solid #cecece;
+  background-color: white;
+  font-family: Poppins;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
 }
 .sectionTitle {
-  color: white;
+  color: black;
+  font-family: Poppins;
   margin: '1rem 0';
 }
 .subtitle {
@@ -25,16 +57,43 @@
   padding: 8px;
   margin-top: 1rem;
 }
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 821px) {
   .portSection {
     min-height: 512px;
     width: 100%;
     margin: 0 0 5vh 0;
   }
   .contactField {
-    min-width: 302;
-    max-width: 80vw;
-    margin: 2rem 0;
+    max-width: 90vw;
+    min-width: 224px;
+    height: 4rem;
+    border-radius: 30px;
+    margin-bottom: 16px;
+    font-size: 1rem;
+    font-family: Poppins;
+    padding-left: 18px;
+    border: 1px solid #cecece;
+  }
+  .contactFieldLabel {
+    background-color: white;
+    font-family: Poppins;
+    font-size: 1.25rem;
+    font-weight: 700;
+    width: 104px;
+    text-align: center;
+    transform: translate(24px, 1px);
+  }
+  .contactBtn {
+    width: 50vw;
+    height: 4rem;
+    border-radius: 30px;
+    margin-bottom: 16px;
+    border: 1px solid #cecece;
+    background-color: white;
+    font-family: Poppins;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
   }
   .subtitle {
     color: #6288d5;

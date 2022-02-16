@@ -1,14 +1,33 @@
+* {
+  font-family: Poppins;
+}
+.header {
+  position: absolute;
+  top: 5vh;
+  left: 5vw;
+  width: 90vw;
+  background-color: white;
+  display: flex;
+  border-radius: 30px;
+  justify-content: space-between;
+  padding: 0 5vw 0 5vw;
+  box-shadow: 2px 2px 2px #aeaeae;
+  z-index: 1;
+}
 .brand {
   text-decoration: none;
+  font-size: 1.5rem;
+  line-height: 1rem;
 }
 .navLinks {
   display: flex;
   width: 360px;
+  font-size: 1rem;
   justify-content: space-evenly;
   align-items: center;
 }
 .navLink {
-  color: #ccc;
+  color: #cecece;
   text-decoration: none;
 }
 .navLink * {
@@ -19,7 +38,7 @@
   text-decoration: underlined;
 }
 .active {
-  color: #ff9800;
+  color: #0080ff;
   text-decoration: none;
 }
 .active:hover {

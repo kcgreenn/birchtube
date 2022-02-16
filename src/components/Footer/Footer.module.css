@@ -1,6 +1,19 @@
+* {
+  font-family: Poppins;
+}
+
 .footer {
+  position: absolute !important;
+  bottom: 1vh;
+  right: 2vw;
   padding: 1rem;
+  width: 396px;
+  max-width: 90vw;
+  background-color: white;
+  border-radius: 30px;
+  box-shadow: 2px 2px 4px #cecece;
   display: flex;
   justify-content: center;
   color: #37474f;
+  visibility: hidden;
 }

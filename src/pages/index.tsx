@@ -11,6 +11,7 @@ import EduSection from '../components/portfolio/EduSection';
 import AboutSection from '../components/portfolio/AboutSection';
 import ProjectSection from '../components/portfolio/ProjectSection';
 import IntroSection from '../components/portfolio/IntroSection';
+import SkillSection from '../components/portfolio/SkillsSection';
 import ContactSection from '../components/portfolio/ContactSection';
 import Jumbotron from '../components/Jumbotron';
 import { graphql, useStaticQuery } from 'gatsby';
@@ -24,7 +25,7 @@ type AppProps = {
 
 // markup
 export default function Index({ location, data }: AppProps): JSX.Element {
-  const matches = useMediaQuery('(min-width:1000px)');
+  const matches = useMediaQuery('(min-width:821px)');
   const maxImgWidth = matches ? 1000 : 400;
   const projectData = useStaticQuery(graphql`
     query {
@@ -55,31 +56,30 @@ export default function Index({ location, data }: AppProps): JSX.Element {
         lang="en-US"
         title="About Me"
       />
-      <Fab
-        component="a"
-        href="https://www.linkedin.com/in/kyle-green-81b3b71a1/"
-        title="LinkedIn"
-        color="secondary"
-        aria-label="My LinkedIn"
+      <a
         className={classes.linkedInBtn}
+        href="https://www.linkedin.com/in/kyle-green-81b3b71a1/"
+        target="_blank"
       >
-        <LinkedInIcon />
-      </Fab>
-      <Fab
-        component="a"
-        href="https://github.com/kcgreenn"
-        title="My Github"
-        color="secondary"
-        aria-label="github"
+        <LinkedInIcon style={{ color: '#0080ff' }} />
+      </a>
+      <a
         className={classes.githubBtn}
+        href="https://www.github.com/kcgreenn"
+        target="_blank"
       >
-        <GitHubIcon />
-      </Fab>
-      <Container maxWidth="md" className={classes.main}>
+        <GitHubIcon style={{ color: '#0080ff' }} />
+      </a>
+      <div className={classes.main}>
+        <div className={classes.profileImageContainer}></div>
         <IntroSection />
+        <AboutSection />
         <EduSection />
+        <SkillSection />
         <ProjectSection projects={projectData.allContentfulProject.edges} />
-      </Container>
+        <ContactSection />
+        <div></div>
+      </div>
     </Layout>
   );
 }
