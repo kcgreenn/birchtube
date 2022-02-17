@@ -86,9 +86,9 @@ export default function BlogListTemplate({
               )}
             </div>
           </div>
-          <div className={ListStyles.sidePanel}>
+          {/* <div className={ListStyles.sidePanel}>
             <h2>Archives</h2>
-          </div>
+          </div> */}
         </div>
       </div>
     </Layout>

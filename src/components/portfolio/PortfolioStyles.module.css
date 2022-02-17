@@ -119,6 +119,10 @@ body {
 }
 
 @media only screen and (max-width: 821px) {
+  html,
+  body {
+    scroll-behavior: smooth;
+  }
   .portSection {
     min-height: 512px;
     width: 100%;

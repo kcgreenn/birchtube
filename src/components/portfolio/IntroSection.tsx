@@ -45,9 +45,9 @@ export default function IntroSection({ profileImage }: any): JSX.Element {
         />
       </div>
       <p className={classes.sectionDescription}>
-        I'm a software developer specializing in creating digital experiences
-        for the modern web. Currently, I'm focusing on the Javascript and React
-        ecosystems.
+        I'm a software developer that focueses on web applications. I use React
+        and Node with Typescipt daily, to create digital experiences for the
+        modern web.
       </p>
       <div
         style={{

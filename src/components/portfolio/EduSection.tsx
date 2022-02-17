@@ -13,7 +13,8 @@ export default function EduSection() {
       degree: 'Bachelor of Science',
       subject: 'Computer Science',
       years: '2020 - 2021',
-      description: 'Attained a Bachelors in Compunter Science',
+      description:
+        'Software Engineering, Advanced Data Management, Operating Systems for Programmers, Discrete Mathematics, Data Structures & Algorithms, Computer Architecture, Fundamentals of Information Security, Project Management, Introduction to Artificial Intelligence',
       awards: ['Inducted into the NSLS Honor Society']
     },
     {
@@ -21,8 +22,7 @@ export default function EduSection() {
       degree: 'Associate of Applied Science',
       subject: 'Computer and Information Systems',
       years: '2017 - 2018',
-      description:
-        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime quas suscipit exercitationem laboriosam, recusandae veritatis nemo! Et ad eos odit amet ratione expedita officiis dolorum.',
+      description: '',
       awards: []
     }
   ];
@@ -48,7 +48,7 @@ export default function EduSection() {
         <h3
           style={{
             textAlign: 'right',
-            fontSize: '1.6rem',
+            fontSize: '1.9rem',
             fontWeight: 500,
             fontFamily: 'Poppins'
           }}
@@ -77,13 +77,27 @@ export default function EduSection() {
       >
         {item.subject}
       </p>
+      <p
+        style={{
+          textAlign: 'center',
+          fontFamily: 'Poppins',
+          fontWeight: 500,
+          fontSize: '1rem',
+          color: 'black'
+        }}
+      >
+        {item.description}
+      </p>
       {item.awards.length > 0 && (
         <React.Fragment>
           <h4
             style={{
               textDecoration: 'underline',
               fontFamily: 'Poppins',
-              textAlign: 'center'
+              textAlign: 'center',
+              fontWeight: 700,
+              fontSize: '1rem',
+              color: '#0080ff'
             }}
           >
             Awards Attained / Achievements
