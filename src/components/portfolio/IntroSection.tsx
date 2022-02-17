@@ -28,6 +28,11 @@ export default function IntroSection({ profileImage }: any): JSX.Element {
   return (
     <section id="introSection" className={classes.indexSection}>
       <div>
+        <p
+          style={{ color: '#0080ff', fontFamily: 'Poppins', fontSize: '1rem' }}
+        >
+          Hi, my name is
+        </p>
         <h2 className={classes.sectionTitle}>
           <span>KC</span>
           <br />
@@ -40,9 +45,9 @@ export default function IntroSection({ profileImage }: any): JSX.Element {
         />
       </div>
       <p className={classes.sectionDescription}>
-        {' '}
-        Hi, I'm KC. I design and build websites and applications. I have a focus
-        on the React ecosystem, including Nextjs, Gatsby and React Native.
+        I'm a software developer specializing in creating digital experiences
+        for the modern web. Currently, I'm focusing on the Javascript and React
+        ecosystems.
       </p>
       <div
         style={{

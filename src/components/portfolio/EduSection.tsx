@@ -10,12 +10,16 @@ export default function EduSection() {
   const educationItems = [
     {
       school: 'Western Governors University',
+      degree: 'Bachelor of Science',
+      subject: 'Computer Science',
       years: '2020 - 2021',
       description: 'Attained a Bachelors in Compunter Science',
       awards: ['Inducted into the NSLS Honor Society']
     },
     {
       school: 'Community College of Philadelphia',
+      degree: 'Associate of Applied Science',
+      subject: 'Computer and Information Systems',
       years: '2017 - 2018',
       description:
         'Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime quas suscipit exercitationem laboriosam, recusandae veritatis nemo! Et ad eos odit amet ratione expedita officiis dolorum.',
@@ -44,22 +48,54 @@ export default function EduSection() {
         <h3
           style={{
             textAlign: 'right',
-            fontSize: '1.5rem',
+            fontSize: '1.6rem',
+            fontWeight: 500,
             fontFamily: 'Poppins'
           }}
         >
           {item.school}
         </h3>
       </div>
-      <p style={{ textAlign: 'left', fontFamily: 'Poppins', fontSize: '1rem' }}>
-        {item.description}
+      <p
+        style={{
+          textAlign: 'center',
+          fontFamily: 'Poppins',
+          fontWeight: 700,
+          fontSize: '1.5rem',
+          color: '#0080ff'
+        }}
+      >
+        {item.degree}
+      </p>
+      <p
+        style={{
+          textAlign: 'center',
+          fontFamily: 'Poppins',
+          fontWeight: 700,
+          fontSize: '1.25rem'
+        }}
+      >
+        {item.subject}
       </p>
       {item.awards.length > 0 && (
         <React.Fragment>
-          <h4 style={{ textDecoration: 'underline', fontFamily: 'Poppins' }}>
+          <h4
+            style={{
+              textDecoration: 'underline',
+              fontFamily: 'Poppins',
+              textAlign: 'center'
+            }}
+          >
             Awards Attained / Achievements
           </h4>
-          <ul style={{ fontFamily: 'Poppins', fontSize: '1rem' }}>
+          <ul
+            style={{
+              fontFamily: 'Poppins',
+              fontSize: '1rem',
+              textAlign: 'center',
+              listStyle: 'none'
+            }}
+          >
             <li>{item.awards[0]}</li>
           </ul>
         </React.Fragment>

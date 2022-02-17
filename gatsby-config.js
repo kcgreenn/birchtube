@@ -58,8 +58,9 @@ module.exports = {
           {
             resolve: 'gatsby-remark-highlight-code',
             options: {
-              terminal: 'ubuntu',
-              theme: 'dracula'
+              terminal: 'carbon',
+              theme: 'one-light',
+              lineNumbers: true
             }
           }
         ]

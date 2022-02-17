@@ -24,80 +24,26 @@ export default function ProjectSection({ projects }: any): JSX.Element {
   const projectGroup = projects.map(({ node }: any, index: number) => {
     const projImg = getImage(node.image.gatsbyImageData);
     return (
-      <div
-        style={{
-          width: '40%',
-          minWidth: '264px',
-          marginRight: '24px',
-          marginBottom: '36px',
-          border: '1px solid #dedede',
-          borderRadius: 10,
-          overflow: 'hidden'
-        }}
-      >
-        <a
-          href={node.livelink ? node.livelink : node.githublink}
-          style={{ borderBottom: '1px solid black' }}
-        >
+      <div className={portfolioStyles.projImgHover}>
+        <h3>{node.title}</h3>
+        <span className={portfolioStyles.projLinks}>
+          {node.livelink && (
+            <a href={node.livelink} className={portfolioStyles.liveLink}>
+              <WebIcon size="large" />
+            </a>
+          )}
+          <a href={node.githublink} className={portfolioStyles.githubLink}>
+            <GitHubIcon size="large" />
+          </a>
+        </span>
+        <a href={node.livelink}>
           <GatsbyImage
             image={projImg}
             title={node.description}
-            style={{ maxHeight: 180 }}
+            className={portfolioStyles.projectCard}
+            style={{ borderRadius: '10px' }}
           />
         </a>
-        <div
-          style={{
-            display: 'flex',
-            justifyContent: 'space-evenly',
-            margin: '12px 0 12px 0'
-          }}
-        >
-          {node.livelink && (
-            <a
-              style={{
-                textDecoration: 'none',
-                fontFamily: 'Poppins',
-                fontSize: '1rem',
-                color: 'black',
-                textAlign: 'center',
-                padding: '4px 0 4px 0',
-                flexGrow: 1,
-                borderBottom: '1px solid black',
-                borderRight: '1px solid black'
-              }}
-              target="_blank"
-              href={node.livelink}
-            >
-              Live
-            </a>
-          )}
-          <a
-            style={{
-              textDecoration: 'none',
-              fontFamily: 'Poppins',
-              padding: '4px 0 4px 0',
-              fontSize: '1rem',
-              color: 'black',
-              flexGrow: 1,
-              textAlign: 'center',
-              borderBottom: '1px solid black'
-            }}
-            href={node.githublink}
-            target="_blank"
-          >
-            Github
-          </a>
-        </div>
-        <h3
-          style={{
-            fontFamily: 'Poppins',
-            textAlign: 'center',
-            fontWeight: 700,
-            fontSize: '1rem'
-          }}
-        >
-          {node.title}
-        </h3>
       </div>
     );
   });
@@ -109,7 +55,9 @@ export default function ProjectSection({ projects }: any): JSX.Element {
           <br />
           <span>Projects</span>
         </h2>
-        <h3 className={classes.sectionSubtitle}>Latest Works</h3>
+        <h3 className={classes.sectionSubtitle}>
+          Some Of The Things I've Built
+        </h3>
       </div>
       <div
         style={{
@@ -123,4 +71,70 @@ export default function ProjectSection({ projects }: any): JSX.Element {
       </div>
     </section>
   );
+}
+
+{
+  /* <a
+href={node.livelink ? node.livelink : node.githublink}
+style={{ borderBottom: '1px solid black' }}
+>
+<GatsbyImage
+  image={projImg}
+  title={node.description}
+  style={{ maxHeight: 180 }}
+/>
+</a>
+<div
+style={{
+  display: 'flex',
+  justifyContent: 'space-evenly',
+  margin: '12px 0 12px 0'
+}}
+>
+{node.livelink && (
+  <a
+    style={{
+      textDecoration: 'none',
+      fontFamily: 'Poppins',
+      fontSize: '1rem',
+      color: 'black',
+      textAlign: 'center',
+      padding: '4px 0 4px 0',
+      flexGrow: 1,
+      borderBottom: '1px solid black',
+      borderRight: '1px solid black'
+    }}
+    target="_blank"
+    href={node.livelink}
+  >
+    Live
+  </a>
+)}
+<a
+  style={{
+    textDecoration: 'none',
+    fontFamily: 'Poppins',
+    padding: '4px 0 4px 0',
+    fontSize: '1rem',
+    color: 'black',
+    flexGrow: 1,
+    textAlign: 'center',
+    borderBottom: '1px solid black'
+  }}
+  href={node.githublink}
+  target="_blank"
+>
+  Github
+</a>
+</div>
+<h3
+style={{
+  fontFamily: 'Poppins',
+  textAlign: 'center',
+  fontWeight: 700,
+  fontSize: '1rem'
+}}
+>
+{node.title}
+</h3> */
 }

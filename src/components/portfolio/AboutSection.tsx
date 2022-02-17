@@ -16,11 +16,7 @@ export default function AboutSection() {
         </h2>
         <h3 className={classes.sectionSubtitle}>My Story</h3>
       </div>
-      <p className={classes.sectionDescription}>
-        {' '}
-        Hi, I'm KC. I design and build websites and applications. I have a focus
-        on the React ecosystem, including Nextjs, Gatsby and React Native.
-      </p>
+      <p className={classes.sectionDescription}> Hey there! My name is KC</p>
     </section>
   );
 }

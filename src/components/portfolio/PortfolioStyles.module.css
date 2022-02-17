@@ -57,6 +57,67 @@ body {
   padding: 8px;
   margin-top: 1rem;
 }
+.projectCard {
+  height: 100%;
+  width: auto;
+  opacity: 1;
+  position: absolute;
+  border-radius: 10px;
+}
+.projImgHover {
+  width: 40%;
+  position: relative;
+  min-width: 264px;
+  height: 240px;
+  margin-right: 24px;
+  margin-bottom: 36px;
+  border: 1px solid #dedede;
+  border-radius: 10px;
+  overflow: hidden;
+}
+.projImgHover > .projLinks {
+  width: 100%;
+  text-align: center;
+  background-color: orange;
+  font-family: 'Poppins';
+  font-size: 1.25rem;
+  color: white;
+  position: absolute;
+  bottom: -2.75rem;
+  left: 0rem;
+  font-weight: 700;
+  z-index: 99;
+  display: flex;
+  justify-content: space-evenly;
+  border-radius: 0 0 10px 10px;
+}
+.projImgHover > .projLinks > a {
+  color: white;
+  padding-top: 4px;
+}
+.projImgHover > h3 {
+  width: 100%;
+  text-align: center;
+  background-color: orange;
+  font-family: 'Poppins';
+  font-size: 1.25rem;
+  color: white;
+  position: absolute;
+  top: -4rem;
+  left: 0rem;
+  font-weight: 700;
+  z-index: 99;
+  border-radius: 10px 10px 0 0;
+}
+.projImgHover:hover > h3 {
+  top: -1.25rem;
+  transition: 0.3s;
+}
+.projImgHover:hover > .projLinks {
+  bottom: 0;
+  transition: 0.5s;
+}
+
 @media only screen and (max-width: 821px) {
   .portSection {
     min-height: 512px;
@@ -103,5 +164,57 @@ body {
   }
   .introCard {
     flex-direction: column;
+  }
+  .projectCard {
+    height: 100%;
+    width: auto;
+    opacity: 1;
+    position: absolute;
+    border-radius: 10px;
+  }
+  .projImgHover {
+    width: 40%;
+    position: relative;
+    min-width: 264px;
+    height: 240px;
+    margin-right: 24px;
+    margin-bottom: 36px;
+    border: 1px solid #dedede;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  .projImgHover > .projLinks {
+    width: 100%;
+    text-align: center;
+    background-color: orange;
+    font-family: 'Poppins';
+    font-size: 1.25rem;
+    color: white;
+    position: absolute;
+    bottom: 0rem;
+    left: 0rem;
+    font-weight: 700;
+    z-index: 99;
+    display: flex;
+    justify-content: space-evenly;
+    border-radius: 0 0 10px 10px;
+  }
+  .projImgHover > .projLinks > a {
+    color: white;
+    padding-top: 4px;
+  }
+  .projImgHover > h3 {
+    width: 100%;
+    text-align: center;
+    background-color: orange;
+    font-family: 'Poppins';
+    font-size: 1.25rem;
+    color: white;
+    position: absolute;
+    top: -1.25rem;
+    left: 0rem;
+    font-weight: 700;
+    z-index: 99;
+    border-radius: 10px 10px 0 0;
   }
 }

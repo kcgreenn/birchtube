@@ -15,7 +15,7 @@ import SkillSection from '../components/portfolio/SkillsSection';
 import ContactSection from '../components/portfolio/ContactSection';
 import Jumbotron from '../components/Jumbotron';
 import { graphql, useStaticQuery } from 'gatsby';
-import { GatsbyImage, getImage } from 'gatsby-plugin-image';
+import { StaticImage, GatsbyImage, getImage } from 'gatsby-plugin-image';
 import Seo from '../components/seo';
 
 type AppProps = {
@@ -26,7 +26,6 @@ type AppProps = {
 // markup
 export default function Index({ location, data }: AppProps): JSX.Element {
   const matches = useMediaQuery('(min-width:821px)');
-  const maxImgWidth = matches ? 1000 : 400;
   const projectData = useStaticQuery(graphql`
     query {
       allContentfulProject(filter: { node_locale: { eq: "en-US" } }) {
@@ -70,6 +69,60 @@ export default function Index({ location, data }: AppProps): JSX.Element {
       >
         <GitHubIcon style={{ color: '#0080ff' }} />
       </a>
+      {matches ? (
+        <React.Fragment>
+          <div
+            style={{
+              position: 'fixed',
+              top: 0,
+              left: 0,
+              width: '35vw',
+              height: '100vh',
+              background:
+                'radial-gradient(rgba(0, 0, 0, 0.15) 50%, rgba(0, 0, 0, 0.67) 80%',
+              zIndex: 99
+            }}
+          ></div>
+          <div
+            style={{
+              position: 'fixed',
+              top: 0,
+              left: 0,
+              width: '35vw',
+              height: '100vh'
+            }}
+          >
+            <StaticImage
+              src="../images/mobileProfile.jpeg"
+              alt="Myself"
+              style={{
+                height: '100%',
+                width: 'auto'
+              }}
+            />
+          </div>
+        </React.Fragment>
+      ) : (
+        <div
+          style={{
+            position: 'absolute',
+            top: 0,
+            zIndex: 1,
+            left: 0,
+            width: '100vw',
+            height: '512px'
+          }}
+        >
+          <StaticImage
+            src="../images/profileImg.jpeg"
+            alt="My Picture"
+            style={{
+              height: '512px',
+              width: 'auto'
+            }}
+          />
+        </div>
+      )}
       <div className={classes.main}>
         <div className={classes.profileImageContainer}></div>
         <IntroSection />

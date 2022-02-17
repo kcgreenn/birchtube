@@ -41,8 +41,8 @@ export default function SkillSection({ profileImage }: any): JSX.Element {
       category: 'Web Development',
       skillList: [
         'HTML5 / CSS3',
-        'Javascript / Node',
-        'Flexbox / Grid',
+        'Javascript / Typescript',
+        'Node / Deno',
         'React / Angular',
         'Nextjs / Gatsbyjs',
         'Jest / Cypress',
