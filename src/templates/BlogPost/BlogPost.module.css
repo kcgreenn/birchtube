@@ -1,10 +1,16 @@
+* {
+  font-family: Poppins;
+  scroll-behavior: smooth;
+  --deckgo-highlight-code-container-width: 360px;
+  --deckgo-highlight-code-carbon-margin: 0;
+}
 .postBody {
   padding: 2rem 8rem 2rem 1rem;
   color: black;
-  z-index: 99 !important;
+  z-index: 99;
 }
 .postBody p {
-  font-size: 1.25rem;
+  font-size: 1.5rem;
 }
 .postBody h2 {
   font-size: 1.5rem;
@@ -13,10 +19,16 @@
 }
 .postBody img {
   width: 90%;
-  /* width: 600px; */
   color: #cecece;
   margin: 0 5%;
   height: auto;
+}
+.postMetaData {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  font-size: 1rem;
+  font-weight: 700;
 }
 .postBody code {
   display: none;
@@ -37,17 +49,76 @@
   display: block;
   word-wrap: break-word; */
 }
+
+.background {
+  width: 100vw;
+  min-height: 95vh;
+  padding: 0 10vw;
+  border-right: 4vw solid #0080ff;
+  border-left: 15vw solid #0080ff;
+  background-color: white;
+}
+.main {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  background-color: white;
+  padding: 20vh 0;
+  width: 80%;
+}
+.sidePanel {
+  width: 10vw;
+  padding-top: 20vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  height: 100%;
+}
+.titleWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  line-height: 4rem;
+}
+.title {
+  font-size: 4rem;
+  font-weight: 700;
+}
+.publishDate {
+  font-size: 1rem;
+  color: white;
+  text-shadow: 1px 1px 3px black;
+  position: relative;
+  left: 12px;
+  color: white;
+  z-index: 99;
+}
+.jumbotron {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding-right: 12px;
+}
+.jumbotronImg {
+  position: absolute;
+  width: 70%;
+}
 .sideLists {
   margin-right: 64px;
 }
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 821px) {
   .postBody {
     padding: 1rem;
     font-size: 1rem;
+
     color: black;
   }
   .postBody p {
-    font-size: 0.8rem;
+    font-size: 1rem;
   }
   .postBody img {
     max-width: 90%;
@@ -56,12 +127,73 @@
     color: black;
     height: auto;
   }
-  .deckgo-highlight-code-ubuntu {
-    min-width: 500px;
-    overflow-x: scroll;
+  .postMetaData {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+    height: 128px;
+    font-size: 1rem;
+    font-weight: 700;
+  }
+  .background {
+    width: 100vw;
+    min-height: 95vh;
+    padding: 0 5vw;
+    border-right: 4vw solid #0080ff;
+    border-left: 15vw solid #0080ff;
+  }
+  .main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    width: 100%;
+  }
+  .jumbotron {
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding-right: 0;
+  }
+  .jumbotronImg {
+    position: absolute;
+    width: 100%;
+  }
+  .mainContent {
+    width: 70vw;
+    padding-top: 10vh;
+  }
+  .sidePanel {
+    width: 10vw;
+    padding-top: 20vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    height: 100%;
+  }
+  .titleWrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin-bottom: 0;
+  }
+  .title {
+    font-size: 2rem;
+    line-height: 2rem;
+    font-weight: 700;
   }
   .sideLists {
     margin: 2rem 0;
     padding-top: 0;
+  }
+  .publishDate {
+    font-size: 1rem;
+    color: white;
+    text-shadow: 1px 1px 3px black;
   }
 }

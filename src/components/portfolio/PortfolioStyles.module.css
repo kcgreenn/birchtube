@@ -90,6 +90,7 @@ body {
   display: flex;
   justify-content: space-evenly;
   border-radius: 0 0 10px 10px;
+  height: 36px;
 }
 .projImgHover > .projLinks > a {
   color: white;

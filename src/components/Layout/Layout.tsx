@@ -16,7 +16,9 @@ type AppProps = {
 export default function Layout({ children, bgImg }: AppProps): JSX.Element {
   const backgImage = convertToBgImage(bgImg);
   return (
-    <>
+    <body
+      style={{ display: 'flex', minHeight: '100vh', flexDirection: 'column' }}
+    >
       <Header />
       <main className={layoutStyles.main}>
         <BgImage image={bgImg} className={layoutStyles.bgImg}>
@@ -24,6 +26,6 @@ export default function Layout({ children, bgImg }: AppProps): JSX.Element {
         </BgImage>
       </main>
       <Footer />
-    </>
+    </body>
   );
 }

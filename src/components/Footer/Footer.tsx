@@ -11,7 +11,7 @@ import { useStaticQuery, graphql } from 'gatsby';
 import * as FooterStyles from './Footer.module.css';
 
 function Footer() {
-  const matches = useMediaQuery('(min-width:800px)');
+  const matches = useMediaQuery('(min-width:821px)');
   const data = useStaticQuery(graphql`
     query FooterQuery {
       site {

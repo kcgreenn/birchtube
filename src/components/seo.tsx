@@ -9,6 +9,7 @@ import * as React from 'react';
 import PropTypes from 'prop-types';
 import { Helmet } from 'react-helmet';
 import { useStaticQuery, graphql } from 'gatsby';
+import favicon from '../images/favicon.ico';
 
 type AppProps = {
   description: string;
@@ -92,6 +93,7 @@ function Seo({ children, description, lang, meta, title }: AppProps) {
         href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap"
         rel="stylesheet"
       />
+      <link rel="icon" href={favicon} />
     </Helmet>
   );
 }

@@ -28,15 +28,23 @@ export default function ProjectSection({ projects }: any): JSX.Element {
         <h3>{node.title}</h3>
         <span className={portfolioStyles.projLinks}>
           {node.livelink && (
-            <a href={node.livelink} className={portfolioStyles.liveLink}>
+            <a
+              href={node.livelink}
+              target="_blank"
+              className={portfolioStyles.liveLink}
+            >
               <WebIcon size="large" />
             </a>
           )}
-          <a href={node.githublink} className={portfolioStyles.githubLink}>
+          <a
+            href={node.githublink}
+            target="_blank"
+            className={portfolioStyles.githubLink}
+          >
             <GitHubIcon size="large" />
           </a>
         </span>
-        <a href={node.livelink}>
+        <a href={node.livelink} target="_blank">
           <GatsbyImage
             image={projImg}
             title={node.description}

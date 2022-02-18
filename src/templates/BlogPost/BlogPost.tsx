@@ -7,7 +7,7 @@ import {
 } from '@material-ui/core';
 // import { makeStyles } from '@material-ui/styles';
 import { graphql } from 'gatsby';
-import { getImage } from 'gatsby-plugin-image';
+import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import React from 'react';
 import Layout from '../../components/Layout/Layout';
 import TableOfContents from '../../components/tableOfContents/TableOfContents';
@@ -16,6 +16,7 @@ import TimelapseIcon from '@material-ui/icons/Timelapse';
 import { Disqus } from 'gatsby-plugin-disqus';
 import * as PostStyles from './BlogPost.module.css';
 import Seo from '../../components/seo';
+import ReactMarkdown from 'react-mark';
 
 type AppProps = {
   data: any;
@@ -35,68 +36,55 @@ export default function BlogPost({ data: post }: AppProps): JSX.Element {
         lang="en-US"
         title={post.contentfulBlogPost.title}
       />
-      <Container maxWidth="lg">
-        <Grid container justifyContent="flex-start">
-          <Grid item xs={12} style={{ marginTop: '128px' }}>
-            <Typography variant="body1" component="p">
+      <div className={PostStyles.background}>
+        <div className={PostStyles.main}>
+          <section className={PostStyles.postMetaData}>
+            <span>
               <LocalOfferIcon style={{ marginRight: '8px' }} />
               {post.contentfulBlogPost.tags.join(', ')}
-            </Typography>
-          </Grid>
-          <Grid item xs={12}>
-            <Typography variant="h2" component="h1">
-              {post.contentfulBlogPost.title}
-            </Typography>
-          </Grid>
-          <Grid item xs={12} md={6} style={{ marginBottom: '1rem' }}>
-            <Typography variant="body1" component="h2" align="left">
-              {`Published on: ${post.contentfulBlogPost.publishedDate}`}
-            </Typography>
-          </Grid>
-          <Grid item xs={12} md={6} style={{ marginBottom: '1rem' }}>
-            <Typography
-              variant="body1"
-              component="h2"
-              align={matches ? 'right' : 'left'}
-            >
+            </span>
+            <span>
               <TimelapseIcon style={{ marginRight: '8px' }} />
               {`${post.contentfulBlogPost.fullPost.childMarkdownRemark.timeToRead} Min Read`}
-            </Typography>
-          </Grid>
-          <Grid item xs={12} md={3}>
-            <div className={PostStyles.sideLists}>
-              <TableOfContents toc={post.contentfulBlogPost.tableOfContents} />
-            </div>
-          </Grid>
-          <Grid item xs={12} md={9} style={{ borderTop: '1px solid #cecece' }}>
-            {/* <ReactMarkdown
-              children={
-                post.contentfulBlogPost.fullPost.childMarkdownRemark
-                  .rawMarkdownBody
-              }
-              components={CodeBlock}
-            /> */}
-            <div
-              className={PostStyles.postBody}
-              dangerouslySetInnerHTML={{
-                __html:
-                  post.contentfulBlogPost.fullPost.childMarkdownRemark.html
-              }}
-            ></div>
-          </Grid>
-          <Grid item xs={12} md={9} style={{ marginTop: '2rem' }}>
-            <Paper style={{ padding: '2rem' }}>
-              <Disqus
-                config={{
-                  url: `https://kcgreen.dev/posts${post.slug}`,
-                  identifier: post.title,
-                  title: post.title
+            </span>
+          </section>
+          <section className={PostStyles.titleWrapper}>
+            <h2 className={PostStyles.title}>
+              {post.contentfulBlogPost.title}
+            </h2>
+            <div className={PostStyles.jumbotron}>
+              <span className={PostStyles.publishDate}>
+                Published on:&nbsp;{post.contentfulBlogPost.publishedDate}
+              </span>
+              <GatsbyImage
+                image={postImg}
+                alt={post.contentfulBlogPost.title}
+                style={{
+                  position: 'absolute',
+                  width: '70%'
                 }}
-              ></Disqus>
-            </Paper>
-          </Grid>
-        </Grid>
-      </Container>
+              />
+              <TableOfContents
+                toc={post.contentfulBlogPost.tableOfContents}
+                className={PostStyles.toc}
+              />
+            </div>
+          </section>
+        </div>
+        <article
+          className={PostStyles.postBody}
+          dangerouslySetInnerHTML={{
+            __html: post.contentfulBlogPost.fullPost.childMarkdownRemark.html
+          }}
+        ></article>
+        <Disqus
+          config={{
+            url: `https://kcgreen.dev/posts${post.slug}`,
+            identifier: post.title,
+            title: post.title
+          }}
+        ></Disqus>
+      </div>
     </Layout>
   );
 }
@@ -126,3 +114,14 @@ export const query = graphql`
     }
   }
 `;
+
+{
+  /*
+  <Grid item xs={12} md={3}>
+    <div className={PostStyles.sideLists}>
+      <TableOfContents
+        toc={post.contentfulBlogPost.tableOfContents}
+      />
+    </div>
+*/
+}

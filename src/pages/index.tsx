@@ -57,7 +57,7 @@ export default function Index({ location, data }: AppProps): JSX.Element {
       />
       <a
         className={classes.linkedInBtn}
-        href="https://www.linkedin.com/in/kyle-green-81b3b71a1/"
+        href="https://www.linkedin.com/in/kyle-g-81b3b71a1/"
         target="_blank"
       >
         <LinkedInIcon style={{ color: '#0080ff' }} />

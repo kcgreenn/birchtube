@@ -35,8 +35,10 @@ module.exports = {
     {
       resolve: 'gatsby-source-contentful',
       options: {
-        spaceId: process.env.CONTENTFUL_SPACE_ID,
-        accessToken: process.env.CONTENTFUL_DELIVERY_TOKEN
+        // spaceId: process.env.CONTENTFUL_SPACE_ID,
+        // accessToken: process.env.CONTENTFUL_DELIVERY_TOKEN
+        spaceId: 'qe2s1hkplr3b',
+        accessToken: 'P8a1XjftKwDDbTaevbucBseyh2FINUzGCXKO8BIyJIE'
       }
     },
     {
@@ -57,8 +59,7 @@ module.exports = {
             resolve: 'gatsby-remark-highlight-code',
             options: {
               terminal: 'carbon',
-              theme: 'one-light',
-              lineNumbers: true
+              theme: 'one-light'
             }
           }
         ]
@@ -70,9 +71,14 @@ module.exports = {
         shortname: `kcgreen-dev`
       }
     },
+    {
+      resolve: 'gatsby-plugin-sharp',
+      options: {
+        icon: 'src/images/favicon.ico'
+      }
+    },
     'gatsby-plugin-react-helmet',
     `gatsby-plugin-image`,
-    `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
     'gatsby-plugin-anchor-links'
   ]

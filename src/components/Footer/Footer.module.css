@@ -3,17 +3,15 @@
 }
 
 .footer {
-  position: absolute !important;
-  bottom: 1vh;
-  right: 2vw;
-  padding: 1rem;
-  width: 396px;
-  max-width: 90vw;
-  background-color: white;
-  border-radius: 30px;
-  box-shadow: 2px 2px 4px #cecece;
+  background-color: rgba(255, 255, 255, 0.2);
   display: flex;
   justify-content: center;
+  background-color: white;
+  width: 80vw;
+  font-size: 1rem;
+  margin-top: -4rem;
+  height: 48px;
+  display: none;
+  z-index: 99;
   color: #37474f;
-  visibility: hidden;
 }
