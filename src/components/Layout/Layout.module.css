@@ -1,7 +1,8 @@
 .main {
   overflow: hidden;
-  background-color: #fefefe;
+  background-color: #0080ff;
   min-height: 100vh;
+  max-width: 100vw;
   flex: 1;
 }
 .bgImg {

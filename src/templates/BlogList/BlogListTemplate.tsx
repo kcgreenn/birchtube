@@ -1,16 +1,7 @@
-import {
-  Button,
-  Container,
-  Fab,
-  Grid,
-  Paper,
-  Typography,
-  useMediaQuery
-} from '@material-ui/core';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import BlogList from '../../components/blogList/BlogList';
 import Layout from '../../components/Layout/Layout';
-import { graphql } from 'gatsby';
+import { graphql, Link } from 'gatsby';
 import { GatsbyImage } from 'gatsby-plugin-image';
 import KeyboardArrowRightIcon from '@material-ui/icons/KeyboardArrowRight';
 import KeyboardArrowLeftIcon from '@material-ui/icons/KeyboardArrowLeft';
@@ -28,7 +19,25 @@ export default function BlogListTemplate({
   data,
   pageContext
 }: AppProps): JSX.Element {
-  const matches = useMediaQuery('(min-width:821px)');
+  const [screenSize, getDimension] = useState({
+    dynamicWidth: window.innerWidth,
+    dynamicHeight: window.innerHeight
+  });
+  const [matches, setMatches] = useState(true);
+
+  const setDimension = () => {
+    getDimension({
+      dynamicWidth: window.innerWidth,
+      dynamicHeight: window.innerHeight
+    });
+  };
+  useEffect(() => {
+    window.addEventListener('resize', setDimension);
+    setMatches(821 <= screenSize.dynamicWidth);
+    return () => {
+      window.removeEventListener('resize', setDimension);
+    };
+  }, [screenSize]);
   const { currentPage, isFirstPage, isLastPage, totalPages } = pageContext;
   const nextPage = `/blog/${String(currentPage + 1)}`;
   const prevPage =
@@ -59,27 +68,32 @@ export default function BlogListTemplate({
                 display: 'flex',
                 justifyContent: 'space-evenly',
                 alignItems: 'center',
-                margin: '1rem'
+                margin: '1rem',
+                paddingBottom: '3rem'
               }}
             >
               {!isFirstPage && (
-                <a className={ListStyles.paginationBtn} href={`${prevPage}`}>
+                <Link className={ListStyles.paginationBtn} to={`${prevPage}`}>
                   &#60;
-                </a>
+                </Link>
               )}
               {Array.from({ length: totalPages }, (_, index) => (
-                <a
-                  className={ListStyles.paginationBtn}
-                  href={`/blog/${index === 0 ? '' : index + 1}`}
+                <Link
+                  className={
+                    currentPage === index + 1
+                      ? ListStyles.activePageBtn
+                      : ListStyles.paginationBtn
+                  }
+                  to={`/blog/${index === 0 ? '' : index + 1}`}
                   key={index}
                 >
                   {index + 1}
-                </a>
+                </Link>
               ))}
               {!isLastPage && (
-                <a className={ListStyles.paginationBtn} href={`${nextPage}`}>
+                <Link className={ListStyles.paginationBtn} to={`${nextPage}`}>
                   &#62;
-                </a>
+                </Link>
               )}
             </div>
           </div>

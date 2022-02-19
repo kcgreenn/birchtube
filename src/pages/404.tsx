@@ -4,6 +4,25 @@ import { Grid, Typography } from '@material-ui/core';
 import Layout from '../components/Layout/Layout';
 
 const NotFoundPage = (): JSX.Element => {
+  const [screenSize, getDimension] = useState({
+    dynamicWidth: window.innerWidth,
+    dynamicHeight: window.innerHeight
+  });
+  const [matches, setMatches] = React.useState(true);
+
+  const setDimension = () => {
+    getDimension({
+      dynamicWidth: window.innerWidth,
+      dynamicHeight: window.innerHeight
+    });
+  };
+  React.useEffect(() => {
+    window.addEventListener('resize', setDimension);
+    setMatches(821 <= screenSize.dynamicWidth);
+    return () => {
+      window.removeEventListener('resize', setDimension);
+    };
+  }, [screenSize]);
   return (
     <Layout>
       <Grid container>

@@ -4,34 +4,36 @@
 
 .list {
   position: relative;
-  width: 256px;
-  border-radius: 20px;
+  z-index: 99;
+  width: 212px;
+  border-radius: 0 20px 20px 20px;
   background-color: rgba(255, 255, 255, 0.9);
   list-style: none;
-  box-shadow: 1px 1px 2px #cecece;
+  box-shadow: 1px 1px 4px #cecece;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
   padding: 0rem 0.5rem 0rem 0.5rem;
 }
 
-.list * {
-  text-decoration: none;
-  color: black;
-}
-
-a {
+.list > li > a {
   font-size: 1rem;
   line-height: 0rem;
   padding: 0;
+  text-decoration: none;
+  color: black;
   margin: 0;
   height: 1rem;
 }
-li {
+.list > li {
   padding: 0;
   margin: 0;
   height: 3.5rem;
   line-height: 1.15rem;
 }
 
-.list h4 {
+.list > h4 {
   font-size: 1rem;
   border-bottom: 1px solid #cecece;
   height: 3rem;
@@ -42,25 +44,23 @@ li {
 @media only screen and (max-width: 821px) {
   .list {
     position: relative;
-    width: 100%;
-    border-radius: 20px;
+    width: 70%;
+    border-radius: 0 0 20px 20px;
     background-color: white;
     list-style: none;
     padding: 1rem 0.5rem 1rem 0.5rem;
     box-shadow: 1px 1px 2px #cecece;
+    margin-top: 1rem;
   }
 
-  .list * {
+  .list > li > a {
+    font-size: 1rem;
+    line-height: 1rem;
     text-decoration: none;
     color: black;
   }
 
-  a {
-    font-size: 1rem;
-    line-height: 2rem;
-  }
-
-  .list h4 {
+  .list > h4 {
     font-size: 1rem;
     line-height: 1rem;
     text-align: center;

@@ -3,13 +3,11 @@ import { makeStyles } from "@material-ui/core";
 // styles
 const useStyles = makeStyles({
     main: {
-      display:'grid',
-      gridTemplateColumns:'35vw 65vw',
-      // gridTemplateRows:'repeat(5, 840px)',
-      gridTemplateRows: '840px 740px 840px 1040px 1240px 840px',
-      paddingRight:"5vw",
+      display:'flex',
+      flexDirection:'column',
       overflow: 'hidden',
       scrollBehavior:'smooth',
+      padding:'15vh 5vw 7vh 35vw'
     },
     subtitle: {
       // color:'#6288d5',
@@ -18,12 +16,12 @@ const useStyles = makeStyles({
     },
     profileImageContainer: {
       backgroundColor:'black',
-      gridColumn:'0',
-      gridRowEnd:'span 6',
+      // gridColumn:'0',
+      // gridRowEnd:'span 6',
     },
     portSection: {
       minHeight: '40vh',
-      padding: '0vh 5vh',
+      padding: '5vh',
       marginBottom: '5vh',
     },
     sectionItem: {
@@ -72,7 +70,7 @@ const useStyles = makeStyles({
       textDecoration:'none'
     },
     downwardPointer:{
-      border:'2px solid #cecece',
+      border:'1px solid #0080ff',
       borderRadius:30,
       height:'4rem',
       width:54,
@@ -84,7 +82,7 @@ const useStyles = makeStyles({
       // marginLeft:'-4px',
       width:27,
       height:18,
-      backgroundColor:'#3e3e3e',
+      backgroundColor:'#0080ff',
       clipPath: 'polygon(50% 50%, 100% 30%, 50% 100%, 0 30%)',
       animation: '$mouseAnim 1s infinite',
       transform: 'rotate(-45deg)',
@@ -101,6 +99,8 @@ const useStyles = makeStyles({
       borderRight:'1px solid #cecece',
       borderBottom:'1px solid #cecece',
       marginLeft:'5vw',
+      padding:'5vh 0',
+      minHeight:'80vh'
     },
     contactField: {
       minWidth: 512,
@@ -143,13 +143,12 @@ const useStyles = makeStyles({
   // mobile styles
   const useMobileStyles = makeStyles({
     main: {
-      display:'grid',
-      // gridTemplateColumns:'40vw 60vw',
-      // gridTemplateRows:'repeat(7, 1fr)',
-      gridTemplateRows: '512px 840px 740px 840px 1740px 1840px 840px',
+      display:'flex',
+      flexDirection:'column',
       paddingLeft:"4vw",
       overflow: 'hidden',
       scrollBehavior:'smooth',
+      paddingTop:'75vh'
     },
     profileImageContainer: {
       backgroundColor:'black',
@@ -165,12 +164,6 @@ const useStyles = makeStyles({
     sectionItem: {
       minWidth: '30vw',
       maxWidth: '70vw'
-    },
-    eduTitle: {
-      display: 'flex',
-      alignItems: 'center',
-      minWidth: '70vw',
-      color:'#6288d5'
     },
     sectionTitle:{
       fontSize:'4rem',
@@ -190,7 +183,7 @@ const useStyles = makeStyles({
       fontSize:'1.1rem',
       textDecoration:'none',
       color:'black',
-      width:'60%'
+      width:'90%'
     },
     contactCTA:{
       width:148,
@@ -208,13 +201,9 @@ const useStyles = makeStyles({
       textDecoration:'none'
     },
     downwardPointer:{
-      border:'2px solid #cecece',
-      borderRadius:30,
-      height:'4rem',
-      width:54,
-      marginLeft:'10vw',
-      cursor:'pointer',
-      backgroundColor:'white'
+
+      display:'none',
+
     },
     animatedPointer:{
       // marginLeft:'-4px',
@@ -237,6 +226,7 @@ const useStyles = makeStyles({
       borderRight:'1px solid #cecece',
       borderBottom:'1px solid #cecece',
       marginLeft:'5vw',
+      padding:'5vh 0'
     },
     contactField: {
       minWidth: 512,

@@ -1,19 +1,14 @@
-import { Container, Fab, useMediaQuery } from '@material-ui/core';
-import React, { useRef } from 'react';
+import React, { useEffect, useState } from 'react';
 import Layout from '../components/Layout/Layout';
-import { Link } from 'gatsby-theme-material-ui';
 import LinkedInIcon from '@material-ui/icons/LinkedIn';
 import GitHubIcon from '@material-ui/icons/GitHub';
-import WebIcon from '@material-ui/icons/Web';
-import { useStyles, useMobileStyles } from '../styles/indexStyles';
-
+import * as IndexStyles from '../styles/Index.module.css';
 import EduSection from '../components/portfolio/EduSection';
 import AboutSection from '../components/portfolio/AboutSection';
 import ProjectSection from '../components/portfolio/ProjectSection';
 import IntroSection from '../components/portfolio/IntroSection';
 import SkillSection from '../components/portfolio/SkillsSection';
 import ContactSection from '../components/portfolio/ContactSection';
-import Jumbotron from '../components/Jumbotron';
 import { graphql, useStaticQuery } from 'gatsby';
 import { StaticImage, GatsbyImage, getImage } from 'gatsby-plugin-image';
 import Seo from '../components/seo';
@@ -25,7 +20,25 @@ type AppProps = {
 
 // markup
 export default function Index({ location, data }: AppProps): JSX.Element {
-  const matches = useMediaQuery('(min-width:821px)');
+  const [screenSize, getDimension] = useState({
+    dynamicWidth: window.innerWidth,
+    dynamicHeight: window.innerHeight
+  });
+  const [matches, setMatches] = useState(true);
+
+  const setDimension = () => {
+    getDimension({
+      dynamicWidth: window.innerWidth,
+      dynamicHeight: window.innerHeight
+    });
+  };
+  useEffect(() => {
+    window.addEventListener('resize', setDimension);
+    setMatches(821 <= screenSize.dynamicWidth);
+    return () => {
+      window.removeEventListener('resize', setDimension);
+    };
+  }, [screenSize]);
   const projectData = useStaticQuery(graphql`
     query {
       allContentfulProject(filter: { node_locale: { eq: "en-US" } }) {
@@ -46,8 +59,6 @@ export default function Index({ location, data }: AppProps): JSX.Element {
     }
   `);
 
-  const classes = matches ? useStyles() : useMobileStyles();
-
   return (
     <Layout>
       <Seo
@@ -56,14 +67,14 @@ export default function Index({ location, data }: AppProps): JSX.Element {
         title="About Me"
       />
       <a
-        className={classes.linkedInBtn}
+        className={IndexStyles.linkedInBtn}
         href="https://www.linkedin.com/in/kyle-g-81b3b71a1/"
         target="_blank"
       >
         <LinkedInIcon style={{ color: '#0080ff' }} />
       </a>
       <a
-        className={classes.githubBtn}
+        className={IndexStyles.githubBtn}
         href="https://www.github.com/kcgreenn"
         target="_blank"
       >
@@ -93,8 +104,9 @@ export default function Index({ location, data }: AppProps): JSX.Element {
             }}
           >
             <StaticImage
-              src="../images/mobileProfile.jpeg"
+              src="https://res.cloudinary.com/df5cy5c76/image/upload/v1645302477/mobileProfile_qg2zq2.jpg"
               alt="Myself"
+              placeholder="blurred"
               style={{
                 height: '100%',
                 width: 'auto'
@@ -114,8 +126,9 @@ export default function Index({ location, data }: AppProps): JSX.Element {
           }}
         >
           <StaticImage
-            src="../images/profileImg.jpeg"
+            src="https://res.cloudinary.com/df5cy5c76/image/upload/v1645302406/profileImg_qsf2qn.jpg"
             alt="My Picture"
+            placeholder="blurred"
             style={{
               height: '512px',
               width: 'auto'
@@ -123,8 +136,8 @@ export default function Index({ location, data }: AppProps): JSX.Element {
           />
         </div>
       )}
-      <div className={classes.main}>
-        <div className={classes.profileImageContainer}></div>
+      <div className={IndexStyles.main}>
+        <div className={IndexStyles.profileImageContainer}></div>
         <IntroSection />
         <AboutSection />
         <EduSection />

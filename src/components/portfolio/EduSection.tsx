@@ -1,11 +1,26 @@
-import { Grid, Paper, Typography, useMediaQuery } from '@material-ui/core';
-import React from 'react';
-import { useMobileStyles, useStyles } from '../../styles/indexStyles';
-import * as portfolioStyles from './PortfolioStyles.module.css';
+import React, { useEffect, useState } from 'react';
+import * as IndexStyles from '../../styles/Index.module.css';
 
 export default function EduSection() {
-  const matches = useMediaQuery('(min-width:821px');
-  const classes = matches ? useStyles() : useMobileStyles();
+  const [screenSize, getDimension] = useState({
+    dynamicWidth: window.innerWidth,
+    dynamicHeight: window.innerHeight
+  });
+  const [matches, setMatches] = useState(true);
+
+  const setDimension = () => {
+    getDimension({
+      dynamicWidth: window.innerWidth,
+      dynamicHeight: window.innerHeight
+    });
+  };
+  useEffect(() => {
+    window.addEventListener('resize', setDimension);
+    setMatches(821 <= screenSize.dynamicWidth);
+    return () => {
+      window.removeEventListener('resize', setDimension);
+    };
+  }, [screenSize]);
 
   const educationItems = [
     {
@@ -30,7 +45,11 @@ export default function EduSection() {
   const educationGroup = educationItems.map((item, index) => (
     <div
       id="eduCard"
-      style={{ width: '40%', minWidth: '312px', marginRight: '5%' }}
+      style={{
+        width: '40%',
+        minWidth: '312px',
+        marginRight: index == 0 ? '5%' : '0'
+      }}
     >
       <div id="header">
         <span
@@ -39,7 +58,6 @@ export default function EduSection() {
             textOrientation: 'mixed',
             color: '#0080ff',
             float: 'left',
-            fontFamily: 'Poppins',
             fontSize: '.75rem'
           }}
         >
@@ -49,8 +67,7 @@ export default function EduSection() {
           style={{
             textAlign: 'right',
             fontSize: '1.9rem',
-            fontWeight: 500,
-            fontFamily: 'Poppins'
+            fontWeight: 500
           }}
         >
           {item.school}
@@ -58,29 +75,30 @@ export default function EduSection() {
       </div>
       <p
         style={{
-          textAlign: 'center',
-          fontFamily: 'Poppins',
+          textAlign: 'right',
           fontWeight: 700,
-          fontSize: '1.5rem',
-          color: '#0080ff'
+          fontSize: '1.25rem',
+          color: 'black',
+          lineHeight: '1rem',
+          marginTop: '2rem'
         }}
       >
         {item.degree}
       </p>
       <p
         style={{
-          textAlign: 'center',
-          fontFamily: 'Poppins',
+          textAlign: 'right',
           fontWeight: 700,
-          fontSize: '1.25rem'
+          fontSize: '1.25rem',
+          color: '#0080ff',
+          lineHeight: '4rem'
         }}
       >
         {item.subject}
       </p>
       <p
         style={{
-          textAlign: 'center',
-          fontFamily: 'Poppins',
+          textAlign: 'right',
           fontWeight: 500,
           fontSize: '1rem',
           color: 'black'
@@ -93,20 +111,19 @@ export default function EduSection() {
           <h4
             style={{
               textDecoration: 'underline',
-              fontFamily: 'Poppins',
-              textAlign: 'center',
+              textAlign: 'right',
               fontWeight: 700,
               fontSize: '1rem',
-              color: '#0080ff'
+              color: '#0080ff',
+              lineHeight: '4rem'
             }}
           >
             Awards Attained / Achievements
           </h4>
           <ul
             style={{
-              fontFamily: 'Poppins',
               fontSize: '1rem',
-              textAlign: 'center',
+              textAlign: 'right',
               listStyle: 'none'
             }}
           >
@@ -118,12 +135,12 @@ export default function EduSection() {
   ));
 
   return (
-    <section id="eduSection" className={classes.indexSection}>
+    <section id="eduSection" className={IndexStyles.indexSection}>
       <div>
-        <h2 className={classes.sectionTitle}>
+        <h2 className={IndexStyles.sectionTitle}>
           <span>Education</span>
         </h2>
-        <h3 className={classes.sectionSubtitle}>Studied At</h3>
+        <h3 className={IndexStyles.sectionSubtitle}>Studied At</h3>
       </div>
       <div style={{ display: 'flex', flexWrap: 'wrap' }}>{educationGroup}</div>
     </section>

@@ -1,27 +1,30 @@
-import {
-  Button,
-  Grid,
-  Typography,
-  useMediaQuery,
-  Fab,
-  Paper,
-  Card,
-  CardActionArea,
-  CardMedia,
-  CardContent
-} from '@material-ui/core';
-import { GatsbyImage } from 'gatsby-plugin-image';
 import React, { useEffect, useState } from 'react';
-import { useMobileStyles, useStyles } from '../../styles/indexStyles';
-import * as portfolioStyles from './PortfolioStyles.module.css';
+import * as IndexStyles from '../../styles/Index.module.css';
 
 type AppProps = {
   profileImage: any;
 };
 
 export default function SkillSection({ profileImage }: any): JSX.Element {
-  const matches = useMediaQuery('(min-width:821px');
-  const classes = matches ? useStyles() : useMobileStyles();
+  const [screenSize, getDimension] = useState({
+    dynamicWidth: window.innerWidth,
+    dynamicHeight: window.innerHeight
+  });
+  const [matches, setMatches] = useState(true);
+
+  const setDimension = () => {
+    getDimension({
+      dynamicWidth: window.innerWidth,
+      dynamicHeight: window.innerHeight
+    });
+  };
+  useEffect(() => {
+    window.addEventListener('resize', setDimension);
+    setMatches(821 <= screenSize.dynamicWidth);
+    return () => {
+      window.removeEventListener('resize', setDimension);
+    };
+  }, [screenSize]);
 
   const skillItems = [
     {
@@ -85,17 +88,17 @@ export default function SkillSection({ profileImage }: any): JSX.Element {
           display: 'flex',
           flexDirection: 'column',
           justifyContent: 'space-between',
-          width: '40%',
-          minWidth: '264px',
+          width: '35%',
+          minWidth: '202px',
           height: '364px',
-          marginRight: '24px'
+          margin: '1rem 2rem'
         }}
       >
         <h3
           style={{
             textAlign: 'left',
             fontSize: '1.5rem',
-            fontFamily: 'Poppins'
+            color: '#0080ff'
           }}
         >
           {item.category}
@@ -103,7 +106,6 @@ export default function SkillSection({ profileImage }: any): JSX.Element {
         {item.credentialLink && (
           <a
             style={{
-              fontFamily: 'Poppins',
               fontSize: '1rem',
               textDecoration: 'none',
               color: '#0080ff'
@@ -124,10 +126,9 @@ export default function SkillSection({ profileImage }: any): JSX.Element {
           style={{
             width: `${item.competency}%`,
             display: 'block',
-            borderBottom: '2px solid #0080ff',
+            borderBottom: '6px solid #0080ff',
             marginRight: '48px',
             textAlign: 'right',
-            fontFamily: 'Poppins',
             color: '#0080ff'
           }}
         >
@@ -138,9 +139,12 @@ export default function SkillSection({ profileImage }: any): JSX.Element {
   });
 
   return (
-    <section id="skillSection" className={classes.indexSection}>
+    <section id="skillSection" className={IndexStyles.indexSection}>
       <div>
-        <h2 className={classes.sectionTitle} style={{ lineHeight: '3.5rem' }}>
+        <h2
+          className={IndexStyles.sectionTitle}
+          style={{ lineHeight: '3.5rem' }}
+        >
           <span>Dev</span>
           <br />
           <span>Skills</span>

@@ -1,31 +1,33 @@
-import {
-  Button,
-  Card,
-  CardActionArea,
-  CardActions,
-  CardContent,
-  CardMedia,
-  Container,
-  Grid,
-  IconButton,
-  Paper,
-  Typography,
-  useMediaQuery
-} from '@material-ui/core';
-import { GatsbyImage, getImage } from 'gatsby-plugin-image';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import WebIcon from '@material-ui/icons/Web';
 import * as portfolioStyles from '../components/portfolio/PortfolioStyles.module.css';
-import { graphql, useStaticQuery } from 'gatsby';
+import { graphql, useStaticQuery, navigate } from 'gatsby';
 import Layout from '../components/Layout/Layout';
 import Seo from '../components/seo';
-import { useMobileStyles, useStyles } from '../styles/indexStyles';
+import * as IndexStyles from '../styles/Index.module.css';
 import LinkedInIcon from '@material-ui/icons/LinkedIn';
 import GitHubIcon from '@material-ui/icons/GitHub';
 
 export default function ProjectSection(): JSX.Element {
-  const matches = useMediaQuery('(min-width:821px)');
-  const classes = matches ? useStyles() : useMobileStyles();
+  const [screenSize, getDimension] = useState({
+    dynamicWidth: window.innerWidth,
+    dynamicHeight: window.innerHeight
+  });
+  const [matches, setMatches] = useState(true);
+
+  const setDimension = () => {
+    getDimension({
+      dynamicWidth: window.innerWidth,
+      dynamicHeight: window.innerHeight
+    });
+  };
+  useEffect(() => {
+    window.addEventListener('resize', setDimension);
+    setMatches(821 <= screenSize.dynamicWidth);
+    return () => {
+      window.removeEventListener('resize', setDimension);
+    };
+  }, [screenSize]);
 
   return (
     <Layout>
@@ -35,33 +37,35 @@ export default function ProjectSection(): JSX.Element {
         title="My Projects"
       />
       <a
-        className={classes.linkedInBtn}
+        className={IndexStyles.linkedInBtn}
         href="https://www.linkedin.com/in/kyle-g-81b3b71a1/"
         target="_blank"
       >
         <LinkedInIcon style={{ color: '#0080ff' }} />
       </a>
       <a
-        className={classes.githubBtn}
+        className={IndexStyles.githubBtn}
         href="https://www.github.com/kcgreenn"
         target="_blank"
       >
         <GitHubIcon style={{ color: '#0080ff' }} />
       </a>
-      <div className={classes.main}>
+      <div className={IndexStyles.main}>
         <div
-          className={classes.profileImageContainer}
+          className={IndexStyles.profileImageContainer}
           style={{
             width: '10vw',
             backgroundColor: '#0080ff'
           }}
         ></div>
         <section
-          className={classes.indexSection}
+          className={IndexStyles.indexSection}
           style={{
             marginLeft: '-10vw',
             paddingRight: '30vw',
-            textAlign: 'center'
+            textAlign: 'center',
+            display: 'flex',
+            alignItems: 'flex-end'
           }}
         >
           <h2
@@ -74,6 +78,14 @@ export default function ProjectSection(): JSX.Element {
             Thanks for reaching out. I'll get back to you as soon as I can
             &#128512;
           </h2>
+          {/* <a href="/"> */}
+          <button
+            onClick={() => navigate('/')}
+            className={IndexStyles.contactCTA}
+          >
+            Back
+          </button>
+          {/* </a> */}
         </section>
       </div>
     </Layout>

@@ -1,28 +1,30 @@
-import {
-  Button,
-  Card,
-  CardMedia,
-  Grid,
-  Paper,
-  TextField,
-  Typography,
-  useMediaQuery
-} from '@material-ui/core';
-import React, { useState } from 'react';
-import { useMobileStyles, useStyles } from '../../styles/indexStyles';
-import mockupImg from '../../images/mockup.png';
+import React, { useEffect, useState } from 'react';
 import * as portfolioStyles from './PortfolioStyles.module.css';
-import { BgImage, convertToBgImage } from 'gbimage-bridge';
 import { navigate } from 'gatsby';
+import * as IndexStyles from '../../styles/Index.module.css';
 
 export default function ContactSection({ ref }: any): JSX.Element {
-  const matches = useMediaQuery('(min-width:821px');
-  const classes = matches ? useStyles() : useMobileStyles();
-  const convertedBgImg = convertToBgImage(mockupImg);
+  const [screenSize, getDimension] = useState({
+    dynamicWidth: window.innerWidth,
+    dynamicHeight: window.innerHeight
+  });
+  const [matches, setMatches] = useState(true);
+
+  const setDimension = () => {
+    getDimension({
+      dynamicWidth: window.innerWidth,
+      dynamicHeight: window.innerHeight
+    });
+  };
+  useEffect(() => {
+    window.addEventListener('resize', setDimension);
+    setMatches(821 <= screenSize.dynamicWidth);
+    return () => {
+      window.removeEventListener('resize', setDimension);
+    };
+  }, [screenSize]);
+
   const [showSubmission, setShowSubmission] = useState(false);
-  const [contactName, setContactName] = useState('');
-  const [contactEmail, setContactEmail] = useState('');
-  const [contactMessage, setContactMessage] = useState('');
   const [formInfo, setFormInfo] = useState({
     name: '',
     email: '',
@@ -40,7 +42,8 @@ export default function ContactSection({ ref }: any): JSX.Element {
   const handleContactSubmit = (e) => {
     e.preventDefault();
     const form = e.target;
-    fetch('/', {
+    console.log(formInfo);
+    fetch('/#contactSection', {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       body: encode({
@@ -52,13 +55,20 @@ export default function ContactSection({ ref }: any): JSX.Element {
       .catch((error) => alert(error));
   };
 
+  const handleInputChange = (e) => {
+    setFormInfo({ ...formInfo, [e.target.name]: e.target.value });
+  };
+
   return (
-    <section id="contactSection" className={classes.indexSection}>
+    <section id="contactSection" className={IndexStyles.indexSection}>
       <div>
-        <h2 className={classes.sectionTitle} style={{ lineHeight: '3.5rem' }}>
+        <h2
+          className={IndexStyles.sectionTitle}
+          style={{ lineHeight: '3.5rem' }}
+        >
           <span>Contact</span>
         </h2>
-        <h3 className={classes.sectionSubtitle}>Get In Touch</h3>
+        <h3 className={IndexStyles.sectionSubtitle}>Get In Touch</h3>
       </div>
       <form
         style={{
@@ -84,6 +94,7 @@ export default function ContactSection({ ref }: any): JSX.Element {
         <input
           id="name"
           type="text"
+          onChange={(e) => handleInputChange(e)}
           className={portfolioStyles.contactField}
           name="name"
           required
@@ -98,6 +109,7 @@ export default function ContactSection({ ref }: any): JSX.Element {
           type="email"
           className={portfolioStyles.contactField}
           name="email"
+          onChange={(e) => handleInputChange(e)}
           required
         ></input>
         <span className={portfolioStyles.contactFieldLabel}>
@@ -110,6 +122,7 @@ export default function ContactSection({ ref }: any): JSX.Element {
           name="message"
           rows="10"
           cols="50"
+          onChange={(e) => handleInputChange(e)}
           required
           className={portfolioStyles.contactField}
           style={{

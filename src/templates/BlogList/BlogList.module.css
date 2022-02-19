@@ -1,23 +1,19 @@
-* {
-  font-family: Poppins;
-}
-html {
-  scroll-behavior: smooth;
-}
 .background {
   background-color: #0080ff;
   padding-left: 10vw;
-  width: 100vw;
+  padding-right: 5vw;
+  width: 95vw;
   min-height: 95vh;
 }
 .main {
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: flex-start;
   background-color: white;
   min-height: 95vh;
-  width: 100%;
+  width: 90%;
+  padding-top: 5vh;
 }
 .mainContent {
   width: 70vw;
@@ -49,7 +45,6 @@ html {
 .paginationBtn {
   text-decoration: none;
   color: #0080ff;
-  /* border: 1px solid #0080ff; */
   box-shadow: 1px 1px 3px #0080ff;
   border-radius: 50%;
   text-align: center;
@@ -80,11 +75,37 @@ html {
   width: 100%;
   height: 100%;
 }
+.activePageBtn {
+  background-color: #0080ff;
+  color: white;
+  text-decoration: none;
+  box-shadow: 1px 1px 3px #0080ff;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 3rem;
+  height: 3rem;
+  width: 3rem;
+  font-size: 1rem;
+}
 
 @media only screen and (max-width: 821px) {
+  .activePageBtn {
+    background-color: #0080ff;
+    color: white;
+    text-decoration: none;
+    margin-top: 15vh;
+    margin-bottom: 0;
+    box-shadow: 1px 1px 3px #0080ff;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 3rem;
+    height: 3rem;
+    width: 3rem;
+    font-size: 1rem;
+  }
   .background {
     background-color: #0080ff;
-    padding-left: 20vw;
+    padding-left: 5vw;
     width: 100vw;
     max-width: 100vw;
     overflow: hidden;
@@ -98,7 +119,7 @@ html {
     background-color: white;
     min-height: 95vh;
     overflow: hidden;
-    width: 100%;
+    width: 95%;
   }
   .mainContent {
     width: 100%;
@@ -109,12 +130,13 @@ html {
   }
   .titleWrapper {
     display: flex;
+    margin: 5vh 0;
     flex-direction: column;
     /* justify-content: center; */
     align-items: center;
   }
   .title {
-    font-size: 5.5rem;
+    font-size: 4rem;
     font-weight: 700;
   }
   .subtitle {

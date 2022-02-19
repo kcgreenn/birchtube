@@ -1,10 +1,9 @@
-import { makeStyles } from '@material-ui/core';
 import * as React from 'react';
 import Footer from '../Footer/Footer';
 import Header from '../Header/Header';
-import { BgImage, convertToBgImage } from 'gbimage-bridge';
 import * as layoutStyles from './Layout.module.css';
 import { defineCustomElements as deckDeckGoHighlightElement } from '@deckdeckgo/highlight-code/dist/loader';
+import { motion } from 'framer-motion';
 
 deckDeckGoHighlightElement();
 
@@ -13,18 +12,34 @@ type AppProps = {
   bgImg: any;
 };
 
-export default function Layout({ children, bgImg }: AppProps): JSX.Element {
-  const backgImage = convertToBgImage(bgImg);
+export default function Layout({ children }: AppProps): JSX.Element {
   return (
     <body
-      style={{ display: 'flex', minHeight: '100vh', flexDirection: 'column' }}
+      style={{
+        display: 'flex',
+        width: '100vw',
+        minHeight: '100vh',
+        flexDirection: 'column',
+        overflow: 'hidden',
+        backgroundColor: '#0080ff'
+      }}
     >
       <Header />
-      <main className={layoutStyles.main}>
-        <BgImage image={bgImg} className={layoutStyles.bgImg}>
-          <div className={layoutStyles.imgOverlay}>{children}</div>
-        </BgImage>
-      </main>
+      <motion.main
+        className={layoutStyles.main}
+        initial={{ opacity: 0, x: -800 }}
+        animate={{ opacity: 1, x: 0 }}
+        exit={{ opacity: 0, x: 800 }}
+        transition={{
+          type: 'spring',
+          mass: 0.35,
+          stiffness: 75,
+          duration: 0.3
+        }}
+      >
+        {children}
+      </motion.main>
+
       <Footer />
     </body>
   );

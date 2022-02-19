@@ -1,14 +1,6 @@
-import {
-  Typography,
-  Grid,
-  Container,
-  useMediaQuery,
-  Paper
-} from '@material-ui/core';
-// import { makeStyles } from '@material-ui/styles';
 import { graphql } from 'gatsby';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Layout from '../../components/Layout/Layout';
 import TableOfContents from '../../components/tableOfContents/TableOfContents';
 import LocalOfferIcon from '@material-ui/icons/LocalOffer';
@@ -16,21 +8,38 @@ import TimelapseIcon from '@material-ui/icons/Timelapse';
 import { Disqus } from 'gatsby-plugin-disqus';
 import * as PostStyles from './BlogPost.module.css';
 import Seo from '../../components/seo';
-import ReactMarkdown from 'react-mark';
 
 type AppProps = {
   data: any;
 };
 
 export default function BlogPost({ data: post }: AppProps): JSX.Element {
-  const matches = useMediaQuery('(min-width:821px');
+  const [screenSize, getDimension] = useState({
+    dynamicWidth: window.innerWidth,
+    dynamicHeight: window.innerHeight
+  });
+  const [matches, setMatches] = useState(true);
+
+  const setDimension = () => {
+    getDimension({
+      dynamicWidth: window.innerWidth,
+      dynamicHeight: window.innerHeight
+    });
+  };
+  useEffect(() => {
+    window.addEventListener('resize', setDimension);
+    setMatches(821 <= screenSize.dynamicWidth);
+    return () => {
+      window.removeEventListener('resize', setDimension);
+    };
+  }, [screenSize]);
 
   const postImg = getImage(
     post.contentfulBlogPost.jumbotronImage.gatsbyImageData
   );
 
   return (
-    <Layout bgImg={postImg}>
+    <Layout>
       <Seo
         description={post.contentfulBlogPost.title}
         lang="en-US"
@@ -52,24 +61,19 @@ export default function BlogPost({ data: post }: AppProps): JSX.Element {
             <h2 className={PostStyles.title}>
               {post.contentfulBlogPost.title}
             </h2>
-            <div className={PostStyles.jumbotron}>
-              <span className={PostStyles.publishDate}>
-                Published on:&nbsp;{post.contentfulBlogPost.publishedDate}
-              </span>
-              <GatsbyImage
-                image={postImg}
-                alt={post.contentfulBlogPost.title}
-                style={{
-                  position: 'absolute',
-                  width: '70%'
-                }}
-              />
-              <TableOfContents
-                toc={post.contentfulBlogPost.tableOfContents}
-                className={PostStyles.toc}
-              />
-            </div>
           </section>
+          <div className={PostStyles.jumbotron}>
+            <span className={PostStyles.publishDate}>
+              Published on:&nbsp;{post.contentfulBlogPost.publishedDate}
+            </span>
+            <GatsbyImage
+              image={postImg}
+              placeholder="blurred"
+              className={PostStyles.jumboTronImg}
+              alt={post.contentfulBlogPost.title}
+            />
+            <TableOfContents toc={post.contentfulBlogPost.tableOfContents} />
+          </div>
         </div>
         <article
           className={PostStyles.postBody}
@@ -78,6 +82,7 @@ export default function BlogPost({ data: post }: AppProps): JSX.Element {
           }}
         ></article>
         <Disqus
+          style={{ width: '512px', maxWidth: '70vw' }}
           config={{
             url: `https://kcgreen.dev/posts${post.slug}`,
             identifier: post.title,
@@ -114,14 +119,3 @@ export const query = graphql`
     }
   }
 `;
-
-{
-  /*
-  <Grid item xs={12} md={3}>
-    <div className={PostStyles.sideLists}>
-      <TableOfContents
-        toc={post.contentfulBlogPost.tableOfContents}
-      />
-    </div>
-*/
-}

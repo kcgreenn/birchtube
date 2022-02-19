@@ -9,36 +9,16 @@ module.exports = {
     author: 'KC Green',
     description:
       'My Own Developer Blog/Portfolio Website Built With Gatsby JS. ',
-    publishedYear: 2021
+    publishedYear: 2022
   },
   plugins: [
     'gatsby-plugin-typescript',
-    {
-      resolve: 'gatsby-theme-material-ui',
-      options: {
-        webFontsConfig: {
-          fonts: {
-            google: [
-              {
-                family: 'Roboto',
-                variants: ['300', '400', '500', '700']
-              },
-              {
-                family: 'Poppins',
-                variants: ['300', '400', '500', '700']
-              }
-            ]
-          }
-        }
-      }
-    },
+    'gatsby-plugin-smoothscroll',
     {
       resolve: 'gatsby-source-contentful',
       options: {
-        // spaceId: process.env.CONTENTFUL_SPACE_ID,
-        // accessToken: process.env.CONTENTFUL_DELIVERY_TOKEN
-        spaceId: 'qe2s1hkplr3b',
-        accessToken: 'P8a1XjftKwDDbTaevbucBseyh2FINUzGCXKO8BIyJIE'
+        spaceId: process.env.CONTENTFUL_SPACE_ID,
+        accessToken: process.env.CONTENTFUL_DELIVERY_TOKEN
       }
     },
     {

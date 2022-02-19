@@ -1,15 +1,6 @@
-import {
-  Card,
-  CardActionArea,
-  CardContent,
-  CardMedia,
-  Button,
-  Paper,
-  Typography
-} from '@material-ui/core';
 import React from 'react';
+import { Link } from 'gatsby';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
-import LocalOfferIcon from '@material-ui/icons/LocalOffer';
 import * as ItemStyles from './BlogListItem.module.css';
 
 type AppProps = {
@@ -35,17 +26,17 @@ export default function BlogListItem({
 
   return (
     <div className={ItemStyles.blogPostItem} id={id}>
-      <a href={`/posts/${slug}`}>
+      <Link to={`/posts/${slug}`}>
         <GatsbyImage image={postImg} title={title} />
-      </a>
+      </Link>
       <p className={ItemStyles.blogDateSpan}>{publishDate}</p>
-      <a style={{ textDecoration: 'none' }} href={`/posts/${slug}`}>
+      <Link style={{ textDecoration: 'none' }} to={`/posts/${slug}`}>
         <h2 className={ItemStyles.blogPostTitle}>{title}</h2>
-      </a>
+      </Link>
       <p className={ItemStyles.blogPostExcerpt}>{summary}</p>
-      <a className={ItemStyles.readMoreBtn} href={`/posts/${slug}`}>
+      <Link className={ItemStyles.readMoreBtn} to={`/posts/${slug}`}>
         Read More
-      </a>
+      </Link>
     </div>
   );
 }

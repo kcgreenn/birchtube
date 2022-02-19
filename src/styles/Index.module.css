@@ -1,0 +1,242 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  padding: 15vh 5vw 7vh 35vw;
+  background-color: white;
+}
+.subtitle {
+  color: black;
+  margin: 4rem 0;
+}
+.profileImageContainer {
+  background-color: black;
+}
+.portSection {
+  min-height: 40vh;
+  padding: 5vh;
+  margin-bottom: 5vh;
+}
+.sectionItem {
+  min-width: 30vw;
+  max-width: 70vw;
+}
+.sectionTitle {
+  font-size: 4rem;
+  font-weight: 700;
+  line-height: 3rem;
+  margin: 1rem 0;
+}
+.sectionSubtitle {
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: #0080ff;
+  line-height: 2rem;
+}
+.sectionDescription {
+  font-size: 1.1rem;
+  text-decoration: none;
+  color: black;
+  width: 60%;
+}
+.contactCTA {
+  width: 148px;
+  height: 4rem;
+  text-align: center;
+  font-weight: 700;
+  font-size: 1rem;
+  color: #0080ff;
+  border: 1px solid #0080ff;
+  border-radius: 30px;
+  background-color: white;
+  display: inline;
+  cursor: pointer;
+  text-decoration: none;
+}
+.downwardPointer {
+  border: 1px solid #0080ff;
+  border-radius: 30px;
+  height: 4rem;
+  width: 50px;
+  margin-left: 10vw;
+  cursor: pointer;
+  background-color: white;
+}
+.animatedPointer {
+  width: 26px;
+  height: 18px;
+  background-color: #0080ff;
+  clip-path: polygon(50% 50%, 100% 30%, 50% 100%, 0 30%);
+  animation: mouseAnim 1s infinite;
+  transform: rotate(-45deg);
+}
+@keyframes mouseAnim {
+  0% {
+    transform: translateX(12px) translateY(4px);
+  }
+  50% {
+    transform: translateX(12px) translateY(12px);
+  }
+  100% {
+    transform: translateX(12px) translateY(4px);
+  }
+}
+.indexSection {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  border-right: 1px solid #cecece;
+  border-bottom: 1px solid #cecece;
+  margin-left: 5vw;
+  padding: 5vh 0;
+  min-height: 80vh;
+}
+.contactField {
+  min-width: 512px;
+  max-width: 60vw;
+  margin: 2rem 0;
+}
+.fieldGrid {
+  width: 50vw;
+}
+.linkedInBtn {
+  position: fixed !important;
+  bottom: 8vw;
+  right: 2vw;
+  z-index: 99;
+  border-radius: 50%;
+  box-shadow: 2px 2px 3px #cecece;
+  display: flex;
+  background-color: white;
+  justify-content: center;
+  align-items: center;
+  height: 4vw;
+  width: 4vw;
+}
+.githubBtn {
+  position: fixed !important;
+  bottom: 2vw;
+  z-index: 99;
+  right: 2vw;
+  border-radius: 50%;
+  background-color: white;
+  box-shadow: 2px 2px 3px #cecece;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 4vw;
+  width: 4vw;
+}
+
+@media only screen and (max-width: 821px) {
+  .main {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    padding-left: 4vw;
+    overflow: hidden;
+    padding-top: 75vh;
+  }
+  .subtitle {
+    color: black;
+    margin: 4rem 0;
+  }
+  .profileImageContainer {
+    background-color: black;
+    margin-left: -10vw;
+  }
+  .portSection {
+    min-height: 40vh;
+    padding: 0vh 5vh;
+    margin-bottom: 5vh;
+  }
+  .sectionItem {
+    min-width: 30vw;
+    max-width: 70vw;
+  }
+  .sectionTitle {
+    font-size: 4rem;
+    font-weight: 700;
+    line-height: 3rem;
+  }
+  .sectionSubtitle {
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: #0080ff;
+    line-height: 2rem;
+    margin-bottom: 2rem;
+  }
+  .sectionDescription {
+    font-size: 1.1rem;
+    text-decoration: none;
+    color: black;
+    width: 90%;
+  }
+  .contactCTA {
+    width: 148;
+    height: 4rem;
+    text-align: center;
+    font-weight: 700;
+    font-size: 1rem;
+    color: #0080ff;
+    border: 1px solid #0080ff;
+    border-radius: 30px;
+    background-color: white;
+    display: inline;
+    cursor: pointer;
+    text-decoration: none;
+  }
+  .downwardPointer {
+    display: none;
+  }
+  .animatedPointer {
+    display: none;
+  }
+
+  .indexSection {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    border-right: none;
+    border-bottom: 1px solid #cecece;
+    margin-left: 5vw;
+    padding: 5vh 0;
+    min-height: 80vh;
+  }
+  .contactField {
+    min-width: 512px;
+    max-width: 60vw;
+    margin: 2rem 0;
+  }
+  .fieldGrid {
+    width: 50vw;
+  }
+  .linkedInBtn {
+    position: fixed !important;
+    bottom: 16vw;
+    right: 4vw;
+    z-index: 99;
+    border-radius: 50%;
+    box-shadow: 2px 2px 3px #cecece;
+    display: flex;
+    background-color: white;
+    justify-content: center;
+    align-items: center;
+    height: 4vw;
+    width: 4vw;
+  }
+  .githubBtn {
+    position: fixed !important;
+    bottom: 4vw;
+    z-index: 99;
+    right: 4vw;
+    border-radius: 50%;
+    background-color: white;
+    box-shadow: 2px 2px 3px #cecece;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 4vw;
+    width: 4vw;
+  }
+}

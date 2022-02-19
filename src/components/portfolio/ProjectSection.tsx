@@ -1,26 +1,31 @@
-import {
-  Button,
-  Card,
-  CardActionArea,
-  CardActions,
-  CardContent,
-  CardMedia,
-  Grid,
-  IconButton,
-  Paper,
-  Typography,
-  useMediaQuery
-} from '@material-ui/core';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import GitHubIcon from '@material-ui/icons/GitHub';
 import WebIcon from '@material-ui/icons/Web';
 import * as portfolioStyles from './PortfolioStyles.module.css';
-import { useMobileStyles, useStyles } from '../../styles/indexStyles';
+import * as IndexStyles from '../../styles/Index.module.css';
 
 export default function ProjectSection({ projects }: any): JSX.Element {
-  const matches = useMediaQuery('(min-width:821px');
-  const classes = matches ? useStyles() : useMobileStyles();
+  const [screenSize, getDimension] = useState({
+    dynamicWidth: window.innerWidth,
+    dynamicHeight: window.innerHeight
+  });
+  const [matches, setMatches] = useState(true);
+
+  const setDimension = () => {
+    getDimension({
+      dynamicWidth: window.innerWidth,
+      dynamicHeight: window.innerHeight
+    });
+  };
+  useEffect(() => {
+    window.addEventListener('resize', setDimension);
+    setMatches(821 <= screenSize.dynamicWidth);
+    return () => {
+      window.removeEventListener('resize', setDimension);
+    };
+  }, [screenSize]);
+
   const projectGroup = projects.map(({ node }: any, index: number) => {
     const projImg = getImage(node.image.gatsbyImageData);
     return (
@@ -56,14 +61,14 @@ export default function ProjectSection({ projects }: any): JSX.Element {
     );
   });
   return (
-    <section id="projectSection" className={classes.indexSection}>
+    <section id="projectSection" className={IndexStyles.indexSection}>
       <div>
-        <h2 className={classes.sectionTitle}>
+        <h2 className={IndexStyles.sectionTitle}>
           <span>My</span>
           <br />
           <span>Projects</span>
         </h2>
-        <h3 className={classes.sectionSubtitle}>
+        <h3 className={IndexStyles.sectionSubtitle}>
           Some Of The Things I've Built
         </h3>
       </div>
@@ -72,77 +77,12 @@ export default function ProjectSection({ projects }: any): JSX.Element {
           display: 'flex',
           flexDirection: 'row',
           flexWrap: 'wrap',
-          justifyContent: 'center'
+          justifyContent: 'center',
+          margin: '2rem 0'
         }}
       >
         {projectGroup}
       </div>
     </section>
   );
-}
-
-{
-  /* <a
-href={node.livelink ? node.livelink : node.githublink}
-style={{ borderBottom: '1px solid black' }}
->
-<GatsbyImage
-  image={projImg}
-  title={node.description}
-  style={{ maxHeight: 180 }}
-/>
-</a>
-<div
-style={{
-  display: 'flex',
-  justifyContent: 'space-evenly',
-  margin: '12px 0 12px 0'
-}}
->
-{node.livelink && (
-  <a
-    style={{
-      textDecoration: 'none',
-      fontFamily: 'Poppins',
-      fontSize: '1rem',
-      color: 'black',
-      textAlign: 'center',
-      padding: '4px 0 4px 0',
-      flexGrow: 1,
-      borderBottom: '1px solid black',
-      borderRight: '1px solid black'
-    }}
-    target="_blank"
-    href={node.livelink}
-  >
-    Live
-  </a>
-)}
-<a
-  style={{
-    textDecoration: 'none',
-    fontFamily: 'Poppins',
-    padding: '4px 0 4px 0',
-    fontSize: '1rem',
-    color: 'black',
-    flexGrow: 1,
-    textAlign: 'center',
-    borderBottom: '1px solid black'
-  }}
-  href={node.githublink}
-  target="_blank"
->
-  Github
-</a>
-</div>
-<h3
-style={{
-  fontFamily: 'Poppins',
-  textAlign: 'center',
-  fontWeight: 700,
-  fontSize: '1rem'
-}}
->
-{node.title}
-</h3> */
 }

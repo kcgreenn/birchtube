@@ -1,6 +1,4 @@
 * {
-  font-family: Poppins;
-  scroll-behavior: smooth;
   --deckgo-highlight-code-container-width: 360px;
   --deckgo-highlight-code-carbon-margin: 0;
 }
@@ -8,9 +6,11 @@
   padding: 2rem 8rem 2rem 1rem;
   color: black;
   z-index: 99;
+  width: 60%;
 }
-.postBody p {
-  font-size: 1.5rem;
+.postBody > p {
+  font-size: 1.25rem;
+  margin: 2rem 0;
 }
 .postBody h2 {
   font-size: 1.5rem;
@@ -30,30 +30,14 @@
   font-size: 1rem;
   font-weight: 700;
 }
-.postBody code {
+.postBody > code {
   display: none;
-  /* background: #3e3e3e;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  border-left: 3px solid #f36d33;
-  color: #cecece;
-  page-break-inside: avoid;
-  font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
-    Bitstream Vera Sans Mono, Courier New, monospace;
-  font-size: 15px;
-  line-height: 1.6;
-  margin-bottom: 1.6em;
-  max-width: 100%;
-  overflow-x: scroll;
-  padding: 1em 1.5em;
-  display: block;
-  word-wrap: break-word; */
 }
 
 .background {
   width: 100vw;
   min-height: 95vh;
-  padding: 0 10vw;
+  padding: 10vh 10vw;
   border-right: 4vw solid #0080ff;
   border-left: 15vw solid #0080ff;
   background-color: white;
@@ -64,8 +48,8 @@
   justify-content: flex-start;
   align-items: flex-start;
   background-color: white;
-  padding: 20vh 0;
-  width: 80%;
+  padding: 10vh 0;
+  width: 60%;
 }
 .sidePanel {
   width: 10vw;
@@ -82,6 +66,7 @@
   justify-content: flex-start;
   align-items: flex-start;
   line-height: 4rem;
+  margin: 2rem 0;
 }
 .title {
   font-size: 4rem;
@@ -93,6 +78,7 @@
   text-shadow: 1px 1px 3px black;
   position: relative;
   left: 12px;
+  top: 12px;
   color: white;
   z-index: 99;
 }
@@ -104,8 +90,16 @@
   padding-right: 12px;
 }
 .jumbotronImg {
+  width: 100%;
+}
+.publishDate {
+  font-size: 1rem;
+  color: white;
+  text-shadow: 1px 1px 3px black;
   position: absolute;
-  width: 70%;
+  top: 12px;
+  left: 12px;
+  z-index: 99;
 }
 .sideLists {
   margin-right: 64px;
@@ -114,8 +108,11 @@
   .postBody {
     padding: 1rem;
     font-size: 1rem;
-
+    width: 70%;
     color: black;
+  }
+  .postBody > h2 {
+    margin: 1rem 0;
   }
   .postBody p {
     font-size: 1rem;
@@ -132,16 +129,19 @@
     flex-direction: column;
     justify-content: space-between;
     width: 100%;
+    max-width: 80vw;
     height: 128px;
     font-size: 1rem;
     font-weight: 700;
   }
   .background {
-    width: 100vw;
+    width: 90vw;
     min-height: 95vh;
     padding: 0 5vw;
     border-right: 4vw solid #0080ff;
     border-left: 15vw solid #0080ff;
+    padding-bottom: 5vh;
+    padding-top: 10vh;
   }
   .main {
     display: flex;
@@ -156,15 +156,13 @@
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
+    align-items: flex-start;
     padding-right: 0;
   }
   .jumbotronImg {
     position: absolute;
     width: 100%;
-  }
-  .mainContent {
-    width: 70vw;
-    padding-top: 10vh;
+    height: auto;
   }
   .sidePanel {
     width: 10vw;

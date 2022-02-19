@@ -1,4 +1,3 @@
-import { Chip, Paper, Typography } from '@material-ui/core';
 import React from 'react';
 
 type AppProps = {
@@ -9,25 +8,23 @@ export default function TagsList({
   tagList = ['javascript', 'react', 'devOps', 'compSci', 'node']
 }: AppProps): JSX.Element {
   return (
-    <Paper
+    <aside
       style={{
         padding: '1rem'
       }}
     >
-      <Typography variant="h4" style={{ margin: '12px 0' }} align="center">
-        Tags
-      </Typography>
+      <h4 style={{ margin: '12px 0' }}>Tags</h4>
       {tagList.map((tag: string, index: number) => (
-        <Chip
-          key={tag}
-          label={tag}
-          component="a"
-          href="/blog"
-          clickable
-          color={index % 2 === 0 ? 'primary' : 'secondary'}
-          style={{ margin: '6px 6px' }}
-        />
+        <span
+          key={index}
+          style={{
+            margin: '6px 6px',
+            color: index % 2 === 0 ? '#0080ff' : 'black'
+          }}
+        >
+          {tag}
+        </span>
       ))}
-    </Paper>
+    </aside>
   );
 }

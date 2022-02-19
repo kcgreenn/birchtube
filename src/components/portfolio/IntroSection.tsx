@@ -1,50 +1,53 @@
-import {
-  Button,
-  Grid,
-  Typography,
-  useMediaQuery,
-  Fab,
-  Paper,
-  Card,
-  CardActionArea,
-  CardMedia,
-  CardContent
-} from '@material-ui/core';
-import { GatsbyImage } from 'gatsby-plugin-image';
 import React, { useEffect, useState } from 'react';
-import { useMobileStyles, useStyles } from '../../styles/indexStyles';
-import * as portfolioStyles from './PortfolioStyles.module.css';
-import ProfileImage from '../../images/profileImg.jpeg';
+import * as IndexStyles from '../../styles/Index.module.css';
 import ReactRotatingText from 'react-rotating-text';
+import scrollTo from 'gatsby-plugin-smoothscroll';
 
 type AppProps = {
   profileImage: any;
 };
 
 export default function IntroSection({ profileImage }: any): JSX.Element {
-  const matches = useMediaQuery('(min-width:821px');
-  const classes = matches ? useStyles() : useMobileStyles();
+  const [screenSize, getDimension] = useState({
+    dynamicWidth: window.innerWidth,
+    dynamicHeight: window.innerHeight
+  });
+  const [matches, setMatches] = useState(true);
+
+  const setDimension = () => {
+    getDimension({
+      dynamicWidth: window.innerWidth,
+      dynamicHeight: window.innerHeight
+    });
+  };
+  useEffect(() => {
+    window.addEventListener('resize', setDimension);
+    setMatches(821 <= screenSize.dynamicWidth);
+    return () => {
+      window.removeEventListener('resize', setDimension);
+    };
+  }, [screenSize]);
 
   return (
-    <section id="introSection" className={classes.indexSection}>
+    <section id="introSection" className={IndexStyles.indexSection}>
       <div>
         <p
           style={{ color: '#0080ff', fontFamily: 'Poppins', fontSize: '1rem' }}
         >
           Hi, my name is
         </p>
-        <h2 className={classes.sectionTitle}>
+        <h2 className={IndexStyles.sectionTitle}>
           <span>KC</span>
           <br />
           <span>Green</span>
         </h2>
         <ReactRotatingText
           style={{ color: '#0080ff' }}
-          className={classes.sectionSubtitle}
+          className={IndexStyles.sectionSubtitle}
           items={['Developer', 'Designer', 'Data Engineer']}
         />
       </div>
-      <p className={classes.sectionDescription}>
+      <p className={IndexStyles.sectionDescription}>
         I'm a software developer that focueses on web applications. I use React
         and Node with Typescipt daily, to create digital experiences for the
         modern web.
@@ -55,12 +58,18 @@ export default function IntroSection({ profileImage }: any): JSX.Element {
           flexDirection: 'row'
         }}
       >
-        <a href="#contactSection" style={{ textDecoration: 'none' }}>
-          <button className={classes.contactCTA}>Contact Me</button>
-        </a>
-        <a href="#aboutSection" className={classes.downwardPointer}>
-          <div className={classes.animatedPointer}></div>
-        </a>
+        <button
+          className={IndexStyles.contactCTA}
+          onClick={() => scrollTo('#contactSection')}
+        >
+          Contact Me
+        </button>
+        <button
+          onClick={() => scrollTo('#aboutSection')}
+          className={IndexStyles.downwardPointer}
+        >
+          <div className={IndexStyles.animatedPointer}></div>
+        </button>
       </div>
     </section>
   );
