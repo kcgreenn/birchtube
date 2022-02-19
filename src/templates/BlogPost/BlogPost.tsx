@@ -14,26 +14,6 @@ type AppProps = {
 };
 
 export default function BlogPost({ data: post }: AppProps): JSX.Element {
-  const [screenSize, getDimension] = useState({
-    dynamicWidth: window.innerWidth,
-    dynamicHeight: window.innerHeight
-  });
-  const [matches, setMatches] = useState(true);
-
-  const setDimension = () => {
-    getDimension({
-      dynamicWidth: window.innerWidth,
-      dynamicHeight: window.innerHeight
-    });
-  };
-  useEffect(() => {
-    window.addEventListener('resize', setDimension);
-    setMatches(821 <= screenSize.dynamicWidth);
-    return () => {
-      window.removeEventListener('resize', setDimension);
-    };
-  }, [screenSize]);
-
   const postImg = getImage(
     post.contentfulBlogPost.jumbotronImage.gatsbyImageData
   );
@@ -68,7 +48,6 @@ export default function BlogPost({ data: post }: AppProps): JSX.Element {
             </span>
             <GatsbyImage
               image={postImg}
-              placeholder="blurred"
               className={PostStyles.jumboTronImg}
               alt={post.contentfulBlogPost.title}
             />

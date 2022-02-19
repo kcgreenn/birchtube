@@ -9,7 +9,6 @@ deckDeckGoHighlightElement();
 
 type AppProps = {
   children: React.ReactNode;
-  bgImg: any;
 };
 
 export default function Layout({ children }: AppProps): JSX.Element {
