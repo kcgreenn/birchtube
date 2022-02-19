@@ -8,12 +8,14 @@ import TimelapseIcon from '@material-ui/icons/Timelapse';
 import { Disqus } from 'gatsby-plugin-disqus';
 import * as PostStyles from './BlogPost.module.css';
 import Seo from '../../components/seo';
+import { useMediaQuery } from '@react-hook/media-query';
 
 type AppProps = {
   data: any;
 };
 
 export default function BlogPost({ data: post }: AppProps): JSX.Element {
+  const matches = useMediaQuery('only screen and (min-width: 821px)');
   const postImg = getImage(
     post.contentfulBlogPost.jumbotronImage.gatsbyImageData
   );
@@ -48,7 +50,7 @@ export default function BlogPost({ data: post }: AppProps): JSX.Element {
             </span>
             <GatsbyImage
               image={postImg}
-              className={PostStyles.jumboTronImg}
+              className={PostStyles.jumbotronImg}
               alt={post.contentfulBlogPost.title}
             />
             <TableOfContents toc={post.contentfulBlogPost.tableOfContents} />

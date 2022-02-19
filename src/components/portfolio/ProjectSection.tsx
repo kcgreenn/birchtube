@@ -1,30 +1,13 @@
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import GitHubIcon from '@material-ui/icons/GitHub';
 import WebIcon from '@material-ui/icons/Web';
 import * as portfolioStyles from './PortfolioStyles.module.css';
 import * as IndexStyles from '../../styles/Index.module.css';
+import { useMediaQuery } from '@react-hook/media-query';
 
 export default function ProjectSection({ projects }: any): JSX.Element {
-  const [screenSize, getDimension] = useState({
-    dynamicWidth: window.innerWidth,
-    dynamicHeight: window.innerHeight
-  });
-  const [matches, setMatches] = useState(true);
-
-  const setDimension = () => {
-    getDimension({
-      dynamicWidth: window.innerWidth,
-      dynamicHeight: window.innerHeight
-    });
-  };
-  useEffect(() => {
-    window.addEventListener('resize', setDimension);
-    setMatches(821 <= screenSize.dynamicWidth);
-    return () => {
-      window.removeEventListener('resize', setDimension);
-    };
-  }, [screenSize]);
+  const matches = useMediaQuery('only screen and (min-width: 821px)');
 
   const projectGroup = projects.map(({ node }: any, index: number) => {
     const projImg = getImage(node.image.gatsbyImageData);

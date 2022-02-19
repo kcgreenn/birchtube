@@ -1,28 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import * as portfolioStyles from './PortfolioStyles.module.css';
 import { navigate } from 'gatsby';
 import * as IndexStyles from '../../styles/Index.module.css';
+import { useMediaQuery } from '@react-hook/media-query';
 
 export default function ContactSection({ ref }: any): JSX.Element {
-  const [screenSize, getDimension] = useState({
-    dynamicWidth: window.innerWidth,
-    dynamicHeight: window.innerHeight
-  });
-  const [matches, setMatches] = useState(true);
-
-  const setDimension = () => {
-    getDimension({
-      dynamicWidth: window.innerWidth,
-      dynamicHeight: window.innerHeight
-    });
-  };
-  useEffect(() => {
-    window.addEventListener('resize', setDimension);
-    setMatches(821 <= screenSize.dynamicWidth);
-    return () => {
-      window.removeEventListener('resize', setDimension);
-    };
-  }, [screenSize]);
+  const matches = useMediaQuery('only screen and (min-width: 821px)');
 
   const [showSubmission, setShowSubmission] = useState(false);
   const [formInfo, setFormInfo] = useState({

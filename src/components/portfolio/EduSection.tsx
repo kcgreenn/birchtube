@@ -1,26 +1,9 @@
+import { useMediaQuery } from '@react-hook/media-query';
 import React, { useEffect, useState } from 'react';
 import * as IndexStyles from '../../styles/Index.module.css';
 
 export default function EduSection() {
-  const [screenSize, getDimension] = useState({
-    dynamicWidth: window.innerWidth,
-    dynamicHeight: window.innerHeight
-  });
-  const [matches, setMatches] = useState(true);
-
-  const setDimension = () => {
-    getDimension({
-      dynamicWidth: window.innerWidth,
-      dynamicHeight: window.innerHeight
-    });
-  };
-  useEffect(() => {
-    window.addEventListener('resize', setDimension);
-    setMatches(821 <= screenSize.dynamicWidth);
-    return () => {
-      window.removeEventListener('resize', setDimension);
-    };
-  }, [screenSize]);
+  const matches = useMediaQuery('only screen and (min-width: 821px)');
 
   const educationItems = [
     {

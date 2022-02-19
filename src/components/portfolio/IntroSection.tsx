@@ -1,32 +1,15 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import * as IndexStyles from '../../styles/Index.module.css';
 import ReactRotatingText from 'react-rotating-text';
 import scrollTo from 'gatsby-plugin-smoothscroll';
+import { useMediaQuery } from '@react-hook/media-query';
 
 type AppProps = {
   profileImage: any;
 };
 
 export default function IntroSection({ profileImage }: any): JSX.Element {
-  const [screenSize, getDimension] = useState({
-    dynamicWidth: window.innerWidth,
-    dynamicHeight: window.innerHeight
-  });
-  const [matches, setMatches] = useState(true);
-
-  const setDimension = () => {
-    getDimension({
-      dynamicWidth: window.innerWidth,
-      dynamicHeight: window.innerHeight
-    });
-  };
-  useEffect(() => {
-    window.addEventListener('resize', setDimension);
-    setMatches(821 <= screenSize.dynamicWidth);
-    return () => {
-      window.removeEventListener('resize', setDimension);
-    };
-  }, [screenSize]);
+  const matches = useMediaQuery('only screen and (min-width: 821px)');
 
   return (
     <section id="introSection" className={IndexStyles.indexSection}>

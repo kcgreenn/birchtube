@@ -2,27 +2,10 @@ import * as React from 'react';
 import { Link } from 'gatsby';
 import { Grid, Typography } from '@material-ui/core';
 import Layout from '../components/Layout/Layout';
+import { useMediaQuery } from '@react-hook/media-query';
 
 const NotFoundPage = (): JSX.Element => {
-  const [screenSize, getDimension] = useState({
-    dynamicWidth: window.innerWidth,
-    dynamicHeight: window.innerHeight
-  });
-  const [matches, setMatches] = React.useState(true);
-
-  const setDimension = () => {
-    getDimension({
-      dynamicWidth: window.innerWidth,
-      dynamicHeight: window.innerHeight
-    });
-  };
-  React.useEffect(() => {
-    window.addEventListener('resize', setDimension);
-    setMatches(821 <= screenSize.dynamicWidth);
-    return () => {
-      window.removeEventListener('resize', setDimension);
-    };
-  }, [screenSize]);
+  const matches = useMediaQuery('only screen and (min-width: 821px)');
   return (
     <Layout>
       <Grid container>

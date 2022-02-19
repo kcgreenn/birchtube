@@ -9,6 +9,7 @@ import LocalOfferIcon from '@material-ui/icons/LocalOffer';
 import BlogListItem from '../../components/blogList/BlogListItem';
 import * as ListStyles from './BlogList.module.css';
 import Seo from '../../components/seo';
+import { useMediaQuery } from '@react-hook/media-query';
 
 type AppProps = {
   data: any;
@@ -19,25 +20,8 @@ export default function BlogListTemplate({
   data,
   pageContext
 }: AppProps): JSX.Element {
-  const [screenSize, getDimension] = useState({
-    dynamicWidth: window.innerWidth,
-    dynamicHeight: window.innerHeight
-  });
-  const [matches, setMatches] = useState(true);
+  const matches = useMediaQuery('only screen and (min-width: 821px)');
 
-  const setDimension = () => {
-    getDimension({
-      dynamicWidth: window.innerWidth,
-      dynamicHeight: window.innerHeight
-    });
-  };
-  useEffect(() => {
-    window.addEventListener('resize', setDimension);
-    setMatches(821 <= screenSize.dynamicWidth);
-    return () => {
-      window.removeEventListener('resize', setDimension);
-    };
-  }, [screenSize]);
   const { currentPage, isFirstPage, isLastPage, totalPages } = pageContext;
   const nextPage = `/blog/${String(currentPage + 1)}`;
   const prevPage =

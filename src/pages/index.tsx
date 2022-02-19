@@ -12,6 +12,7 @@ import ContactSection from '../components/portfolio/ContactSection';
 import { graphql, useStaticQuery } from 'gatsby';
 import { StaticImage, GatsbyImage, getImage } from 'gatsby-plugin-image';
 import Seo from '../components/seo';
+import { useMediaQuery } from '@react-hook/media-query';
 
 type AppProps = {
   location: any;
@@ -20,25 +21,8 @@ type AppProps = {
 
 // markup
 export default function Index({ location, data }: AppProps): JSX.Element {
-  const [screenSize, getDimension] = useState({
-    dynamicWidth: window.innerWidth,
-    dynamicHeight: window.innerHeight
-  });
-  const [matches, setMatches] = useState(true);
+  const matches = useMediaQuery('only screen and (min-width: 821px)');
 
-  const setDimension = () => {
-    getDimension({
-      dynamicWidth: window.innerWidth,
-      dynamicHeight: window.innerHeight
-    });
-  };
-  useEffect(() => {
-    window.addEventListener('resize', setDimension);
-    setMatches(821 <= screenSize.dynamicWidth);
-    return () => {
-      window.removeEventListener('resize', setDimension);
-    };
-  }, [screenSize]);
   const projectData = useStaticQuery(graphql`
     query {
       allContentfulProject(filter: { node_locale: { eq: "en-US" } }) {
