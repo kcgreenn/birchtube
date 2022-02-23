@@ -31,7 +31,7 @@ export default function IntroSection({ profileImage }: any): JSX.Element {
         />
       </div>
       <p className={IndexStyles.sectionDescription}>
-        I'm a software developer that focueses on web applications. I use React
+        I'm a software developer that focuses on web applications. I use React
         and Node with Typescipt daily, to create digital experiences for the
         modern web.
       </p>

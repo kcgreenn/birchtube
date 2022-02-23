@@ -43,9 +43,9 @@ export default function Header() {
         activeClassName={HeaderStyles.active}
         to="/"
       >
-        About
+        About Me
       </Link>
-      <Link
+      {/* <Link
         className={HeaderStyles.navLink}
         activeClassName={HeaderStyles.active}
         to="/#projectSection"
@@ -58,7 +58,7 @@ export default function Header() {
         to="/#contactSection"
       >
         Contact
-      </Link>
+      </Link> */}
     </nav>
   ) : (
     <nav className={HeaderStyles.navLinks}>
@@ -74,7 +74,7 @@ export default function Header() {
         activeClassName={HeaderStyles.active}
         to="/"
       >
-        About
+        About Me
       </Link>
     </nav>
   );

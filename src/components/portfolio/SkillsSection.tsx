@@ -50,7 +50,8 @@ export default function SkillSection({ profileImage }: any): JSX.Element {
         'Scikit Learn',
         'Stats-model'
       ],
-      credentialLink: '',
+      credentialLink:
+        'https://coursera.org/share/754654be6fc733143da24c3e57d52d7a',
       competency: 100
     },
     {
