@@ -131,7 +131,7 @@
     justify-content: space-between;
     width: 100%;
     max-width: 80vw;
-    height: 128px;
+    height: 64px;
     font-size: 1rem;
     font-weight: 700;
   }
@@ -157,11 +157,11 @@
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    align-items: flex-start;
+    align-items: space-between;
     padding-right: 0;
   }
   .jumbotronImg {
-    position: absolute;
+    position: relative;
     width: 100%;
     height: auto;
   }
@@ -180,6 +180,7 @@
     justify-content: flex-start;
     align-items: flex-start;
     margin-bottom: 0;
+    max-width: 80vw;
   }
   .title {
     font-size: 2rem;

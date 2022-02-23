@@ -83,7 +83,7 @@ export default function EduSection() {
         style={{
           textAlign: 'right',
           fontWeight: 500,
-          fontSize: '1rem',
+          fontSize: '.75rem',
           color: 'black'
         }}
       >
