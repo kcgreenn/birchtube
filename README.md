@@ -7,6 +7,8 @@
   Birchtube Blog/Portfolio Platform
 </h1>
 
+A customizable Blog/Portfolio platform. Built with Gatsby and Contentful CMS.
+
 ## 🚀 Quick start
 
 1.  **Clone this Repo.**
