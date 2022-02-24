@@ -35,6 +35,20 @@
   display: none;
 }
 
+.postBody > table {
+  border: 1px solid white;
+  background-color: #96d4d4;
+  border-collapse: collapse;
+}
+
+.postBody > th,
+.postBody > td {
+  padding: 12px;
+  border-collapse: collapse;
+  background-color: #96d4d4;
+  border: 1px solid white;
+}
+
 .background {
   width: 100vw;
   min-height: 95vh;

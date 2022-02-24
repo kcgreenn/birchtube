@@ -44,8 +44,7 @@ export default function SkillSection({ profileImage }: any): JSX.Element {
       category: 'Data Engineering',
       skillList: [
         'Python',
-        'Numpy',
-        'Pandas',
+        'Numpy / Pandas',
         'Statistical Analysis with R',
         'Scikit Learn',
         'Stats-model'
@@ -55,7 +54,7 @@ export default function SkillSection({ profileImage }: any): JSX.Element {
       competency: 100
     },
     {
-      category: 'Program Management',
+      category: 'Program Mgmt',
       skillList: ['Agile', 'Waterfall', 'Scrum', 'Risk Management'],
       credentialLink:
         'https://www.credly.com/badges/50cb7d1a-7f3a-4fb4-83f8-166e7e658888/public_url',

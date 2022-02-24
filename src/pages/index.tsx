@@ -88,7 +88,8 @@ export default function Index({ location, data }: AppProps): JSX.Element {
             }}
           >
             <StaticImage
-              src="https://res.cloudinary.com/df5cy5c76/image/upload/v1645302477/mobileProfile_qg2zq2.jpg"
+              // src="https://res.cloudinary.com/df5cy5c76/image/upload/v1645302477/mobileProfile_qg2zq2.jpg"
+              src="https://res.cloudinary.com/df5cy5c76/image/upload/v1645659216/D4018F20-14CA-4D71-BD8C-BE3D541E71FF_wmzzpw.jpg"
               alt="Myself"
               placeholder="blurred"
               style={{
@@ -110,11 +111,12 @@ export default function Index({ location, data }: AppProps): JSX.Element {
           }}
         >
           <StaticImage
-            src="https://res.cloudinary.com/df5cy5c76/image/upload/v1645302406/profileImg_qsf2qn.jpg"
+            // src="https://res.cloudinary.com/df5cy5c76/image/upload/v1645302406/profileImg_qsf2qn.jpg"
+            src="https://res.cloudinary.com/df5cy5c76/image/upload/v1645659216/D4018F20-14CA-4D71-BD8C-BE3D541E71FF_wmzzpw.jpg"
             alt="My Picture"
             placeholder="blurred"
             style={{
-              height: '512px',
+              height: '572px',
               width: 'auto'
             }}
           />

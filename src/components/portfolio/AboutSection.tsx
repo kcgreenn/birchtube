@@ -17,9 +17,9 @@ export default function AboutSection() {
       </div>
       <p className={IndexStyles.sectionDescription}>
         {' '}
-        Hey there! My name is KC. I'm a curious software developer who's trying
-        to get a bit better everyday. In my free time, I love to exercise, watch
-        baseball and read sci-fi novels.
+        Hey there! My name is Kyle. I'm a curious software developer who's
+        trying to get a bit better everyday. In my free time, I love to
+        exercise, watch baseball and read sci-fi novels.
       </p>
       <p style={{ fontFamily: 'Poppins', fontSize: '1rem' }}>
         <span style={{ color: '#0080ff', fontWeight: 700 }}>Residence: </span>{' '}

@@ -16,7 +16,7 @@ export default function EduSection() {
       awards: ['Inducted into the NSLS Honor Society']
     },
     {
-      school: 'Community College of Philadelphia',
+      school: 'Comm. College of Philadelphia',
       degree: 'Associate of Applied Science',
       subject: 'Computer and Information Systems',
       years: '2017 - 2018',
@@ -74,7 +74,8 @@ export default function EduSection() {
           fontWeight: 700,
           fontSize: '1.25rem',
           color: '#0080ff',
-          lineHeight: '4rem'
+          lineHeight: '2rem',
+          margin: '1rem 0'
         }}
       >
         {item.subject}

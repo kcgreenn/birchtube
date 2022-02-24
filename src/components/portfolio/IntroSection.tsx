@@ -20,7 +20,7 @@ export default function IntroSection({ profileImage }: any): JSX.Element {
           Hi, my name is
         </p>
         <h2 className={IndexStyles.sectionTitle}>
-          <span>KC</span>
+          <span>Kyle</span>
           <br />
           <span>Green</span>
         </h2>

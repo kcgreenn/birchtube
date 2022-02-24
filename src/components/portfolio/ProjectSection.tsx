@@ -20,6 +20,7 @@ export default function ProjectSection({ projects }: any): JSX.Element {
               href={node.livelink}
               target="_blank"
               className={portfolioStyles.liveLink}
+              alt="Deployed Project"
             >
               <WebIcon size="large" />
             </a>
@@ -27,6 +28,7 @@ export default function ProjectSection({ projects }: any): JSX.Element {
           <a
             href={node.githublink}
             target="_blank"
+            alt="Github"
             className={portfolioStyles.githubLink}
           >
             <GitHubIcon size="large" />
