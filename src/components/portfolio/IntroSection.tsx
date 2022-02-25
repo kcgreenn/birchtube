@@ -42,12 +42,14 @@ export default function IntroSection({ profileImage }: any): JSX.Element {
         }}
       >
         <button
+          aria-label="Get In Touch"
           className={IndexStyles.contactCTA}
           onClick={() => scrollTo('#contactSection')}
         >
           Contact Me
         </button>
         <button
+          aria-label="Learn More"
           onClick={() => scrollTo('#aboutSection')}
           className={IndexStyles.downwardPointer}
         >

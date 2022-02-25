@@ -74,7 +74,7 @@ export default function Index({ location, data }: AppProps): JSX.Element {
               width: '35vw',
               height: '100vh',
               background:
-                'radial-gradient(rgba(0, 0, 0, 0.15) 50%, rgba(0, 0, 0, 0.67) 80%',
+                'radial-gradient(rgba(0, 0, 0, 0.05) 20%, rgba(0, 0, 0, 0.35) 50%, rgba(0, 0, 0, 0.75) 80%',
               zIndex: 99
             }}
           ></div>
@@ -88,8 +88,7 @@ export default function Index({ location, data }: AppProps): JSX.Element {
             }}
           >
             <StaticImage
-              // src="https://res.cloudinary.com/df5cy5c76/image/upload/v1645302477/mobileProfile_qg2zq2.jpg"
-              src="https://res.cloudinary.com/df5cy5c76/image/upload/v1645659216/D4018F20-14CA-4D71-BD8C-BE3D541E71FF_wmzzpw.jpg"
+              src="https://res.cloudinary.com/df5cy5c76/image/upload/v1645808158/IMG_0709_t4dldy.jpg"
               alt="Myself"
               placeholder="blurred"
               style={{
@@ -111,8 +110,7 @@ export default function Index({ location, data }: AppProps): JSX.Element {
           }}
         >
           <StaticImage
-            // src="https://res.cloudinary.com/df5cy5c76/image/upload/v1645302406/profileImg_qsf2qn.jpg"
-            src="https://res.cloudinary.com/df5cy5c76/image/upload/v1645659216/D4018F20-14CA-4D71-BD8C-BE3D541E71FF_wmzzpw.jpg"
+            src="https://res.cloudinary.com/df5cy5c76/image/upload/w_1000,ar_1:1,c_fill,g_auto,e_art:hokusai/v1645808158/IMG_0709_t4dldy.jpg"
             alt="My Picture"
             placeholder="blurred"
             style={{
