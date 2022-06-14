@@ -10,7 +10,7 @@ const NotFoundPage = (): JSX.Element => {
     <Layout>
       <Grid container>
         <Grid item xs={12}>
-          <Typography variant="h2">Page Not Found</Typography>
+          <Typography variant="h2">Page Not Found!</Typography>
         </Grid>
         <Grid item xs={12}>
           <Typography variant="body1">
